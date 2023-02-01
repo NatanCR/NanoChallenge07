@@ -11,6 +11,8 @@
 		D11D612429899AB00055E3D5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11D612329899AB00055E3D5 /* ContentView.swift */; };
 		D11D612629899AB00055E3D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D11D612529899AB00055E3D5 /* Assets.xcassets */; };
 		D11D612929899AB00055E3D5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D11D612829899AB00055E3D5 /* Preview Assets.xcassets */; };
+		D11D6131298A9A1E0055E3D5 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11D6130298A9A1E0055E3D5 /* NetworkManager.swift */; };
+		D11D6133298A9E0C0055E3D5 /* PostData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11D6132298A9E0C0055E3D5 /* PostData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		D11D612329899AB00055E3D5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D11D612529899AB00055E3D5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D11D612829899AB00055E3D5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D11D6130298A9A1E0055E3D5 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		D11D6132298A9E0C0055E3D5 /* PostData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +55,7 @@
 		D11D612029899AB00055E3D5 /* API_Nasa */ = {
 			isa = PBXGroup;
 			children = (
+				D11D612F298A99FB0055E3D5 /* Model */,
 				D11D612129899AB00055E3D5 /* API_NasaApp.swift */,
 				D11D612329899AB00055E3D5 /* ContentView.swift */,
 				D11D612529899AB00055E3D5 /* Assets.xcassets */,
@@ -65,6 +70,15 @@
 				D11D612829899AB00055E3D5 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		D11D612F298A99FB0055E3D5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D11D6130298A9A1E0055E3D5 /* NetworkManager.swift */,
+				D11D6132298A9E0C0055E3D5 /* PostData.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,6 +151,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D11D6131298A9A1E0055E3D5 /* NetworkManager.swift in Sources */,
+				D11D6133298A9E0C0055E3D5 /* PostData.swift in Sources */,
 				D11D612429899AB00055E3D5 /* ContentView.swift in Sources */,
 				D11D612229899AB00055E3D5 /* API_NasaApp.swift in Sources */,
 			);
