@@ -14,6 +14,7 @@
 		D11D6131298A9A1E0055E3D5 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11D6130298A9A1E0055E3D5 /* NetworkManager.swift */; };
 		D11D6137298C2F2A0055E3D5 /* PlanetInfosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11D6136298C2F2A0055E3D5 /* PlanetInfosViewModel.swift */; };
 		D11D613A298C303F0055E3D5 /* PlanetInfos.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11D6139298C303F0055E3D5 /* PlanetInfos.swift */; };
+		D11D613C298C452D0055E3D5 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11D613B298C452D0055E3D5 /* WebService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		D11D6130298A9A1E0055E3D5 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		D11D6136298C2F2A0055E3D5 /* PlanetInfosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetInfosViewModel.swift; sourceTree = "<group>"; };
 		D11D6139298C303F0055E3D5 /* PlanetInfos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetInfos.swift; sourceTree = "<group>"; };
+		D11D613B298C452D0055E3D5 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,10 +59,11 @@
 		D11D612029899AB00055E3D5 /* API_Nasa */ = {
 			isa = PBXGroup;
 			children = (
+				D11D613B298C452D0055E3D5 /* WebService.swift */,
+				D11D613D298C487E0055E3D5 /* View */,
 				D11D6138298C2F360055E3D5 /* ViewModel */,
 				D11D612F298A99FB0055E3D5 /* Model */,
 				D11D612129899AB00055E3D5 /* API_NasaApp.swift */,
-				D11D612329899AB00055E3D5 /* ContentView.swift */,
 				D11D612529899AB00055E3D5 /* Assets.xcassets */,
 				D11D612729899AB00055E3D5 /* Preview Content */,
 			);
@@ -90,6 +93,14 @@
 				D11D6136298C2F2A0055E3D5 /* PlanetInfosViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D11D613D298C487E0055E3D5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D11D612329899AB00055E3D5 /* ContentView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,6 +173,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D11D613C298C452D0055E3D5 /* WebService.swift in Sources */,
 				D11D6131298A9A1E0055E3D5 /* NetworkManager.swift in Sources */,
 				D11D612429899AB00055E3D5 /* ContentView.swift in Sources */,
 				D11D612229899AB00055E3D5 /* API_NasaApp.swift in Sources */,

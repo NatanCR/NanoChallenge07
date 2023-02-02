@@ -8,9 +8,21 @@
 import Foundation
 
 struct PlanetInfos: Decodable, Identifiable {
+    let basicDetails: BasicDetails
+    let description: String
     let id: Int
+    let imgSrc: ImgSrc
+    let key: String
     let name: String
-    let mass: Double
-    let period: Double
-    let temperature: Double
+    let planetOrder: String
+}
+
+struct ImgSrc: Decodable {
+    let img: String
+    let imgDescription: String
+}
+
+struct BasicDetails: Decodable {
+    let mass: String
+    let volume: String
 }
