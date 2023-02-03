@@ -9,20 +9,33 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @ObservedObject var planetsInfosViewModel = PlanetInfosViewModel()
+    @State var planets = [PlanetInfos]()
     
     var body: some View {
         NavigationView {
-                List {
+            VStack {
+                List(planets){
+                    planets in
                     
-                    ForEach(planetsInfosViewModel.planets, id: \.id) { planet in
-                        Text(planet.name)
-                            .font(.system(size: 19, weight: .bold, design: .rounded))
-                            .foregroundColor(Color.init(red: 0.00, green: 0.16, blue: 0.35, opacity: 1.00))
+                    Text("\(planets.name)")
+                    Text("\(planets.description)")
+                    Text("\(planets.imgSrc.description)")
+                    AsyncImage(url: URL(string: "https://upload.wikimedia.org/wikipedia/commons/2/2b/Jupiter_and_its_shrunken_Great_Red_Spot.jpg")) { image in image.resizable()
+                       
+                    }placeholder: {
+                        ProgressView()
+                        
+                    }.frame(width:200 , height: 200)
+                }.padding().onAppear() {
+                    WebService().loadData{
+                        (planets) in self.planets = planets
                     }
                 }
-                .navigationBarTitle("Planetas")
+            }
+            
+            .navigationTitle("Planetas")
         }
+        
     }
 }
 
