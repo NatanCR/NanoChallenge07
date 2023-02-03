@@ -11,6 +11,16 @@ struct ContentView: View {
     
     @State var planets = [PlanetInfos]()
     
+    func percorrerImg (planets: [PlanetInfos]) -> String? {
+        for i in planets {
+            for j in i.imgSrc {
+                let link = j.img
+                return link
+            }
+        }
+        return nil
+    }
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -18,15 +28,17 @@ struct ContentView: View {
                     planets in
                     
                     Text("\(planets.name)")
-                    Text("\(planets.description)")
-                    Text("\(planets.imgSrc.description)")
-                    AsyncImage(url: URL(string: "https://upload.wikimedia.org/wikipedia/commons/2/2b/Jupiter_and_its_shrunken_Great_Red_Spot.jpg")) { image in image.resizable()
-                       
+                    AsyncImage(url: URL(string: percorrerImg(planets: [planets])!)) { image in image.resizable().frame(width:350 , height: 350)
+                        
                     }placeholder: {
                         ProgressView()
                         
-                    }.frame(width:200 , height: 200)
-                }.padding().onAppear() {
+                    }
+                    //                    Text("\(planets.description)")
+                    
+                    
+                }
+                .onAppear() {
                     WebService().loadData{
                         (planets) in self.planets = planets
                     }
