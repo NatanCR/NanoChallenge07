@@ -11,9 +11,10 @@
 		D11D612429899AB00055E3D5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11D612329899AB00055E3D5 /* ContentView.swift */; };
 		D11D612629899AB00055E3D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D11D612529899AB00055E3D5 /* Assets.xcassets */; };
 		D11D612929899AB00055E3D5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D11D612829899AB00055E3D5 /* Preview Assets.xcassets */; };
-		D11D6137298C2F2A0055E3D5 /* PlanetInfosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11D6136298C2F2A0055E3D5 /* PlanetInfosViewModel.swift */; };
 		D11D613A298C303F0055E3D5 /* PlanetInfos.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11D6139298C303F0055E3D5 /* PlanetInfos.swift */; };
 		D11D613C298C452D0055E3D5 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11D613B298C452D0055E3D5 /* WebService.swift */; };
+		D11D614A298D9F280055E3D5 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11D6149298D9F280055E3D5 /* Cell.swift */; };
+		D11D614C29914B720055E3D5 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11D614B29914B720055E3D5 /* Theme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,9 +23,10 @@
 		D11D612329899AB00055E3D5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D11D612529899AB00055E3D5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D11D612829899AB00055E3D5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		D11D6136298C2F2A0055E3D5 /* PlanetInfosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetInfosViewModel.swift; sourceTree = "<group>"; };
 		D11D6139298C303F0055E3D5 /* PlanetInfos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetInfos.swift; sourceTree = "<group>"; };
 		D11D613B298C452D0055E3D5 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
+		D11D6149298D9F280055E3D5 /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
+		D11D614B29914B720055E3D5 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +59,6 @@
 		D11D612029899AB00055E3D5 /* API_Nasa */ = {
 			isa = PBXGroup;
 			children = (
-				D11D613B298C452D0055E3D5 /* WebService.swift */,
 				D11D613D298C487E0055E3D5 /* View */,
 				D11D6138298C2F360055E3D5 /* ViewModel */,
 				D11D612F298A99FB0055E3D5 /* Model */,
@@ -87,7 +88,7 @@
 		D11D6138298C2F360055E3D5 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				D11D6136298C2F2A0055E3D5 /* PlanetInfosViewModel.swift */,
+				D11D613B298C452D0055E3D5 /* WebService.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -95,9 +96,19 @@
 		D11D613D298C487E0055E3D5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D11D6148298D9F0C0055E3D5 /* ViewModifiers */,
 				D11D612329899AB00055E3D5 /* ContentView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		D11D6148298D9F0C0055E3D5 /* ViewModifiers */ = {
+			isa = PBXGroup;
+			children = (
+				D11D6149298D9F280055E3D5 /* Cell.swift */,
+				D11D614B29914B720055E3D5 /* Theme.swift */,
+			);
+			path = ViewModifiers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -172,8 +183,9 @@
 			files = (
 				D11D613C298C452D0055E3D5 /* WebService.swift in Sources */,
 				D11D612429899AB00055E3D5 /* ContentView.swift in Sources */,
+				D11D614A298D9F280055E3D5 /* Cell.swift in Sources */,
+				D11D614C29914B720055E3D5 /* Theme.swift in Sources */,
 				D11D612229899AB00055E3D5 /* API_NasaApp.swift in Sources */,
-				D11D6137298C2F2A0055E3D5 /* PlanetInfosViewModel.swift in Sources */,
 				D11D613A298C303F0055E3D5 /* PlanetInfos.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -231,7 +243,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -285,7 +297,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -311,6 +323,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -340,6 +353,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

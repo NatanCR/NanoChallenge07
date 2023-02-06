@@ -11,6 +11,10 @@ struct ContentView: View {
     
     @State var planets = [PlanetInfos]()
     
+    init(){
+        Theme.navigationBarColors(background: .black, titleColor: .white)
+        }
+    
     func percorrerImg (planets: [PlanetInfos]) -> String? {
         for i in planets {
             for j in i.imgSrc {
@@ -23,31 +27,36 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            VStack {
-                List(planets){
-                    planets in
-                    
-                    Text("\(planets.name)")
-                    AsyncImage(url: URL(string: percorrerImg(planets: [planets])!)) { image in image.resizable().frame(width:350 , height: 350)
-                        
-                    }placeholder: {
-                        ProgressView()
-                        
+            if #available(iOS 16.0, *) {
+                VStack {
+                    List(planets){ planets in
+                        Cell(planetName: planets.name, imgURL: percorrerImg(planets: [planets])!)
+                            .listRowBackground(Color.black)
                     }
-                    //                    Text("\(planets.description)")
-                    
-                    
-                }
-                .onAppear() {
-                    WebService().loadData{
-                        (planets) in self.planets = planets
+                    .onAppear() {
+                        WebService().loadData{
+                            (planets) in self.planets = planets
+                        }
                     }
                 }
+                .navigationBarTitle("Planets", displayMode: .inline)
+                .toolbarColorScheme(.dark, for: .navigationBar)
+            } else {
+                // Fallback on earlier versions
+                VStack {
+                    List(planets){ planets in
+                        Cell(planetName: planets.name, imgURL: percorrerImg(planets: [planets])!)
+                            .listRowBackground(Color.black)
+                    }
+                    .onAppear() {
+                        WebService().loadData{
+                            (planets) in self.planets = planets
+                        }
+                    }
+                }
+                
             }
-            
-            .navigationTitle("Planetas")
         }
-        
     }
 }
 
