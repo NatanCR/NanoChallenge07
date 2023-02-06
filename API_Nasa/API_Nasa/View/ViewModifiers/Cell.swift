@@ -17,16 +17,15 @@ struct Cell: View {
                 AsyncImage(url: URL(string: imgURL)) { image in
                     image
                         .resizable()
-                        .aspectRatio(contentMode: .fit)
+//                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 350, height: 350)
                         .clipShape(Circle())
-                    //                        .resizable()
-                    //                        .frame(width:350 , height: 350)
                 }placeholder: {
                     ProgressView()
                 }
                 Text(planetName)
                     .font(.system(size: 19, weight: .bold, design: .rounded))
-                    .foregroundColor(Color.white)
+                    .foregroundColor(Color.black)
             }.padding(.bottom, 40)
         }
     }
