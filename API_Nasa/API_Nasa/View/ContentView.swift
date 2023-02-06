@@ -12,7 +12,7 @@ struct ContentView: View {
     @State var planets = [PlanetInfos]()
     
     init(){
-        Theme.navigationBarColors(background: .black, titleColor: .white)
+//        Theme.navigationBarColors(background: .black, titleColor: .white)
     }
     
     func percorrerImg (planets: [PlanetInfos]) -> String? {
@@ -28,32 +28,28 @@ struct ContentView: View {
     private let columns = [GridItem(.flexible())]
     
     var body: some View {
-   
-        ScrollView {
-            LazyVGrid(columns: columns, spacing: 20) {
-                ForEach(planets, id: \.id) { planet in
-                    Cell(planetName: planet.name, imgURL: percorrerImg(planets: [planet])!)
-                    
-//                    AsyncImage(url: URL(string: percorrerImg(planets: [planet])!)) { image in
-//                        image
-//                            .resizable()
-////                            .aspectRatio(contentMode: .fit)
-//                            .frame(width: 350, height: 350)
-//                            .clipShape(Circle())
-//                    }placeholder: {
-//                        ProgressView()
-//                    }
-//                    Text(planet.name)
-//                        .foregroundColor(Color.black)
-//                        .padding(.vertical)
+        NavigationView {
+            ScrollView {
+                LazyVGrid(columns: columns) {
+                    ForEach(planets, id: \.id) { planet in
+                        Cell(planetName: planet.name, imgURL: percorrerImg(planets: [planet])!)
+                    }
+                }
+                
+                .onAppear() {
+                    WebService().loadData{
+                        (planets) in self.planets = planets
+                    }
                 }
             }
-            .onAppear() {
-                WebService().loadData{
-                    (planets) in self.planets = planets
-                }
-            }
+            .navigationBarTitle("Planets", displayMode: .inline)
+            .background(Image("estrelado"))
+            .padding(.top)
         }
+        
+        
+        
+        
         
         
 //        NavigationView {

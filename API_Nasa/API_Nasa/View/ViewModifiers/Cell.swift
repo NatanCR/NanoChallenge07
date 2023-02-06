@@ -18,14 +18,14 @@ struct Cell: View {
                     image
                         .resizable()
 //                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 350, height: 350)
+                        .frame(width: 250, height: 250)
                         .clipShape(Circle())
                 }placeholder: {
                     ProgressView()
                 }
                 Text(planetName)
                     .font(.system(size: 19, weight: .bold, design: .rounded))
-                    .foregroundColor(Color.black)
+                    .foregroundColor(Color.white)
             }.padding(.bottom, 40)
         }
     }

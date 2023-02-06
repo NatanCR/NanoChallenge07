@@ -14,7 +14,7 @@
 		D11D613A298C303F0055E3D5 /* PlanetInfos.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11D6139298C303F0055E3D5 /* PlanetInfos.swift */; };
 		D11D613C298C452D0055E3D5 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11D613B298C452D0055E3D5 /* WebService.swift */; };
 		D11D614A298D9F280055E3D5 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11D6149298D9F280055E3D5 /* Cell.swift */; };
-		D11D614C29914B720055E3D5 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11D614B29914B720055E3D5 /* Theme.swift */; };
+		D1EE28C329918D4E003A0A90 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EE28C229918D4E003A0A90 /* Theme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,7 +26,7 @@
 		D11D6139298C303F0055E3D5 /* PlanetInfos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetInfos.swift; sourceTree = "<group>"; };
 		D11D613B298C452D0055E3D5 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		D11D6149298D9F280055E3D5 /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
-		D11D614B29914B720055E3D5 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		D1EE28C229918D4E003A0A90 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,7 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				D11D6149298D9F280055E3D5 /* Cell.swift */,
-				D11D614B29914B720055E3D5 /* Theme.swift */,
+				D1EE28C229918D4E003A0A90 /* Theme.swift */,
 			);
 			path = ViewModifiers;
 			sourceTree = "<group>";
@@ -184,7 +184,7 @@
 				D11D613C298C452D0055E3D5 /* WebService.swift in Sources */,
 				D11D612429899AB00055E3D5 /* ContentView.swift in Sources */,
 				D11D614A298D9F280055E3D5 /* Cell.swift in Sources */,
-				D11D614C29914B720055E3D5 /* Theme.swift in Sources */,
+				D1EE28C329918D4E003A0A90 /* Theme.swift in Sources */,
 				D11D612229899AB00055E3D5 /* API_NasaApp.swift in Sources */,
 				D11D613A298C303F0055E3D5 /* PlanetInfos.swift in Sources */,
 			);
