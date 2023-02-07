@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 class WebService: ObservableObject {
-    @Published var planets = [PlanetInfos]()
+    @Published var planetsService = [PlanetInfos]()
     
     func loadData(completion: @escaping ([PlanetInfos]) -> ()) {
         
@@ -21,10 +21,14 @@ class WebService: ObservableObject {
         var request = URLRequest(url: url)
         request.setValue("0461e37123mshf67ea53581a5e3ep1a9710jsn8921c666ebfd", forHTTPHeaderField: "X-RapidAPI-Key")
         URLSession.shared.dataTask(with: request) { data, response, error in
-            let planets = try! JSONDecoder().decode([PlanetInfos].self, from: data!)
-            print(planets)
+            let decode = try! JSONDecoder().decode([PlanetInfos].self, from: data!)
+            print(decode)
+            let orderPlanet = decode.sorted { itemA, itemB in
+                itemA.id < itemB.id
+            }
+            
             DispatchQueue.main.async {
-                completion(planets)
+                completion(orderPlanet)
             }
         }.resume()
     }

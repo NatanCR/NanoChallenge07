@@ -9,75 +9,44 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State var planets = [PlanetInfos]()
+    @StateObject var planetsWS: WebService
+    var searchServices = SearchServices()
     
-    init(){
-//        Theme.navigationBarColors(background: .black, titleColor: .white)
-    }
     
-    func percorrerImg (planets: [PlanetInfos]) -> String? {
-        for i in planets {
-            for j in i.imgSrc {
-                let link = j.img
-                return link
-            }
-        }
-        return nil
-    }
     //configura quantas colunas terá o grid e como serão
     private let columns = [GridItem(.flexible())]
     
     var body: some View {
-        NavigationView {
-            ScrollView {
-                LazyVGrid(columns: columns) {
-                    ForEach(planets, id: \.id) { planet in
-                        Cell(planetName: planet.name, imgURL: percorrerImg(planets: [planet])!)
-                    }
-                }
+        GeometryReader { geo in
+            ZStack {
+                Image("estrelado")
+                    .resizable()
+                    .scaledToFill()
+                    .ignoresSafeArea()
+                    .frame(width: geo.size.width, height: geo.size.height, alignment: .center)
+                    .opacity(1)
                 
-                .onAppear() {
-                    WebService().loadData{
-                        (planets) in self.planets = planets
+                NavigationView {
+                    ScrollView {
+                        LazyVGrid(columns: columns) {
+                            ForEach(planetsWS.planetsService, id: \.id) { planet in
+                                Cell(planetName: planet.name, imgURL: searchServices.percorrerImg(planets: [planet])!, planets: planet)
+                            }
+                        }
                     }
+                    .navigationBarTitle("Planets", displayMode: .inline)
+                    .background(Image("estrelado"))
+                    .padding(.top)
                 }
             }
-            .navigationBarTitle("Planets", displayMode: .inline)
-            .background(Image("estrelado"))
-            .padding(.top)
         }
-        
-        
-        
-        
-        
-        
-//        NavigationView {
-//            if #available(iOS 16.0, *) {
-//                VStack {
-//                    List(planets){ planets in
-//                        Cell(planetName: planets.name, imgURL: percorrerImg(planets: [planets])!)
-//                            .listRowBackground(Color.black)
-//                    }
-//                    .onAppear() {
-//                        WebService().loadData{
-//                            (planets) in self.planets = planets
-//                        }
-//                    }
-//                }
-//                .navigationBarTitle("Planets", displayMode: .inline)
-//                .toolbarColorScheme(.dark, for: .navigationBar)
-//            } else {
-//                // Fallback on earlier versions
-//
-//            }
+        .environment(\.colorScheme, .dark)
+    }
+    
+    
+//    struct ContentView_Previews: PreviewProvider {
+//        static var previews: some View {
+//            ContentView()
 //        }
-    }
-    
-    
-    struct ContentView_Previews: PreviewProvider {
-        static var previews: some View {
-            ContentView()
-        }
-    }
+//    }
 }

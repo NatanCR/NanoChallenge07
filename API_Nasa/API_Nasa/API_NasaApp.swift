@@ -9,9 +9,16 @@ import SwiftUI
 
 @main
 struct API_NasaApp: App {
+    var data = WebService()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(planetsWS: data)
+                .onAppear() {
+                    WebService().loadData{
+                        (planets) in self.data.planetsService = planets
+                    }
+                }
         }
     }
 }

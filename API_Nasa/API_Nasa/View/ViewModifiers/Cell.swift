@@ -10,23 +10,38 @@ import SwiftUI
 struct Cell: View {
     
     var planetName, imgURL: String
+    @State private var isActive = false
+    
+    @State var planets: PlanetInfos
     
     var body: some View {
-        HStack {
-            VStack(alignment: .center) {
+        VStack(alignment: .center) {
+            ZStack {
                 AsyncImage(url: URL(string: imgURL)) { image in
                     image
                         .resizable()
-//                        .aspectRatio(contentMode: .fit)
                         .frame(width: 250, height: 250)
                         .clipShape(Circle())
-                }placeholder: {
+                } placeholder: {
                     ProgressView()
                 }
-                Text(planetName)
-                    .font(.system(size: 19, weight: .bold, design: .rounded))
-                    .foregroundColor(Color.white)
-            }.padding(.bottom, 40)
-        }
+                Circle()
+                    .opacity(0.01)
+                    .frame(width: 250, height: 250)
+                    .onTapGesture {
+                    self.isActive = true
+                }
+                .background(
+                    NavigationLink(destination: PlanetDetailsView(planetDetails: planets), isActive: $isActive, label: {
+                        EmptyView()
+                    }))
+            }
+            Text(planetName)
+                .font(.system(size: 19, weight: .bold, design: .rounded))
+                .foregroundColor(Color.white)
+        }.padding(.bottom, 40)
     }
 }
+
+
+  
