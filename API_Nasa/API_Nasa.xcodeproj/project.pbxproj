@@ -61,10 +61,10 @@
 		D11D612029899AB00055E3D5 /* API_Nasa */ = {
 			isa = PBXGroup;
 			children = (
+				D11D612129899AB00055E3D5 /* API_NasaApp.swift */,
 				D11D613D298C487E0055E3D5 /* View */,
 				D11D6138298C2F360055E3D5 /* ViewModel */,
 				D11D612F298A99FB0055E3D5 /* Model */,
-				D11D612129899AB00055E3D5 /* API_NasaApp.swift */,
 				D11D612529899AB00055E3D5 /* Assets.xcassets */,
 				D11D612729899AB00055E3D5 /* Preview Content */,
 			);
