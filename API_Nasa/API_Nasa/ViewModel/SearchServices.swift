@@ -41,5 +41,4 @@ class SearchServices {
         }
         return nil
     }
-    
 }

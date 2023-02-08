@@ -26,7 +26,7 @@ struct ContentView: View {
                         .frame(width: geo.size.width, height: geo.size.height, alignment: .center)
                         .opacity(1)
                     
-                    ScrollView {
+                    ScrollView() {
                         LazyVGrid(columns: columns, spacing: 15) {
                             ForEach(planetsWS.planetsService, id: \.id) { planet in
                                 Cell(planetName: planet.name, imgURL: searchServices.percorrerImg(planets: [planet])!, planets: planet)
@@ -41,19 +41,14 @@ struct ContentView: View {
         .environment(\.colorScheme, .dark)
         .task {
             if !self.planetsWS.planetsService.isEmpty { return }
-            
             do {
                 try await self.planetsWS.loadData()
             } catch {
-                print(error)
-                print(error.localizedDescription)
                 self.failedToLoadData.toggle()
             }
-            print(self.planetsWS.planetsService)
         }
         .alert("Falha ao carregar as informações", isPresented: $failedToLoadData, actions: {Button(role: .cancel, action: {}, label: {Text("Ok")})}, message: {Text("Tente novamente mais tarde")})
     }
-    
     
 //    struct ContentView_Previews: PreviewProvider {
 //        static var previews: some View {

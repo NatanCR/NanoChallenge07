@@ -11,6 +11,7 @@ struct PlanetDetailsView: View {
     
     @State var planetDetails: PlanetInfos
     var searchServices = SearchServices()
+    @Environment(\.dismiss) var dismiss
     
     func chooseShadowColor(id: Int) -> Color {
         switch id {
@@ -26,28 +27,40 @@ struct PlanetDetailsView: View {
             return Color(.clear)
         }
     }
-            
+    
     var body: some View {
-        NavigationView {
-            VStack(alignment: .center){
-                AsyncImage(url: URL(string: searchServices.percorrerImg(planets: [planetDetails])!)) { image in
-                    image
-                        .resizable()
-                        .frame(width: 250, height: 250)
-                        .clipShape(Circle())
-                                   .overlay {
-                                       Circle().stroke(.white, lineWidth: 0)
-                                   }.shadow(color: chooseShadowColor(id: planetDetails.id),radius: 10)
-                } placeholder: {
-                    ProgressView()
-                }
-                Text(planetDetails.name)
-                Text(planetDetails.planetOrder)
-                Text(planetDetails.description)
-                Text(searchServices.searchMass(planetInfos: [planetDetails])!)
-                Text(searchServices.searchVolume(planetInfos: [planetDetails])!)
+        VStack(alignment: .center){
+            AsyncImage(url: URL(string: searchServices.percorrerImg(planets: [planetDetails])!)) { image in
+                image
+                    .resizable()
+                    .frame(width: 250, height: 250)
+                    .clipShape(Circle())
+                    .overlay {
+                        Circle().stroke(.white, lineWidth: 0)
+                    }.shadow(color: chooseShadowColor(id: planetDetails.id),radius: 10)
+            } placeholder: {
+                ProgressView()
             }
-            
+            Text(planetDetails.name)
+            Text(planetDetails.planetOrder)
+            Text(planetDetails.description)
+            Text(searchServices.searchMass(planetInfos: [planetDetails])!)
+            Text(searchServices.searchVolume(planetInfos: [planetDetails])!)
+        }
+        .navigationBarBackButtonHidden(true)
+        
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button(action: {
+                    dismiss()
+                }, label: {
+                    HStack {
+                        Image(systemName: "chevron.left")
+                            .font(.system(size: 16, weight: .semibold, design: .rounded))
+                        Text("Back")
+                    }.foregroundColor(Color.white)
+                })
+            }
         }
     }
 }
