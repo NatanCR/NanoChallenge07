@@ -36,7 +36,7 @@ struct ContentView: View {
                     .padding(.top)
                 }
             }
-//            .navigationBarTitle("Planets", displayMode: .inline)
+            .navigationBarTitle("Planets", displayMode: .inline)
         }
         .environment(\.colorScheme, .dark)
         .task {
