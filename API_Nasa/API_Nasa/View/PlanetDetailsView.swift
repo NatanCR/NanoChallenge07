@@ -10,7 +10,6 @@ import SwiftUI
 struct PlanetDetailsView: View {
     
     @State var planetDetails: PlanetInfos
-//    @StateObject var webService: WebService
     var searchServices = SearchServices()
     
     func chooseShadowColor(id: Int) -> Color {
