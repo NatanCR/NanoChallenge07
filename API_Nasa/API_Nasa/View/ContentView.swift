@@ -17,16 +17,16 @@ struct ContentView: View {
     private let columns = [GridItem(.flexible())]
     
     var body: some View {
-        GeometryReader { geo in
-            ZStack {
-                Image("estrelado")
-                    .resizable()
-                    .scaledToFill()
-                    .ignoresSafeArea()
-                    .frame(width: geo.size.width, height: geo.size.height, alignment: .center)
-                    .opacity(1)
-                
-                NavigationView {
+        NavigationView {
+            GeometryReader { geo in
+                ZStack {
+                    Image("estrelado")
+                        .resizable()
+                        .scaledToFill()
+//                        .ignoresSafeArea()
+                        .frame(width: geo.size.width, height: geo.size.height, alignment: .center)
+                        .opacity(1)
+                    
                     ScrollView {
                         LazyVGrid(columns: columns) {
                             ForEach(planetsWS.planetsService, id: \.id) { planet in
@@ -34,11 +34,10 @@ struct ContentView: View {
                             }
                         }
                     }
-                    .navigationBarTitle("Planets", displayMode: .inline)
-                    .background(Image("estrelado"))
                     .padding(.top)
                 }
             }
+            .navigationBarTitle("Planets", displayMode: .inline)
         }
         .environment(\.colorScheme, .dark)
     }
