@@ -63,7 +63,7 @@ struct ContentView: View {
         
         .environment(\.colorScheme, .dark)
         .task {
-            if !self.planetsWS.planetsInfos.isEmpty { return }
+            if !self.planetsWS.planetsService.isEmpty { return }
             do {
                 try await self.planetsWS.loadData()
             } catch {
