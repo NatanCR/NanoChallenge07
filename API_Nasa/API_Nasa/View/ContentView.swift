@@ -11,7 +11,7 @@ struct ContentView: View {
     
     @StateObject var planetsWS = WebService()
     @State private var failedToLoadData: Bool = false
-    private var searchServices = SearchServices()
+    private var searchServices = InfosService()
     
     //configura quantas colunas terá o grid e como serão
     private let columns = [GridItem(.flexible())]
@@ -28,7 +28,7 @@ struct ContentView: View {
                     
                     ScrollView() {
                         LazyVGrid(columns: columns, spacing: 15) {
-                            ForEach(planetsWS.planetsService, id: \.id) { planet in
+                            ForEach(planetsWS.planetsInfos, id: \.id) { planet in
                                 Cell(planetName: planet.name, imgURL: searchServices.percorrerImg(planets: [planet])!, planets: planet)
                             }
                         }
@@ -40,7 +40,7 @@ struct ContentView: View {
         }
         .environment(\.colorScheme, .dark)
         .task {
-            if !self.planetsWS.planetsService.isEmpty { return }
+            if !self.planetsWS.planetsInfos.isEmpty { return }
             do {
                 try await self.planetsWS.loadData()
             } catch {

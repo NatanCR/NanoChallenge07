@@ -7,7 +7,7 @@
 
 import Foundation
 
-class SearchServices {
+class InfosService {
     func percorrerImg (planets: [PlanetInfos]) -> String? {
         for i in planets {
             for j in i.imgSrc {
