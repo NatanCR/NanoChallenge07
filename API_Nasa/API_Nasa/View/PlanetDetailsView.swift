@@ -35,8 +35,8 @@ struct PlanetDetailsView: View {
     
     var body: some View {
         
-        ScrollView(){
-            VStack(spacing: 15){
+        
+            VStack(spacing: 5){
                 AsyncImage(url: URL(string: searchServices.percorrerImg(planets: [planetDetails])!)) { image in
                     image
                         .resizable()
@@ -48,36 +48,37 @@ struct PlanetDetailsView: View {
                 } placeholder: {
                     ProgressView()
                 }
-                .padding(.bottom, 50)
+                .padding(.bottom, 20)
                 
                 Section {
                     
-                }header: {
-                    Text("Information:").font(.title)
+                } header: {
+                    Text("Information:")
+                        .font(.title)
                 }
+//                .padding(.trailing, 200)
+                .padding(.bottom, 10)
+                
+                ScrollView(){
                 Text("Name: \(planetDetails.name)")
                     .padding(.vertical, 10)
-                    .frame(maxWidth: .infinity)
+                    .frame(maxWidth: .infinity, alignment: .leading).padding(.leading, 10)
                     .background {
                         RoundedRectangle(cornerRadius: 10)
-                            .fill(.gray)
+                            .fill(Color(.init(red: 0.26, green: 0.26, blue: 0.26, alpha: 1.00)))
                             .opacity(0.4)
-                    }.overlay{
-                        RoundedRectangle(cornerRadius: 10)
-                            .stroke(lineWidth: 0.1)
-                    }.padding(.horizontal)
+                    }
+                    .padding(.horizontal)
 
-                Text("Planet ordem: " + planetDetails.planetOrder)
+                Text("Planet order: " + planetDetails.planetOrder)
                     .padding(.vertical, 10)
-                    .frame(maxWidth: .infinity)
+                    .frame(maxWidth: .infinity, alignment: .leading).padding(.leading, 10)
                     .background {
                         RoundedRectangle(cornerRadius: 10)
-                            .fill(.gray)
+                            .fill(Color(.init(red: 0.26, green: 0.26, blue: 0.26, alpha: 1.00)))
                             .opacity(0.4)
-                    }.overlay{
-                        RoundedRectangle(cornerRadius: 10)
-                            .stroke(lineWidth: 0.1)
-                    }.padding(.horizontal)
+                    }
+                    .padding(.horizontal)
                 
                 Text("Description: " + planetDetails.description)
                     .multilineTextAlignment(.leading).padding(10)
@@ -85,37 +86,30 @@ struct PlanetDetailsView: View {
                     .frame(maxWidth: .infinity)
                     .background {
                         RoundedRectangle(cornerRadius: 10)
-                            .fill(.gray)
+                            .fill(Color(.init(red: 0.26, green: 0.26, blue: 0.26, alpha: 1.00)))
                             .opacity(0.4)
-                    }.overlay{
-                        RoundedRectangle(cornerRadius: 10)
-                            .stroke(lineWidth: 0.1)
-                    }.padding(.horizontal)
+                    }
+                    .padding(.horizontal)
                 
                 Text("Planet Mass: "  + searchServices.searchMass(planetInfos: [planetDetails])!)
                     .padding(.vertical, 10)
-                    .frame(maxWidth: .infinity)
+                    .frame(maxWidth: .infinity, alignment: .leading).padding(.leading, 10)
                     .background {
                         RoundedRectangle(cornerRadius: 10)
-                            .fill(.gray)
+                            .fill(Color(.init(red: 0.26, green: 0.26, blue: 0.26, alpha: 1.00)))
                             .opacity(0.4)
-                    }.overlay{
-                        RoundedRectangle(cornerRadius: 10)
-                            .stroke(lineWidth: 0.1)
-                    }.padding(.horizontal)
+                    }
+                    .padding(.horizontal)
                 
                 Text("Planet Volume: "  + searchServices.searchVolume(planetInfos: [planetDetails])!)
-                
                     .padding(.vertical, 10)
-                    .frame(maxWidth: .infinity)
+                    .frame(maxWidth: .infinity, alignment: .leading).padding(.leading, 10)
                     .background {
                         RoundedRectangle(cornerRadius: 10)
-                            .fill(.gray)
+                            .fill(Color(.init(red: 0.26, green: 0.26, blue: 0.26, alpha: 1.00)))
                             .opacity(0.4)
-                    }.overlay{
-                        RoundedRectangle(cornerRadius: 10)
-                            .stroke(lineWidth: 0.1)
-                    }.padding(.horizontal)
+                    }
+                    .padding(.horizontal)
             }
             .navigationBarBackButtonHidden(true)
                     .toolbar {

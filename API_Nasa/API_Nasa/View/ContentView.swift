@@ -62,11 +62,12 @@ struct ContentView: View {
             do {
                 try await self.planetsWS.loadData()
             } catch {
-             
                 self.failedToLoadData.toggle()
             }
         }
-        .alert("Falha ao carregar as informações", isPresented: $failedToLoadData, actions: {Button(role: .cancel, action: {}, label: {Text("Ok")})}, message: {Text("Tente novamente mais tarde")})
+        .alert("Falha ao carregar as informações", isPresented: $failedToLoadData, actions: {Button(role: .cancel, action: {
+            self.failedToLoadData = false 
+        }, label: {Text("Ok")})}, message: {Text("Tente novamente mais tarde")})
     }
 
     
