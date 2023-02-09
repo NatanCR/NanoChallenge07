@@ -9,11 +9,12 @@ import Foundation
 import SwiftUI
 
 enum DownloadError: Error {
-  case statusNotOk
-  case decoderError
+    case statusNotOk
+    case decoderError
 }
 
 class WebService: ObservableObject {
+    
     
     @Published var planetsService: [PlanetInfos]
     
@@ -42,9 +43,23 @@ class WebService: ObservableObject {
         
         let decodedResponse = try JSONDecoder().decode([PlanetInfos].self, from: data)
         self.planetsService = decodedResponse
-            .sorted(by: {$0.name < $1.name})
-        
+
+        order(planet: decodedResponse, chave: "name")
         
     }
-   
+    
+    
+    func order(planet: [PlanetInfos], chave: String ) {
+        
+        for _ in planetsService {
+            switch chave {
+                case "name":
+                    return self.planetsService = planet.sorted(by: {$0.name < $1.name})
+                case "id":
+                    return self.planetsService = planet.sorted(by: {$0.id < $1.id})
+                default:
+                    break
+            }
+        }
+    }
 }
