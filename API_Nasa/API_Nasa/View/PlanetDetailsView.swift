@@ -10,7 +10,13 @@ import SwiftUI
 struct PlanetDetailsView: View {
     @StateObject var planetsWS = WebService()
     @State var planetDetails: PlanetInfos
-    var searchServices = SearchServices()
+    var searchServices = InfosService()
+    @Environment(\.dismiss) var dismiss
+    
+    //    init() {
+    //        let navBarApperance = UINavigationBarAppearance()
+    //        navBarApperance.backButtonAppearance =
+    //    }
     
     func chooseShadowColor(id: Int) -> Color {
         switch id {
@@ -119,6 +125,7 @@ struct PlanetDetailsView: View {
             
         
     }
+    
 }
 
 //struct PlanetDetailsView_Previews: PreviewProvider {

@@ -12,7 +12,7 @@ struct ContentView: View {
     
     @StateObject var planetsWS = WebService()
     @State private var failedToLoadData: Bool = false
-    private var searchServices = SearchServices()
+    private var searchServices = InfosService()
     
     //configura quantas colunas terá o grid e como serão
     private let columns = [GridItem(.flexible())]
@@ -63,8 +63,7 @@ struct ContentView: View {
         
         .environment(\.colorScheme, .dark)
         .task {
-            if !self.planetsWS.planetsService.isEmpty { return }
-            
+            if !self.planetsWS.planetsInfos.isEmpty { return }
             do {
                 try await self.planetsWS.loadData()
             } catch {
