@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var alertPlanet = true
     
     @StateObject var planetsWS = WebService()
     @State private var failedToLoadData: Bool = false
@@ -18,26 +19,48 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            GeometryReader { geo in
-                ZStack {
-                    Image("estrelado")
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: geo.size.width, height: geo.size.height, alignment: .center)
-                        .opacity(1)
-                    
-                    ScrollView {
-                        LazyVGrid(columns: columns, spacing: 15) {
-                            ForEach(planetsWS.planetsService, id: \.id) { planet in
-                                Cell(planetName: planet.name, imgURL: searchServices.percorrerImg(planets: [planet])!, planets: planet)
-                            }
+            VStack {
+                ScrollView (showsIndicators: false){
+                    ForEach(planetsWS.planetsService, id: \.id) { planet in
+                        Cell(planetName: planet.name, imgURL: searchServices.percorrerImg(planets: [planet])!, planets: planet)
+                        
+                    }
+                }
+               
+            }.background(Image("estrelado"))
+            
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Menu{
+                        Text("Order By:")
+                        Button {
+                            print(planetsWS.$planetsService)
+                        } label: {
+                            Label(title:{Text("ID:")}, icon: {})
+                        }
+                        Button {
+                            print(planetsWS.$planetsService)
+                        } label: {
+                            Label(title:{Text("Name")}, icon: {})
+                        }
+                        Button {
+                            print(planetsWS.$planetsService)
+                        } label: {
+                            Label(title:{Text("Volum")}, icon: {})
+                        }
+                    }label: {
+                        Label {
+                            Text("")
+                        }icon: {
+                            Image(systemName: "line.3.horizontal.decrease.circle.fill").foregroundColor(.white)
                         }
                     }
-                    .padding(.top)
+                    
                 }
-            }
-            .navigationBarTitle("Planets", displayMode: .inline)
+            }.navigationBarTitle("Planets")
         }
+//        .alert("Planets are displayed by default in solar system order relative to the sun", isPresented: $alertPlanet, actions: {Button(role: .cancel, action: {}, label: {Text("Ok")})})
+        
         .environment(\.colorScheme, .dark)
         .task {
             if !self.planetsWS.planetsService.isEmpty { return }
@@ -45,19 +68,15 @@ struct ContentView: View {
             do {
                 try await self.planetsWS.loadData()
             } catch {
-                print(error)
-                print(error.localizedDescription)
+             
                 self.failedToLoadData.toggle()
             }
-            print(self.planetsWS.planetsService)
         }
         .alert("Falha ao carregar as informações", isPresented: $failedToLoadData, actions: {Button(role: .cancel, action: {}, label: {Text("Ok")})}, message: {Text("Tente novamente mais tarde")})
     }
+
     
     
-//    struct ContentView_Previews: PreviewProvider {
-//        static var previews: some View {
-//            ContentView()
-//        }
-//    }
-}
+
+    }
+

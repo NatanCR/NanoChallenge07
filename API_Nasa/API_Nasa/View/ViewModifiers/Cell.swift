@@ -16,7 +16,7 @@ struct Cell: View {
     
     var body: some View {
         VStack(alignment: .center) {
-            ZStack {
+          
                 AsyncImage(url: URL(string: imgURL)) { image in
                     image
                         .resizable()
@@ -28,9 +28,7 @@ struct Cell: View {
                 } placeholder: {
                     ProgressView()
                 }
-                Circle()
-                    .opacity(0.01)
-                    .frame(width: 250, height: 250)
+                .statusBarHidden(true)
                     .onTapGesture {
                     self.isActive = true
                 }
@@ -38,11 +36,11 @@ struct Cell: View {
                     NavigationLink(destination: PlanetDetailsView(planetDetails: planets), isActive: $isActive, label: {
                         EmptyView()
                     }))
-            }
+            
             Text(planetName)
                 .font(.system(size: 19, weight: .bold, design: .rounded))
                 .foregroundColor(Color.white)
-        }.padding(.bottom, 40)
+        }.padding(.top, 50)
     }
 }
 

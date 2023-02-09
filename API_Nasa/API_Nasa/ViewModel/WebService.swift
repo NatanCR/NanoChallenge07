@@ -41,7 +41,10 @@ class WebService: ObservableObject {
         }
         
         let decodedResponse = try JSONDecoder().decode([PlanetInfos].self, from: data)
-        self.planetsService = decodedResponse.sorted(by: {$0.id < $1.id})
-        print(planetsService)
+        self.planetsService = decodedResponse
+            .sorted(by: {$0.name < $1.name})
+        
+        
     }
+   
 }
