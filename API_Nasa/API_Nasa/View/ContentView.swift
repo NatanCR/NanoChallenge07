@@ -34,19 +34,14 @@ struct ContentView: View {
                     Menu{
                         Text("Order By:")
                         Button {
-                            print(planetsWS.$planetsService)
+                            planetsWS.order(planet: planetsWS.planetsService, chave: "id")
                         } label: {
-                            Label(title:{Text("ID:")}, icon: {})
+                            Label(title:{Text("Solar System")}, icon: {})
                         }
                         Button {
-                            print(planetsWS.$planetsService)
+                            planetsWS.order(planet: planetsWS.planetsService, chave: "name")
                         } label: {
                             Label(title:{Text("Name")}, icon: {})
-                        }
-                        Button {
-                            print(planetsWS.$planetsService)
-                        } label: {
-                            Label(title:{Text("Volum")}, icon: {})
                         }
                     }label: {
                         Label {
