@@ -12,11 +12,11 @@ struct PlanetDetailsView: View {
     @State var planetDetails: PlanetInfos
     var infosServices = InfosService()
     @Environment(\.dismiss) var dismiss
-    @State var planetPlusDetaisl: [PlusPlanetInfos]
+//    @State var planetPlusDetaisl: [PlusPlanetInfos]
     
     var body: some View {
         VStack(spacing: 5){
-            ImageFormatter(imgURL: infosServices.percorrerImg(planets: [planetDetails])!)
+            ImageFormatter(imgURL: infosServices.searchImage(planets: [planetDetails])!)
                 .shadow(color: infosServices.chooseShadowColor(id: planetDetails.id),radius: 10)
                 .padding(.bottom, 20)
             
@@ -38,7 +38,7 @@ struct PlanetDetailsView: View {
                     
                     DetailCell(text: "Planet mass: " + infosServices.searchMass(planetInfos: [planetDetails])!)
                     DetailCell(text: "Planet volume: " + infosServices.searchVolume(planetInfos: [planetDetails])!)
-
+                    DetailCell(text: "Period: \(String(describing: infosServices.searchPeriod(planets: planetsWS.planetPlusService.self) ?? 0))")
                 }
             } header: {
                 Text("Information:")
@@ -62,9 +62,11 @@ struct PlanetDetailsView: View {
             }
         }
         .task {
-            if !self.planetsWS.planetsService.isEmpty { return }
+            if !self.planetsWS.planetPlusService.isEmpty { return }
             do {
                 try await self.planetsWS.loadPlusData(planetName: planetDetails.name)
+//                try await print(planetsWS.planetPlusService.)
+                
             } catch {
                 print(error.localizedDescription)
             }

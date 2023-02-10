@@ -22,7 +22,7 @@ struct ContentView: View {
             VStack {
                 ScrollView (showsIndicators: false){
                     ForEach(planetsWS.planetsService, id: \.id) { planet in
-                        Cell(planetName: planet.name, imgURL: infosServices.percorrerImg(planets: [planet])!, planets: planet, planetsPlus: planetsWS.planetPlusService)
+                        Cell(planetName: planet.name, imgURL: infosServices.searchImage(planets: [planet])!, planets: planet)
                         
                     }
                 }

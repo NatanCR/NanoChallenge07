@@ -86,6 +86,6 @@ class WebService: ObservableObject {
           
           let decodedResponse = try JSONDecoder().decode([PlusPlanetInfos].self, from: data)
           self.planetPlusService = decodedResponse
-        print(planetPlusService)
+//        print(planetPlusService)
       }
 }

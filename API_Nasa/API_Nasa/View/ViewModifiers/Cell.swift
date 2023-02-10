@@ -12,7 +12,6 @@ struct Cell: View {
     var planetName, imgURL: String
     @State private var isActive = false
     @State var planets: PlanetInfos
-    @State var planetsPlus: [PlusPlanetInfos]
     
     var body: some View {
         VStack(alignment: .center) {
@@ -22,7 +21,7 @@ struct Cell: View {
                     self.isActive = true
                 }
                 .background(
-                    NavigationLink(destination: PlanetDetailsView(planetDetails: planets, planetPlusDetaisl: planetsPlus), isActive: $isActive, label: {
+                    NavigationLink(destination: PlanetDetailsView(planetDetails: planets), isActive: $isActive, label: {
                         EmptyView()
                     }))
             

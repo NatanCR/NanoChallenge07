@@ -9,7 +9,20 @@ import Foundation
 import SwiftUI
 
 class InfosService {
-    func percorrerImg (planets: [PlanetInfos]) -> String? {
+    func searchPeriod(planets: [PlusPlanetInfos]) -> Double? {
+        for i in planets {
+            let period = i.period
+            return period 
+            
+//            guard let nome = period else { return }
+        
+            
+        }
+        
+        return nil 
+    }
+    
+    func searchImage(planets: [PlanetInfos]) -> String? {
         for i in planets {
             for j in i.imgSrc {
                 let link = j.img
