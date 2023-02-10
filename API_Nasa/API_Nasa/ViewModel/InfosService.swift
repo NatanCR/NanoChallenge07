@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 class InfosService {
     func percorrerImg (planets: [PlanetInfos]) -> String? {
@@ -40,5 +41,20 @@ class InfosService {
             }
         }
         return nil
+    }
+    
+    func chooseShadowColor(id: Int) -> Color {
+        switch id {
+        case 1: return Color(red: 0.48, green: 0.47, blue: 0.47)
+        case 2: return Color(red: 0.92, green: 0.90, blue: 0.89)
+        case 3: return Color(red: 0.24, green: 0.47, blue: 0.77)
+        case 4: return Color(red: 1.00, green: 0.53, blue: 0.38)
+        case 5: return Color(red: 0.80, green: 0.63, blue: 0.49)
+        case 6: return Color(red: 0.80, green: 0.67, blue: 0.45)
+        case 7: return Color(red: 0.80, green: 0.88, blue: 0.93)
+        case 8: return Color(red: 0.54, green: 0.65, blue: 0.84)
+        default:
+            return Color(.clear)
+        }
     }
 }

@@ -12,7 +12,7 @@ struct ContentView: View {
     
     @StateObject var planetsWS = WebService()
     @State private var failedToLoadData: Bool = false
-    private var searchServices = InfosService()
+    private var infosServices = InfosService()
     
     //configura quantas colunas terá o grid e como serão
     private let columns = [GridItem(.flexible())]
@@ -22,7 +22,7 @@ struct ContentView: View {
             VStack {
                 ScrollView (showsIndicators: false){
                     ForEach(planetsWS.planetsService, id: \.id) { planet in
-                        Cell(planetName: planet.name, imgURL: searchServices.percorrerImg(planets: [planet])!, planets: planet)
+                        Cell(planetName: planet.name, imgURL: infosServices.percorrerImg(planets: [planet])!, planets: planet)
                         
                     }
                 }
