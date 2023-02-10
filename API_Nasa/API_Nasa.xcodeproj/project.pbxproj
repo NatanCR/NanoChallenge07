@@ -15,6 +15,7 @@
 		D11D613C298C452D0055E3D5 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11D613B298C452D0055E3D5 /* WebService.swift */; };
 		D11D614A298D9F280055E3D5 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11D6149298D9F280055E3D5 /* Cell.swift */; };
 		D12FA03D2995B02500E81604 /* DetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12FA03C2995B02500E81604 /* DetailCell.swift */; };
+		D12FA03F2996869B00E81604 /* ImageFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12FA03E2996869B00E81604 /* ImageFormatter.swift */; };
 		D1EE28C52992914F003A0A90 /* PlanetDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EE28C42992914F003A0A90 /* PlanetDetailsView.swift */; };
 		D1EE28C72992D941003A0A90 /* InfosService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EE28C62992D941003A0A90 /* InfosService.swift */; };
 /* End PBXBuildFile section */
@@ -29,6 +30,7 @@
 		D11D613B298C452D0055E3D5 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		D11D6149298D9F280055E3D5 /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
 		D12FA03C2995B02500E81604 /* DetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCell.swift; sourceTree = "<group>"; };
+		D12FA03E2996869B00E81604 /* ImageFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFormatter.swift; sourceTree = "<group>"; };
 		D1EE28C42992914F003A0A90 /* PlanetDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetDetailsView.swift; sourceTree = "<group>"; };
 		D1EE28C62992D941003A0A90 /* InfosService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfosService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -113,6 +115,7 @@
 			children = (
 				D11D6149298D9F280055E3D5 /* Cell.swift */,
 				D12FA03C2995B02500E81604 /* DetailCell.swift */,
+				D12FA03E2996869B00E81604 /* ImageFormatter.swift */,
 			);
 			path = ViewModifiers;
 			sourceTree = "<group>";
@@ -193,6 +196,7 @@
 				D11D612229899AB00055E3D5 /* API_NasaApp.swift in Sources */,
 				D1EE28C52992914F003A0A90 /* PlanetDetailsView.swift in Sources */,
 				D1EE28C72992D941003A0A90 /* InfosService.swift in Sources */,
+				D12FA03F2996869B00E81604 /* ImageFormatter.swift in Sources */,
 				D12FA03D2995B02500E81604 /* DetailCell.swift in Sources */,
 				D11D613A298C303F0055E3D5 /* PlanetInfos.swift in Sources */,
 			);

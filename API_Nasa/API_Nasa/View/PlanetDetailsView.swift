@@ -13,25 +13,11 @@ struct PlanetDetailsView: View {
     var infosServices = InfosService()
     @Environment(\.dismiss) var dismiss
     
-   
-    
     var body: some View {
         VStack(spacing: 5){
-            AsyncImage(url: URL(string: infosServices.percorrerImg(planets: [planetDetails])!)) { image in
-                image
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: 250, height: 250)
-                    .clipShape(Circle())
-                    .cornerRadius(100)
-//                    .overlay {
-//                        Circle().stroke(.white, lineWidth: 0)
-//                    }
-                    .shadow(color: infosServices.chooseShadowColor(id: planetDetails.id),radius: 10)
-            } placeholder: {
-                ProgressView()
-            }
-            .padding(.bottom, 20)
+            ImageFormatter(imgURL: infosServices.percorrerImg(planets: [planetDetails])!)
+                .shadow(color: infosServices.chooseShadowColor(id: planetDetails.id),radius: 10)
+                .padding(.bottom, 20)
             
             Section {
                 ScrollView(){

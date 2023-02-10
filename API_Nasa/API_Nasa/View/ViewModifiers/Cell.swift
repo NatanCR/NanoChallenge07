@@ -15,18 +15,7 @@ struct Cell: View {
     
     var body: some View {
         VStack(alignment: .center) {
-          
-                AsyncImage(url: URL(string: imgURL)) { image in
-                    image
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: 250, height: 250)
-                        .clipShape(Circle())
-                        .cornerRadius(100)
-
-                } placeholder: {
-                    ProgressView()
-                }
+          ImageFormatter(imgURL: imgURL)
                 .statusBarHidden(true)
                     .onTapGesture {
                     self.isActive = true
