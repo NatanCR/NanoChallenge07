@@ -22,9 +22,15 @@ struct PlanetDetailsView: View {
             Section {
                 ScrollView(){
                     DetailCell(text: "Name: " + planetDetails.name)
+                        .font(.custom(
+                        "K2D-SemiBold",fixedSize: 18))
                     DetailCell(text: "Planet order: " + planetDetails.planetOrder)
+                        .font(.custom(
+                            "K2D-SemiBold",fixedSize: 18))
                     
                     Text("Description: " + planetDetails.description)
+                        .font(.custom(
+                            "K2D-SemiBold",fixedSize: 18))
                         .multilineTextAlignment(.leading).padding(10)
                         .padding(.vertical, 10)
                         .frame(maxWidth: .infinity)
@@ -36,10 +42,16 @@ struct PlanetDetailsView: View {
                         .padding(.horizontal)
                     
                     DetailCell(text: "Planet mass: " + infosServices.searchMass(planetInfos: [planetDetails])!)
+                        .font(.custom(
+                            "K2D-SemiBold",fixedSize: 18))
                     DetailCell(text: "Planet volume: " + infosServices.searchVolume(planetInfos: [planetDetails])!)
+                        .font(.custom(
+                        "K2D-SemiBold",fixedSize: 18))
                 }
             } header: {
                 Text("Information:")
+                    .font(.custom(
+                        "K2D-SemiBold",fixedSize: 24))
                     .font(.title)
                     .frame(maxWidth: .infinity, alignment: .leading).padding(.leading, 20)
             }
@@ -55,6 +67,8 @@ struct PlanetDetailsView: View {
                         Image(systemName: "chevron.left")
                             .font(.system(size: 16, weight: .semibold, design: .rounded))
                         Text("Back")
+                            .font(.custom(
+                                "K2D-SemiBold",fixedSize: 18))
                     }.foregroundColor(Color.white)
                 })
             }

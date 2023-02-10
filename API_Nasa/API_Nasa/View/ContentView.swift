@@ -24,10 +24,13 @@ struct ContentView: View {
                     ForEach(planetsWS.planetsService, id: \.id) { planet in
                         Cell(planetName: planet.name, imgURL: infosServices.percorrerImg(planets: [planet])!, planets: planet)
                         
+                        
                     }
                 }
+                
                
             }.background(Image("estrelado"))
+            
             
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -53,6 +56,9 @@ struct ContentView: View {
                     
                 }
             }.navigationBarTitle("Planets")
+                .font(.custom(
+                    "K2D-SemiBold",fixedSize: 18))
+            
         }
 //        .alert("Planets are displayed by default in solar system order relative to the sun", isPresented: $alertPlanet, actions: {Button(role: .cancel, action: {}, label: {Text("Ok")})})
         

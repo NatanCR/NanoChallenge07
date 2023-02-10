@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		05C30F712996D92500913DF1 /* K2D-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 05C30F702996D92500913DF1 /* K2D-SemiBold.ttf */; };
 		D11D612229899AB00055E3D5 /* API_NasaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11D612129899AB00055E3D5 /* API_NasaApp.swift */; };
 		D11D612429899AB00055E3D5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11D612329899AB00055E3D5 /* ContentView.swift */; };
 		D11D612629899AB00055E3D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D11D612529899AB00055E3D5 /* Assets.xcassets */; };
@@ -21,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		05C30F622996CCDE00913DF1 /* API-Nasa-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "API-Nasa-Info.plist"; sourceTree = SOURCE_ROOT; };
+		05C30F702996D92500913DF1 /* K2D-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "K2D-SemiBold.ttf"; sourceTree = "<group>"; };
 		D11D611E29899AB00055E3D5 /* API_Nasa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = API_Nasa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D11D612129899AB00055E3D5 /* API_NasaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API_NasaApp.swift; sourceTree = "<group>"; };
 		D11D612329899AB00055E3D5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -65,11 +68,13 @@
 		D11D612029899AB00055E3D5 /* API_Nasa */ = {
 			isa = PBXGroup;
 			children = (
+				05C30F622996CCDE00913DF1 /* API-Nasa-Info.plist */,
 				D11D612129899AB00055E3D5 /* API_NasaApp.swift */,
 				D11D613D298C487E0055E3D5 /* View */,
 				D11D6138298C2F360055E3D5 /* ViewModel */,
 				D11D612F298A99FB0055E3D5 /* Model */,
 				D11D612529899AB00055E3D5 /* Assets.xcassets */,
+				05C30F702996D92500913DF1 /* K2D-SemiBold.ttf */,
 				D11D612729899AB00055E3D5 /* Preview Content */,
 			);
 			path = API_Nasa;
@@ -178,6 +183,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05C30F712996D92500913DF1 /* K2D-SemiBold.ttf in Resources */,
 				D11D612929899AB00055E3D5 /* Preview Assets.xcassets in Resources */,
 				D11D612629899AB00055E3D5 /* Assets.xcassets in Resources */,
 			);
@@ -330,6 +336,7 @@
 				DEVELOPMENT_TEAM = NFLV2P6B4S;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "API-Nasa-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -360,6 +367,7 @@
 				DEVELOPMENT_TEAM = NFLV2P6B4S;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "API-Nasa-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
