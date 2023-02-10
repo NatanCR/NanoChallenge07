@@ -8,15 +8,16 @@
 import SwiftUI
 
 struct PlanetDetailsView: View {
+    @Environment(\.dismiss) var dismiss
     @StateObject var planetsWS = WebService()
     @State var planetDetails: PlanetInfos
+    @State var planetPlusDetails: PlusPlanetInfos
     var infosServices = InfosService()
-    @Environment(\.dismiss) var dismiss
-    @State var planetPlusDetaisl: [PlusPlanetInfos]
+    
     
     var body: some View {
         VStack(spacing: 5){
-            ImageFormatter(imgURL: infosServices.percorrerImg(planets: [planetDetails])!)
+            ImageFormatter(imgURL: infosServices.searchImage(planets: [planetDetails])!)
                 .shadow(color: infosServices.chooseShadowColor(id: planetDetails.id),radius: 10)
                 .padding(.bottom, 20)
             
@@ -36,9 +37,9 @@ struct PlanetDetailsView: View {
                         }
                         .padding(.horizontal)
                     
-                    DetailCell(text: "Planet mass: " + infosServices.searchMass(planetInfos: [planetDetails])!)
+                    DetailCell(text: "Planet mass: \(infosServices.searchMass(planetsPlusInfos: [planetPlusDetails], planetName:planetDetails.name)!)")
                     DetailCell(text: "Planet volume: " + infosServices.searchVolume(planetInfos: [planetDetails])!)
-
+                    
                 }
             } header: {
                 Text("Information:")
@@ -59,14 +60,6 @@ struct PlanetDetailsView: View {
                         Text("Back")
                     }.foregroundColor(Color.white)
                 })
-            }
-        }
-        .task {
-            if !self.planetsWS.planetsService.isEmpty { return }
-            do {
-                try await self.planetsWS.loadPlusData(planetName: planetDetails.name)
-            } catch {
-                print(error.localizedDescription)
             }
         }
     }
