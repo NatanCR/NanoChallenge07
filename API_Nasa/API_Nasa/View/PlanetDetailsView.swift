@@ -19,20 +19,15 @@ struct PlanetDetailsView: View {
                 .shadow(color: infosServices.chooseShadowColor(id: planetDetails.id),radius: 10)
                 .padding(.bottom, 20)
             
-            Section {
+            Section() {
                 ScrollView(){
-                    DetailCell(text: "Name: " + planetDetails.name)
-                        .font(.custom(
-                        "K2D-SemiBold",fixedSize: 18))
-                    DetailCell(text: "Planet order: " + planetDetails.planetOrder)
-                        .font(.custom(
-                            "K2D-SemiBold",fixedSize: 18))
+                    DetailCell(text: planetDetails.name, title: "Name: ")
+                    DetailCell(text: planetDetails.planetOrder, title: "Planet order: ")
                     
                     Text("Description: " + planetDetails.description)
-                        .font(.custom(
-                            "K2D-SemiBold",fixedSize: 18))
+                        .font(.custom("K2D-Regular",fixedSize: 18))
                         .multilineTextAlignment(.leading).padding(10)
-                        .padding(.vertical, 10)
+                        .padding(.vertical, 8)
                         .frame(maxWidth: .infinity)
                         .background {
                             RoundedRectangle(cornerRadius: 10)
@@ -41,12 +36,9 @@ struct PlanetDetailsView: View {
                         }
                         .padding(.horizontal)
                     
-                    DetailCell(text: "Planet mass: " + infosServices.searchMass(planetInfos: [planetDetails])!)
-                        .font(.custom(
-                            "K2D-SemiBold",fixedSize: 18))
-                    DetailCell(text: "Planet volume: " + infosServices.searchVolume(planetInfos: [planetDetails])!)
-                        .font(.custom(
-                        "K2D-SemiBold",fixedSize: 18))
+                    DetailCell(text: infosServices.searchMass(planetInfos: [planetDetails])!, title: "Planet mass: ")
+                    DetailCell(text: infosServices.searchVolume(planetInfos: [planetDetails])!, title: "Planet volume: ")
+                    
                 }
             } header: {
                 Text("Information:")
