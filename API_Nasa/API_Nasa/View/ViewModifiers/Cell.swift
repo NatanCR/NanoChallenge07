@@ -26,7 +26,8 @@ struct Cell: View {
                     }))
             
             Text(planetName)
-                .font(.system(size: 19, weight: .bold, design: .rounded))
+                .font(.custom(
+                    "K2D-SemiBold",fixedSize: 19))
                 .foregroundColor(Color.white)
         }.padding(.top, 50)
     }

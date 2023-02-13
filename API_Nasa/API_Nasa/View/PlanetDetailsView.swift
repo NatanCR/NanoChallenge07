@@ -20,14 +20,19 @@ struct PlanetDetailsView: View {
                 .shadow(color: infosServices.chooseShadowColor(id: planetDetails.id),radius: 10)
                 .padding(.bottom, 20)
             
-            Section {
+            Section() {
                 ScrollView(){
                     DetailCell(text: "Planet name: " + planetDetails.name)
                     DetailCell(text: "Solar system order: " + planetDetails.planetOrder)
                     
                     Text("Planet description: " + planetDetails.description)
+                    DetailCell(text: planetDetails.name, title: "Name: ")
+                    DetailCell(text: planetDetails.planetOrder, title: "Planet order: ")
+                    
+                    Text("Description: " + planetDetails.description)
+                        .font(.custom("K2D-Regular",fixedSize: 18))
                         .multilineTextAlignment(.leading).padding(10)
-                        .padding(.vertical, 10)
+                        .padding(.vertical, 8)
                         .frame(maxWidth: .infinity)
                         .background {
                             RoundedRectangle(cornerRadius: 10)
@@ -43,9 +48,14 @@ struct PlanetDetailsView: View {
                     DetailCell(text: "Core temperature: \(String(format: ": %.1f", infosServices.searchTemperature(planetsTemp: planetsWS.planetPlusService.self  ) ?? 0)) ºC")
                     DetailCell(text: "Host star: \(infosServices.getStarHost(StarHost: planetsWS.planetPlusService.self) ?? 00)" )
                     DetailCell(text: "Star photosphere tempereture: \(Double(infosServices.getStarTemp(StarHost: planetsWS.planetPlusService.self) ?? 00)) ºC" )
+                    DetailCell(text: infosServices.searchMass(planetInfos: [planetDetails])!, title: "Planet mass: ")
+                    DetailCell(text: infosServices.searchVolume(planetInfos: [planetDetails])!, title: "Planet volume: ")
+                    
                 }
             } header: {
                 Text("Information:")
+                    .font(.custom(
+                        "K2D-SemiBold",fixedSize: 24))
                     .font(.title)
                     .frame(maxWidth: .infinity, alignment: .leading).padding(.leading, 20)
             }
@@ -61,6 +71,8 @@ struct PlanetDetailsView: View {
                         Image(systemName: "chevron.left")
                             .font(.system(size: 16, weight: .semibold, design: .rounded))
                         Text("Back")
+                            .font(.custom(
+                                "K2D-SemiBold",fixedSize: 18))
                     }.foregroundColor(Color.white)
                 })
             }

@@ -12,7 +12,7 @@ struct API_NasaApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            LaunchScreen()
         }
     }
 }
