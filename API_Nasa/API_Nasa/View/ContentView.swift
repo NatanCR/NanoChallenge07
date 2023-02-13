@@ -22,12 +22,13 @@ struct ContentView: View {
             VStack {
                 ScrollView (showsIndicators: false){
                     ForEach(planetsWS.planetsService, id: \.id) { planet in
-                        Cell(planetName: planet.name, imgURL: infosServices.percorrerImg(planets: [planet])!, planets: planet)
+                        Cell(planetName: planet.name, imgURL: infosServices.searchImage(planets: [planet])!, planets: planet)
                         
                     }
                 }
                
-            }.background(Image("estrelado"))
+            }
+            .background(Image("estreladox3"))
             
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -52,7 +53,7 @@ struct ContentView: View {
                     }
                     
                 }
-            }.navigationBarTitle("Planets")
+            }.navigationBarTitle("Solar Wiki")
         }
 //        .alert("Planets are displayed by default in solar system order relative to the sun", isPresented: $alertPlanet, actions: {Button(role: .cancel, action: {}, label: {Text("Ok")})})
         

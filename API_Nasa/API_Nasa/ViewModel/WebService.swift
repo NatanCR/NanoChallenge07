@@ -17,9 +17,11 @@ class WebService: ObservableObject {
     
     
     @Published var planetsService: [PlanetInfos]
+    @Published var planetPlusService: [PlusPlanetInfos]
     
     init() {
         self.planetsService = []
+        self.planetPlusService = []
     }
     
     @MainActor func loadData() async throws {
@@ -62,4 +64,28 @@ class WebService: ObservableObject {
             }
         }
     }
+    
+    @MainActor func loadPlusData(planetName: String) async throws {
+  //        let name = planetName.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+          guard let url = URL(string: "https://api.api-ninjas.com/v1/planets?name="+planetName) else {
+              throw URLError(.badURL)
+          }
+          
+          var request = URLRequest(url: url)
+          request.httpMethod = "GET"
+          request.setValue("7c+DwZXbQd0yxfL6aSdnJA==hRkVxFWouvrmSNmE", forHTTPHeaderField: "X-Api-Key")
+          request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+          request.setValue("application/json", forHTTPHeaderField: "Accept")
+          request.timeoutInterval = 10
+          
+          let (data, response) = try await URLSession.shared.data(for: request)
+          
+          guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+              throw DownloadError.statusNotOk
+          }
+          
+          let decodedResponse = try JSONDecoder().decode([PlusPlanetInfos].self, from: data)
+          self.planetPlusService = decodedResponse
+//        print(planetPlusService)
+      }
 }

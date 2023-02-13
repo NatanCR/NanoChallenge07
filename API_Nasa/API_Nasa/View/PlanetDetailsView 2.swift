@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct PlanetDetailsView: View {
+    @Environment(\.dismiss) var dismiss
     @StateObject var planetsWS = WebService()
     @State var planetDetails: PlanetInfos
+    @State var planetPlusDetails: PlusPlanetInfos
     var infosServices = InfosService()
-    @Environment(\.dismiss) var dismiss
-//    @State var planetPlusDetaisl: [PlusPlanetInfos]
+    
     
     var body: some View {
         VStack(spacing: 5){
@@ -22,10 +23,10 @@ struct PlanetDetailsView: View {
             
             Section {
                 ScrollView(){
-                    DetailCell(text: "Planet name: " + planetDetails.name)
-                    DetailCell(text: "Solar system order: " + planetDetails.planetOrder)
+                    DetailCell(text: "Name: " + planetDetails.name)
+                    DetailCell(text: "Planet order: " + planetDetails.planetOrder)
                     
-                    Text("Planet description: " + planetDetails.description)
+                    Text("Description: " + planetDetails.description)
                         .multilineTextAlignment(.leading).padding(10)
                         .padding(.vertical, 10)
                         .frame(maxWidth: .infinity)
@@ -36,13 +37,9 @@ struct PlanetDetailsView: View {
                         }
                         .padding(.horizontal)
                     
-                    DetailCell(text: "Planet mass: " + infosServices.searchMass(planetInfos: [planetDetails])!)
+                    DetailCell(text: "Planet mass: \(infosServices.searchMass(planetsPlusInfos: [planetPlusDetails], planetName:planetDetails.name)!)")
                     DetailCell(text: "Planet volume: " + infosServices.searchVolume(planetInfos: [planetDetails])!)
-                    DetailCell(text: "Time to orbit sun in Earth days : \(Int(infosServices.searchPeriod(planets: planetsWS.planetPlusService.self) ?? 0))")
                     
-                    DetailCell(text: "Core temperature: \(String(format: ": %.1f", infosServices.searchTemperature(planetsTemp: planetsWS.planetPlusService.self  ) ?? 0)) ºC")
-                    DetailCell(text: "Host star: \(infosServices.getStarHost(StarHost: planetsWS.planetPlusService.self) ?? 00)" )
-                    DetailCell(text: "Star photosphere tempereture: \(Double(infosServices.getStarTemp(StarHost: planetsWS.planetPlusService.self) ?? 00)) ºC" )
                 }
             } header: {
                 Text("Information:")
@@ -63,16 +60,6 @@ struct PlanetDetailsView: View {
                         Text("Back")
                     }.foregroundColor(Color.white)
                 })
-            }
-        }
-        .task {
-            if !self.planetsWS.planetPlusService.isEmpty { return }
-            do {
-                try await self.planetsWS.loadPlusData(planetName: planetDetails.name)
-//                try await print(planetsWS.planetPlusService.)
-                
-            } catch {
-                print(error.localizedDescription)
             }
         }
     }
