@@ -9,10 +9,45 @@ import Foundation
 import SwiftUI
 
 class InfosService {
+    
+    
+    func getStarHost(StarHost: [PlusPlanetInfos]) -> Int? {
+        for host in StarHost {
+            let sun = host.hostStarMass
+            return sun
+        }
+        return nil
+    }
+    
+    func getStarTemp(StarHost: [PlusPlanetInfos]) -> Int? {
+        for host in StarHost {
+            let sun = host.hostStarTemperature
+            return sun
+        }
+        return nil
+    }
+    
+    func searchTemperature(planetsTemp: [PlusPlanetInfos]) -> Double? {
+
+        for i in planetsTemp {
+           
+            let temp = (Double(i.temperature) - 32 ) / 1.8
+            print(temp)
+            return temp
+            
+
+            
+        }
+        
+        return nil
+    }
     func searchPeriod(planets: [PlusPlanetInfos]) -> Double? {
+        
         for i in planets {
+            print(planets.self)
             let period = i.period
-            return period 
+            
+            return period
             
 //            guard let nome = period else { return }
         

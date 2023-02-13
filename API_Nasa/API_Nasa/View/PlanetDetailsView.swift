@@ -22,10 +22,10 @@ struct PlanetDetailsView: View {
             
             Section {
                 ScrollView(){
-                    DetailCell(text: "Name: " + planetDetails.name)
-                    DetailCell(text: "Planet order: " + planetDetails.planetOrder)
+                    DetailCell(text: "Planet name: " + planetDetails.name)
+                    DetailCell(text: "Solar system order: " + planetDetails.planetOrder)
                     
-                    Text("Description: " + planetDetails.description)
+                    Text("Planet description: " + planetDetails.description)
                         .multilineTextAlignment(.leading).padding(10)
                         .padding(.vertical, 10)
                         .frame(maxWidth: .infinity)
@@ -38,7 +38,11 @@ struct PlanetDetailsView: View {
                     
                     DetailCell(text: "Planet mass: " + infosServices.searchMass(planetInfos: [planetDetails])!)
                     DetailCell(text: "Planet volume: " + infosServices.searchVolume(planetInfos: [planetDetails])!)
-                    DetailCell(text: "Period: \(String(describing: infosServices.searchPeriod(planets: planetsWS.planetPlusService.self) ?? 0))")
+                    DetailCell(text: "Time to orbit sun in Earth days : \(Int(infosServices.searchPeriod(planets: planetsWS.planetPlusService.self) ?? 0))")
+                    
+                    DetailCell(text: "Core temperature: \(String(format: ": %.1f", infosServices.searchTemperature(planetsTemp: planetsWS.planetPlusService.self  ) ?? 0)) ºC")
+                    DetailCell(text: "Host star: \(infosServices.getStarHost(StarHost: planetsWS.planetPlusService.self) ?? 00)" )
+                    DetailCell(text: "Star photosphere tempereture: \(Double(infosServices.getStarTemp(StarHost: planetsWS.planetPlusService.self) ?? 00)) ºC" )
                 }
             } header: {
                 Text("Information:")

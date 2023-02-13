@@ -27,7 +27,8 @@ struct ContentView: View {
                     }
                 }
                
-            }.background(Image("estrelado"))
+            }
+            .background(Image("estreladox3"))
             
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -52,7 +53,7 @@ struct ContentView: View {
                     }
                     
                 }
-            }.navigationBarTitle("Planets")
+            }.navigationBarTitle("Solar Wiki")
         }
 //        .alert("Planets are displayed by default in solar system order relative to the sun", isPresented: $alertPlanet, actions: {Button(role: .cancel, action: {}, label: {Text("Ok")})})
         
