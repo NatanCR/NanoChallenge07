@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0520B53B299AA57A00802DCE /* K2D-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0520B53A299AA57A00802DCE /* K2D-Regular.ttf */; };
+		0520B53D299ABF6200802DCE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0520B53C299ABF6200802DCE /* LaunchScreen.storyboard */; };
 		05C30F712996D92500913DF1 /* K2D-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 05C30F702996D92500913DF1 /* K2D-SemiBold.ttf */; };
 		D11D612229899AB00055E3D5 /* API_NasaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11D612129899AB00055E3D5 /* API_NasaApp.swift */; };
 		D11D612429899AB00055E3D5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11D612329899AB00055E3D5 /* ContentView.swift */; };
@@ -24,6 +25,7 @@
 
 /* Begin PBXFileReference section */
 		0520B53A299AA57A00802DCE /* K2D-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "K2D-Regular.ttf"; sourceTree = "<group>"; };
+		0520B53C299ABF6200802DCE /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		05C30F622996CCDE00913DF1 /* API-Nasa-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "API-Nasa-Info.plist"; sourceTree = SOURCE_ROOT; };
 		05C30F702996D92500913DF1 /* K2D-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "K2D-SemiBold.ttf"; sourceTree = "<group>"; };
 		D11D611E29899AB00055E3D5 /* API_Nasa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = API_Nasa.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,6 +78,7 @@
 				D11D6138298C2F360055E3D5 /* ViewModel */,
 				D11D612F298A99FB0055E3D5 /* Model */,
 				D11D612529899AB00055E3D5 /* Assets.xcassets */,
+				0520B53C299ABF6200802DCE /* LaunchScreen.storyboard */,
 				05C30F702996D92500913DF1 /* K2D-SemiBold.ttf */,
 				0520B53A299AA57A00802DCE /* K2D-Regular.ttf */,
 				D11D612729899AB00055E3D5 /* Preview Content */,
@@ -189,6 +192,7 @@
 				05C30F712996D92500913DF1 /* K2D-SemiBold.ttf in Resources */,
 				D11D612929899AB00055E3D5 /* Preview Assets.xcassets in Resources */,
 				D11D612629899AB00055E3D5 /* Assets.xcassets in Resources */,
+				0520B53D299ABF6200802DCE /* LaunchScreen.storyboard in Resources */,
 				0520B53B299AA57A00802DCE /* K2D-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -344,6 +348,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -375,6 +380,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
