@@ -18,6 +18,18 @@ struct ContentView: View {
     //configura quantas colunas terá o grid e como serão
     private let columns = [GridItem(.flexible())]
     
+    func refreshData() {
+        Task {
+            if !self.planetsWS.planetsService.isEmpty { return }
+            do {
+                try await self.planetsWS.loadData()
+                self.isActive = true
+            } catch {
+                self.failedToLoadData.toggle()
+            }
+        }
+    }
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -72,9 +84,9 @@ struct ContentView: View {
                 self.failedToLoadData.toggle()
             }
         }
-        .alert("Falha ao carregar as informações", isPresented: $failedToLoadData, actions: {Button(role: .cancel, action: {
-    
-        }, label: {Text("Ok")})}, message: {Text("Tente novamente mais tarde")})
+        .alert(isPresented: $failedToLoadData) {
+            Alert(title: Text("Load failed"), message: Text("The connection server was lost"), primaryButton: .default(Text("Try again"), action: refreshData), secondaryButton: .cancel(Text("Cancel")))
+        }
     }
 }
 
