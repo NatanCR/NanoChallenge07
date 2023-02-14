@@ -9,7 +9,6 @@ import SwiftUI
 
 struct ContentView: View {
     @State var alertPlanet = true
-    
     @StateObject var planetsWS = WebService()
     @State private var failedToLoadData: Bool = false
     private var infosServices = InfosService()
@@ -45,7 +44,6 @@ struct ContentView: View {
                 }
             }
             .background(Image("estreladox3"))
-            
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Menu{

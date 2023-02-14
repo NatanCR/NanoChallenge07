@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct Cell: View {
-    
     var planetName, imgURL: String
     @State private var isActive = false
     @State var planets: PlanetInfos

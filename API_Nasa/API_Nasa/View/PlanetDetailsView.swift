@@ -19,10 +19,8 @@ struct PlanetDetailsView: View {
             ImageFormatter(imgURL: infosServices.searchImage(planets: [planetDetails])!)
                 .shadow(color: infosServices.chooseShadowColor(id: planetDetails.id),radius: 10)
                 .padding(.bottom, 20)
-            
             Section() {
                 ScrollView(){
-               
                     Text("Planet description: " + planetDetails.description)
                     DetailCell(text: planetDetails.name, title: "Planet name: ")
                     DetailCell(text: planetDetails.planetOrder, title: "Solar system order: ")
@@ -39,13 +37,10 @@ struct PlanetDetailsView: View {
                         .padding(.horizontal)
                     DetailCell(text: infosServices.searchMass(planetInfos: [planetDetails])!, title: "Planet mass: ")
                     DetailCell(text: infosServices.searchVolume(planetInfos: [planetDetails])!, title: "Planet volume: ")
-                    
                     DetailCell(text: "\(Int(infosServices.searchPeriod(planets: planetsWS.planetPlusService.self) ?? 0))", title: "Time to orbit sun in Earth days: ")
-//
                     DetailCell(text: " \(String(format: "%.1f", infosServices.searchTemperature(planetsTemp: planetsWS.planetPlusService.self  ) ?? 0)) ºC", title: "Core temperature: ")
                     DetailCell(text: "\(infosServices.getStarHost(StarHost: planetsWS.planetPlusService.self) ?? 00)", title: "Host star: " )
                     DetailCell(text: "\(Double(infosServices.getStarTemp(StarHost: planetsWS.planetPlusService.self) ?? 00)) ºC", title: "Sun photosphere: " )
-                    
                 }
             } header: {
                 Text("Information:")

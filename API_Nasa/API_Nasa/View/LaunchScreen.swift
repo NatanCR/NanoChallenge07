@@ -22,9 +22,6 @@ struct LaunchScreen: View {
                         .frame(width: 130, height: 130)
                         .scaleEffect(size)
                     }
-                
-        
-       
                 .edgesIgnoringSafeArea(.all)
                 .onAppear {
                     withAnimation(.easeIn(duration: 1.2)) {

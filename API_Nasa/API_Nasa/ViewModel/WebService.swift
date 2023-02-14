@@ -15,7 +15,6 @@ enum DownloadError: Error {
 
 class WebService: ObservableObject {
     
-    
     @Published var planetsService: [PlanetInfos]
     @Published var planetPlusService: [PlusPlanetInfos]
     
@@ -25,7 +24,6 @@ class WebService: ObservableObject {
     }
     
     @MainActor func loadData() async throws {
-        
         guard let url = URL(string: "https://planets-info-by-newbapi.p.rapidapi.com/api/v1/planet/list") else {
             throw URLError(.badURL)
         }
@@ -47,12 +45,10 @@ class WebService: ObservableObject {
         self.planetsService = decodedResponse
 
         order(planet: decodedResponse, chave: "id")
-        
     }
     
     
     func order(planet: [PlanetInfos], chave: String ) {
-        
         for _ in planetsService {
             switch chave {
                 case "name":
