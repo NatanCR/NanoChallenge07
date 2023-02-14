@@ -46,7 +46,7 @@ class WebService: ObservableObject {
         let decodedResponse = try JSONDecoder().decode([PlanetInfos].self, from: data)
         self.planetsService = decodedResponse
 
-        order(planet: decodedResponse, chave: "name")
+        order(planet: decodedResponse, chave: "id")
         
     }
     
@@ -66,14 +66,13 @@ class WebService: ObservableObject {
     }
     
     @MainActor func loadPlusData(planetName: String) async throws {
-  //        let name = planetName.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
           guard let url = URL(string: "https://api.api-ninjas.com/v1/planets?name="+planetName) else {
               throw URLError(.badURL)
           }
           
           var request = URLRequest(url: url)
           request.httpMethod = "GET"
-          request.setValue("7c+DwZXbQd0yxfL6aSdnJA==hRkVxFWouvrmSNmE", forHTTPHeaderField: "X-Api-Key")
+          request.setValue("ug9X/f+ARXxvDHT34AA9bg==XG2hY2UdsMtiuT5U", forHTTPHeaderField: "X-Api-Key")
           request.setValue("application/json", forHTTPHeaderField: "Content-Type")
           request.setValue("application/json", forHTTPHeaderField: "Accept")
           request.timeoutInterval = 10
@@ -86,6 +85,6 @@ class WebService: ObservableObject {
           
           let decodedResponse = try JSONDecoder().decode([PlusPlanetInfos].self, from: data)
           self.planetPlusService = decodedResponse
-//        print(planetPlusService)
+        print(planetPlusService)
       }
 }

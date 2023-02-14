@@ -29,9 +29,3 @@ struct DetailCell: View {
         .padding(.horizontal)
     }
 }
-
-//struct DetailCell_Previews: PreviewProvider {
-//    static var previews: some View {
-//        DetailCell()
-//    }
-//}

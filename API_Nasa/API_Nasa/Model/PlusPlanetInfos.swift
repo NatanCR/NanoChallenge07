@@ -10,7 +10,7 @@ import Foundation
 struct PlusPlanetInfos: Codable {
     let name: String
     let mass, radius: Double
-    let period: Double?
+    let period: Double
     let semiMajorAxis: Double
     let temperature: Int
     let distanceLightYear: Double

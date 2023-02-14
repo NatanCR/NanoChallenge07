@@ -24,9 +24,3 @@ struct ImageFormatter: View {
         }
     }
 }
-
-//struct ImageFormatter_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ImageFormatter()
-//    }
-//}

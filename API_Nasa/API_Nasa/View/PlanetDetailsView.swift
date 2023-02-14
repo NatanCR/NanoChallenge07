@@ -13,7 +13,6 @@ struct PlanetDetailsView: View {
     @State var planetDetails: PlanetInfos
     var infosServices = InfosService()
     @Environment(\.dismiss) var dismiss
-//    @State var planetPlusDetaisl: [PlusPlanetInfos]
     
     var body: some View {
         VStack(spacing: 5){
@@ -23,10 +22,8 @@ struct PlanetDetailsView: View {
             
             Section() {
                 ScrollView(){
-//                    DetailCell(text: "Planet name: " + planetDetails.name)
-//                    DetailCell(text: "Solar system order: " + planetDetails.planetOrder)
-//
-//                    Text("Planet description: " + planetDetails.description)
+               
+                    Text("Planet description: " + planetDetails.description)
                     DetailCell(text: planetDetails.name, title: "Planet name: ")
                     DetailCell(text: planetDetails.planetOrder, title: "Solar system order: ")
                     Text("\(description)" + planetDetails.description)
@@ -79,7 +76,6 @@ struct PlanetDetailsView: View {
             if !self.planetsWS.planetPlusService.isEmpty { return }
             do {
                 try await self.planetsWS.loadPlusData(planetName: planetDetails.name)
-//                try await print(planetsWS.planetPlusService.)
                 
             } catch {
                 print(error.localizedDescription)
@@ -88,9 +84,3 @@ struct PlanetDetailsView: View {
     }
     
 }
-
-//struct PlanetDetailsView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        PlanetDetailsView()
-//    }
-//}
