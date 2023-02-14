@@ -16,7 +16,6 @@ struct Cell: View {
     var body: some View {
         VStack(alignment: .center) {
           ImageFormatter(imgURL: imgURL)
-                .statusBarHidden(true)
                     .onTapGesture {
                     self.isActive = true
                 }

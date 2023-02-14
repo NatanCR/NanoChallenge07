@@ -13,6 +13,7 @@ struct ContentView: View {
     @StateObject var planetsWS = WebService()
     @State private var failedToLoadData: Bool = false
     private var infosServices = InfosService()
+    @State private var isActive: Bool = false
     
     //configura quantas colunas terá o grid e como serão
     private let columns = [GridItem(.flexible())]
@@ -21,17 +22,17 @@ struct ContentView: View {
         NavigationView {
             VStack {
                 ScrollView (showsIndicators: false){
+                    if !isActive {
+                        ProgressView("Loading...").padding(.top, 300)
+                            .foregroundColor(.white)
+                            .progressViewStyle(CircularProgressViewStyle(tint: .white))
+                    }
                     ForEach(planetsWS.planetsService, id: \.id) { planet in
                         Cell(planetName: planet.name, imgURL: infosServices.searchImage(planets: [planet])!, planets: planet)
-                        
-                        
                     }
                 }
-                
-               
             }
             .background(Image("estreladox3"))
-            
             
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -54,33 +55,26 @@ struct ContentView: View {
                             Image(systemName: "line.3.horizontal.decrease.circle.fill").foregroundColor(.white)
                         }
                     }
-                    
                 }
-
             }.navigationBarTitle("Solar Wiki")
                 .font(.custom(
                     "K2D-SemiBold",fixedSize: 18))
-            
-
         }
-//        .alert("Planets are displayed by default in solar system order relative to the sun", isPresented: $alertPlanet, actions: {Button(role: .cancel, action: {}, label: {Text("Ok")})})
+        //        .alert("Planets are displayed by default in solar system order relative to the sun", isPresented: $alertPlanet, actions: {Button(role: .cancel, action: {}, label: {Text("Ok")})})
         
         .environment(\.colorScheme, .dark)
         .task {
             if !self.planetsWS.planetsService.isEmpty { return }
             do {
                 try await self.planetsWS.loadData()
+                self.isActive = true
             } catch {
                 self.failedToLoadData.toggle()
             }
         }
         .alert("Falha ao carregar as informações", isPresented: $failedToLoadData, actions: {Button(role: .cancel, action: {
-            self.failedToLoadData = false 
+    
         }, label: {Text("Ok")})}, message: {Text("Tente novamente mais tarde")})
     }
-
-    
-    
-
-    }
+}
 
