@@ -15,10 +15,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
-        
         sceneView.delegate = self
         
-        
+        createPlanetSphere()
     }
     
     func createPlanetSphere() {
@@ -27,6 +26,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         material.diffuse.contents = UIImage(named: "nome do arquivo")
         sphere.materials = [material]
         
-        let node = 
+        let node = SCNNode()
+        node.position = SCNVector3(0, 0.1, -0.5)
+        node.geometry = sphere
+        sceneView.scene.rootNode.addChildNode(node)
+        sceneView.automaticallyUpdatesLighting = true
     }
 }
