@@ -20,6 +20,7 @@
 		D12FA03D2995B02500E81604 /* DetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12FA03C2995B02500E81604 /* DetailCell.swift */; };
 		D12FA03F2996869B00E81604 /* ImageFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12FA03E2996869B00E81604 /* ImageFormatter.swift */; };
 		D12FA0442996D47200E81604 /* PlusPlanetInfos.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12FA0432996D47200E81604 /* PlusPlanetInfos.swift */; };
+		D138512F299C216500B35797 /* ARKitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D138512E299C216500B35797 /* ARKitView.swift */; };
 		D1EE28C52992914F003A0A90 /* PlanetDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EE28C42992914F003A0A90 /* PlanetDetailsView.swift */; };
 		D1EE28C72992D941003A0A90 /* InfosService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EE28C62992D941003A0A90 /* InfosService.swift */; };
 /* End PBXBuildFile section */
@@ -40,6 +41,7 @@
 		D12FA03C2995B02500E81604 /* DetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCell.swift; sourceTree = "<group>"; };
 		D12FA03E2996869B00E81604 /* ImageFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFormatter.swift; sourceTree = "<group>"; };
 		D12FA0432996D47200E81604 /* PlusPlanetInfos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusPlanetInfos.swift; sourceTree = "<group>"; };
+		D138512E299C216500B35797 /* ARKitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARKitView.swift; sourceTree = "<group>"; };
 		D1EE28C42992914F003A0A90 /* PlanetDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetDetailsView.swift; sourceTree = "<group>"; };
 		D1EE28C62992D941003A0A90 /* InfosService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfosService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -116,6 +118,7 @@
 		D11D613D298C487E0055E3D5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D138512D299C209E00B35797 /* ARKitView */,
 				D11D6148298D9F0C0055E3D5 /* ViewModifiers */,
 				D11D612329899AB00055E3D5 /* ContentView.swift */,
 				D1EE28C42992914F003A0A90 /* PlanetDetailsView.swift */,
@@ -132,6 +135,14 @@
 				D12FA03E2996869B00E81604 /* ImageFormatter.swift */,
 			);
 			path = ViewModifiers;
+			sourceTree = "<group>";
+		};
+		D138512D299C209E00B35797 /* ARKitView */ = {
+			isa = PBXGroup;
+			children = (
+				D138512E299C216500B35797 /* ARKitView.swift */,
+			);
+			path = ARKitView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,6 +225,7 @@
 				D1EE28C52992914F003A0A90 /* PlanetDetailsView.swift in Sources */,
 				D12FA0442996D47200E81604 /* PlusPlanetInfos.swift in Sources */,
 				D1EE28C72992D941003A0A90 /* InfosService.swift in Sources */,
+				D138512F299C216500B35797 /* ARKitView.swift in Sources */,
 				D12FA03F2996869B00E81604 /* ImageFormatter.swift in Sources */,
 				D12FA03D2995B02500E81604 /* DetailCell.swift in Sources */,
 				D11D613A298C303F0055E3D5 /* PlanetInfos.swift in Sources */,
