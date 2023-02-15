@@ -73,7 +73,7 @@ class ARKitView: UIViewController, ARSCNViewDelegate {
     func createPlanetSphere() {
         let sphere = SCNSphere(radius: 0.2)
         let material = SCNMaterial()
-        material.diffuse.contents = UIImage(named: "art.scnassets/\(planetInfos.name).jpeg")
+        material.diffuse.contents = UIImage(named: "\(planetInfos.name).jpeg")
         sphere.materials = [material]
         
         let node = SCNNode()
