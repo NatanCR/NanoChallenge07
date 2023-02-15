@@ -9,10 +9,9 @@ import SwiftUI
 
 struct PlanetDetailsView: View {
     @StateObject var planetsWS = WebService()
-    var description = "Planet description: "
     @State var planetDetails: PlanetInfos
     var infosServices = InfosService()
-    @Environment(\.dismiss) var dismiss
+    @Environment(\.dismiss) private var dismiss
     
     var body: some View {
         VStack(spacing: 5){
@@ -21,10 +20,9 @@ struct PlanetDetailsView: View {
                 .padding(.bottom, 20)
             Section() {
                 ScrollView(){
-                    Text("Planet description: " + planetDetails.description)
                     DetailCell(text: planetDetails.name, title: "Planet name: ")
                     DetailCell(text: planetDetails.planetOrder, title: "Solar system order: ")
-                    Text("\(description)" + planetDetails.description)
+                    Text("Planet description: " + planetDetails.description)
                         .font(.custom("K2D-Regular",fixedSize: 18))
                         .multilineTextAlignment(.leading).padding(10)
                         .padding(.vertical, 8)
@@ -66,16 +64,26 @@ struct PlanetDetailsView: View {
                     }.foregroundColor(Color.white)
                 })
             }
+            ToolbarItem(placement: .navigationBarTrailing) {
+                NavigationLink {
+                    NavigationIndicatorView(planetDetails: planetDetails)
+                } label: {
+                    Label {
+                        Text("")
+                    }icon: {
+                        Image(systemName: "arkit").foregroundColor(.white)
+                    }
+                }
+
+            }
         }
         .task {
             if !self.planetsWS.planetPlusService.isEmpty { return }
             do {
                 try await self.planetsWS.loadPlusData(planetName: planetDetails.name)
-                
             } catch {
                 print(error.localizedDescription)
             }
         }
     }
-    
 }

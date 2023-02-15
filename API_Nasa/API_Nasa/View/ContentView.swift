@@ -70,7 +70,6 @@ struct ContentView: View {
                 .font(.custom(
                     "K2D-SemiBold",fixedSize: 18))
         }
-
         .environment(\.colorScheme, .dark)
         .task {
             if !self.planetsWS.planetsService.isEmpty { return }
