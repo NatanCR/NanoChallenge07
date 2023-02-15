@@ -27,7 +27,6 @@ class WebService: ObservableObject {
         guard let url = URL(string: "https://planets-info-by-newbapi.p.rapidapi.com/api/v1/planet/list") else {
             throw URLError(.badURL)
         }
-        
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         request.setValue("0461e37123mshf67ea53581a5e3ep1a9710jsn8921c666ebfd", forHTTPHeaderField: "X-RapidAPI-Key")
@@ -43,7 +42,6 @@ class WebService: ObservableObject {
         
         let decodedResponse = try JSONDecoder().decode([PlanetInfos].self, from: data)
         self.planetsService = decodedResponse
-
         order(planet: decodedResponse, chave: "id")
     }
     
