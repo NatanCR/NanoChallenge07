@@ -45,7 +45,6 @@ class WebService: ObservableObject {
         order(planet: decodedResponse, chave: "id")
     }
     
-    
     func order(planet: [PlanetInfos], chave: String ) {
         for _ in planetsService {
             switch chave {
