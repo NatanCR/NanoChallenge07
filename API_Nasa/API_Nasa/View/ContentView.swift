@@ -72,7 +72,6 @@ struct ContentView: View {
                 .font(.custom(
                     "K2D-SemiBold",fixedSize: 18))
         }
-        //        .alert("Planets are displayed by default in solar system order relative to the sun", isPresented: $alertPlanet, actions: {Button(role: .cancel, action: {}, label: {Text("Ok")})})
         
         .environment(\.colorScheme, .dark)
         .task {

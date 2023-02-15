@@ -15,7 +15,6 @@ enum DownloadError: Error {
 
 class WebService: ObservableObject {
     
-    
     @Published var planetsService: [PlanetInfos]
     @Published var planetPlusService: [PlusPlanetInfos]
     
@@ -66,7 +65,6 @@ class WebService: ObservableObject {
     }
     
     @MainActor func loadPlusData(planetName: String) async throws {
-  //        let name = planetName.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
           guard let url = URL(string: "https://api.api-ninjas.com/v1/planets?name="+planetName) else {
               throw URLError(.badURL)
           }
@@ -86,6 +84,5 @@ class WebService: ObservableObject {
           
           let decodedResponse = try JSONDecoder().decode([PlusPlanetInfos].self, from: data)
           self.planetPlusService = decodedResponse
-//        print(planetPlusService)
       }
 }

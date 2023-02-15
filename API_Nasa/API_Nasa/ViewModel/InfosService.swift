@@ -10,7 +10,6 @@ import SwiftUI
 
 class InfosService {
     
-    
     func getStarHost(StarHost: [PlusPlanetInfos]) -> Int? {
         for host in StarHost {
             let sun = host.hostStarMass
@@ -28,33 +27,20 @@ class InfosService {
     }
     
     func searchTemperature(planetsTemp: [PlusPlanetInfos]) -> Double? {
-
         for i in planetsTemp {
-           
             let temp = (Double(i.temperature) - 32 ) / 1.8
             print(temp)
             return temp
-            
-
-            
         }
-        
         return nil
     }
     func searchPeriod(planets: [PlusPlanetInfos]) -> Double? {
-        
         for i in planets {
             print(planets.self)
             let period = i.period
-            
             return period
-            
-//            guard let nome = period else { return }
-        
-            
         }
-        
-        return nil 
+        return nil
     }
     
     func searchImage(planets: [PlanetInfos]) -> String? {
@@ -69,7 +55,6 @@ class InfosService {
     
     func searchMass(planetInfos: [PlanetInfos]) -> String? {
         var mass: String
-        
         for i in planetInfos {
             for j in i.basicDetails {
                 mass = j.mass
@@ -81,7 +66,6 @@ class InfosService {
     
     func searchVolume(planetInfos: [PlanetInfos]) -> String? {
         var volume: String
-        
         for i in planetInfos {
             for j in i.basicDetails {
                 volume = j.volume

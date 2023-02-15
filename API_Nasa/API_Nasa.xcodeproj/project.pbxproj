@@ -21,6 +21,8 @@
 		D12FA03F2996869B00E81604 /* ImageFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12FA03E2996869B00E81604 /* ImageFormatter.swift */; };
 		D12FA0442996D47200E81604 /* PlusPlanetInfos.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12FA0432996D47200E81604 /* PlusPlanetInfos.swift */; };
 		D138512F299C216500B35797 /* ARKitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D138512E299C216500B35797 /* ARKitView.swift */; };
+		D1385137299C436600B35797 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = D1385136299C436600B35797 /* art.scnassets */; };
+		D138513F299C4C9700B35797 /* NavigationIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D138513E299C4C9700B35797 /* NavigationIndicator.swift */; };
 		D1EE28C52992914F003A0A90 /* PlanetDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EE28C42992914F003A0A90 /* PlanetDetailsView.swift */; };
 		D1EE28C72992D941003A0A90 /* InfosService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EE28C62992D941003A0A90 /* InfosService.swift */; };
 /* End PBXBuildFile section */
@@ -42,6 +44,8 @@
 		D12FA03E2996869B00E81604 /* ImageFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFormatter.swift; sourceTree = "<group>"; };
 		D12FA0432996D47200E81604 /* PlusPlanetInfos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusPlanetInfos.swift; sourceTree = "<group>"; };
 		D138512E299C216500B35797 /* ARKitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARKitView.swift; sourceTree = "<group>"; };
+		D1385136299C436600B35797 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; name = art.scnassets; path = "../../../../../../../Downloads/Real-Dicee-iOS13-Completed-master/Real Dicee/art.scnassets"; sourceTree = "<group>"; };
+		D138513E299C4C9700B35797 /* NavigationIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationIndicator.swift; sourceTree = "<group>"; };
 		D1EE28C42992914F003A0A90 /* PlanetDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetDetailsView.swift; sourceTree = "<group>"; };
 		D1EE28C62992D941003A0A90 /* InfosService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfosService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -123,6 +127,7 @@
 				D11D612329899AB00055E3D5 /* ContentView.swift */,
 				D1EE28C42992914F003A0A90 /* PlanetDetailsView.swift */,
 				0520B53E299ACBD700802DCE /* LaunchScreen.swift */,
+				D138513E299C4C9700B35797 /* NavigationIndicator.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -140,6 +145,7 @@
 		D138512D299C209E00B35797 /* ARKitView */ = {
 			isa = PBXGroup;
 			children = (
+				D1385136299C436600B35797 /* art.scnassets */,
 				D138512E299C216500B35797 /* ARKitView.swift */,
 			);
 			path = ARKitView;
@@ -205,6 +211,7 @@
 			files = (
 				05C30F712996D92500913DF1 /* K2D-SemiBold.ttf in Resources */,
 				D11D612929899AB00055E3D5 /* Preview Assets.xcassets in Resources */,
+				D1385137299C436600B35797 /* art.scnassets in Resources */,
 				D11D612629899AB00055E3D5 /* Assets.xcassets in Resources */,
 				0520B53B299AA57A00802DCE /* K2D-Regular.ttf in Resources */,
 			);
@@ -229,6 +236,7 @@
 				D12FA03F2996869B00E81604 /* ImageFormatter.swift in Sources */,
 				D12FA03D2995B02500E81604 /* DetailCell.swift in Sources */,
 				D11D613A298C303F0055E3D5 /* PlanetInfos.swift in Sources */,
+				D138513F299C4C9700B35797 /* NavigationIndicator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,6 +370,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "API-Nasa-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Solar Wiki";
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -395,6 +404,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "API-Nasa-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Solar Wiki";
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
