@@ -17,7 +17,7 @@ struct NavigationIndicator: UIViewControllerRepresentable {
     }
     func updateUIViewController(_ uiViewController:
                                 NavigationIndicator.UIViewControllerType, context:
-                                UIViewControllerRepresentableContext<NavigationIndicator>) { }    
+                                UIViewControllerRepresentableContext<NavigationIndicator>) { }
 }
 
 struct NavigationIndicatorView: View {
