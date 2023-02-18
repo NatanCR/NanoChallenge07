@@ -5,7 +5,7 @@ Para acrescentar mais desafios e funcionalidades que agregassem na qualidade do 
 
 copyright © Guilherme Borges, Natan Rodrigues, Vinicius Gomes - Solar Wiki.
 
-#Devs
-##Guilherme Borges
-##Natan Rodrigues
-##Vinicius Gomes
+# Devs
+## Guilherme Borges
+## Natan Rodrigues
+## Vinicius Gomes
