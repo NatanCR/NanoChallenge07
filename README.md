@@ -7,5 +7,7 @@ copyright © Guilherme Borges, Natan Rodrigues, Vinicius Gomes - Solar Wiki.
 
 # Devs
 Guilherme Borges
+
 Natan Rodrigues
+
 Vinicius Gomes
