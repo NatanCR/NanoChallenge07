@@ -7,26 +7,13 @@
 import ARKit
 import SwiftUI
 
-// MARK: - NavigationIndicator
-struct NavigationIndicator: UIViewControllerRepresentable {
-    typealias UIViewControllerType = ARKitView
-    @State var planetDetails: PlanetInfos
-    
-    func makeUIViewController(context: Context) -> ARKitView {
-        return ARKitView(planetInfos: planetDetails)
-    }
-    func updateUIViewController(_ uiViewController:
-                                NavigationIndicator.UIViewControllerType, context:
-                                UIViewControllerRepresentableContext<NavigationIndicator>) { }
-}
-
 struct NavigationIndicatorView: View {
     @State var planetDetails: PlanetInfos
     @Environment(\.dismiss) private var dismiss
     
     var body: some View {
         ZStack {
-            NavigationIndicator(planetDetails: planetDetails)
+            ARViewIndicator(planetDetails: planetDetails)
         }
         .ignoresSafeArea(.all)
         .navigationBarBackButtonHidden(true)
