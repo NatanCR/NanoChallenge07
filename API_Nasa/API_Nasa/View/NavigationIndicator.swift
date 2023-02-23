@@ -4,7 +4,6 @@
 //
 //  Created by Natan de Camargo Rodrigues on 14/02/23.
 //
-import ARKit
 import SwiftUI
 
 struct NavigationIndicatorView: View {
