@@ -10,6 +10,7 @@
 		0520B53B299AA57A00802DCE /* K2D-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0520B53A299AA57A00802DCE /* K2D-Regular.ttf */; };
 		0520B53F299ACBD700802DCE /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0520B53E299ACBD700802DCE /* LaunchScreen.swift */; };
 		05C30F712996D92500913DF1 /* K2D-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 05C30F702996D92500913DF1 /* K2D-SemiBold.ttf */; };
+		81017DCF29A7FE47007EF22C /* planets.json in Resources */ = {isa = PBXBuildFile; fileRef = 81017DCE29A7FE47007EF22C /* planets.json */; };
 		D11D612229899AB00055E3D5 /* API_NasaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11D612129899AB00055E3D5 /* API_NasaApp.swift */; };
 		D11D612429899AB00055E3D5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11D612329899AB00055E3D5 /* ContentView.swift */; };
 		D11D612629899AB00055E3D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D11D612529899AB00055E3D5 /* Assets.xcassets */; };
@@ -31,6 +32,7 @@
 		0520B53E299ACBD700802DCE /* LaunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreen.swift; sourceTree = "<group>"; };
 		05C30F622996CCDE00913DF1 /* API-Nasa-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "API-Nasa-Info.plist"; sourceTree = SOURCE_ROOT; };
 		05C30F702996D92500913DF1 /* K2D-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "K2D-SemiBold.ttf"; sourceTree = "<group>"; };
+		81017DCE29A7FE47007EF22C /* planets.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = planets.json; sourceTree = "<group>"; };
 		D11D611E29899AB00055E3D5 /* API_Nasa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = API_Nasa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D11D612129899AB00055E3D5 /* API_NasaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API_NasaApp.swift; sourceTree = "<group>"; };
 		D11D612329899AB00055E3D5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 			children = (
 				D11D6139298C303F0055E3D5 /* PlanetInfos.swift */,
 				D12FA0432996D47200E81604 /* PlusPlanetInfos.swift */,
+				81017DCE29A7FE47007EF22C /* planets.json */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -207,6 +210,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				05C30F712996D92500913DF1 /* K2D-SemiBold.ttf in Resources */,
+				81017DCF29A7FE47007EF22C /* planets.json in Resources */,
 				D11D612929899AB00055E3D5 /* Preview Assets.xcassets in Resources */,
 				D11D612629899AB00055E3D5 /* Assets.xcassets in Resources */,
 				0520B53B299AA57A00802DCE /* K2D-Regular.ttf in Resources */,
@@ -401,7 +405,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"API_Nasa/Preview Content\"";
-				DEVELOPMENT_TEAM = 3SWCGFCJF2;
+				DEVELOPMENT_TEAM = NFLV2P6B4S;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "API-Nasa-Info.plist";

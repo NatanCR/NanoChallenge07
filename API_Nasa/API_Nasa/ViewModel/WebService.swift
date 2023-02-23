@@ -29,7 +29,7 @@ class WebService: ObservableObject {
         }
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
-        request.setValue("YOUR API KEY", forHTTPHeaderField: "X-RapidAPI-Key")
+        request.setValue("2e68fe9a08msha4b151812270feep1fae83jsn67e1e76b4267", forHTTPHeaderField: "X-RapidAPI-Key")
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("application/json", forHTTPHeaderField: "Accept")
         request.timeoutInterval = 10
