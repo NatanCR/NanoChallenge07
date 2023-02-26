@@ -15,34 +15,34 @@ struct ARViewIndicator: UIViewControllerRepresentable {
     @State var planetDetails: PlanetInfos
    
    func makeUIViewController(context: Context) -> ARKitView {
-       return ARKitView(planetInfos: planetDetails)
+       return ARKitView(planetInfos: planetDetails) //cria o estado inicial da visualização e retorna
    }
    func updateUIViewController(_ uiViewController:
    ARViewIndicator.UIViewControllerType, context:
-   UIViewControllerRepresentableContext<ARViewIndicator>) { }
+   UIViewControllerRepresentableContext<ARViewIndicator>) { } //atualiza o estado da visualização
 }
 
 class ARKitView: UIViewController, ARSCNViewDelegate {
     var planetInfos: PlanetInfos
     
     init(planetInfos: PlanetInfos) {
-        self.planetInfos = planetInfos
+        self.planetInfos = planetInfos //inicializa a variável para não ser vazia
         super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        fatalError("init(coder:) has not been implemented") //tratamento de erro
     }
     
     var arView: ARSCNView {
-        return self.view as! ARSCNView
+        return self.view as! ARSCNView //cria uma cena arkit e aloca na variável
     }
     override func loadView() {
-        self.view = ARSCNView(frame: .zero)
+        self.view = ARSCNView(frame: .zero) //carrega a cena
     }
     
     
-    override func viewDidLoad() {
+    override func viewDidLoad() { //inicializa a view
         super.viewDidLoad()
         arView.delegate = self
         arView.scene = SCNScene()
@@ -53,11 +53,11 @@ class ARKitView: UIViewController, ARSCNViewDelegate {
           super.viewDidAppear(animated)
        }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) { //configura a cena
         super.viewWillAppear(animated)
         // Create a session configuration
         let configuration = ARWorldTrackingConfiguration()
-        configuration.planeDetection = .horizontal
+        configuration.planeDetection = .horizontal //utiliza plano horizontal na criação dos nodes
 
         // Run the view's session
         arView.session.run(configuration)
@@ -67,10 +67,10 @@ class ARKitView: UIViewController, ARSCNViewDelegate {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         // Pause the view's session
-        arView.session.pause()
+        arView.session.pause() //pausa a sessão quando sai da view
     }
     
-    func createPlanetSphere() {
+    func createPlanetSphere() { // cria a esfera do planeta
         let sphere = SCNSphere(radius: 0.2)
         let material = SCNMaterial()
         material.diffuse.contents = UIImage(named: "\(planetInfos.name).jpeg")
@@ -85,7 +85,7 @@ class ARKitView: UIViewController, ARSCNViewDelegate {
         
     }
     
-    func addAnimation(node: SCNNode) {
+    func addAnimation(node: SCNNode) { //faz a rotação do node
         let rotateOne = SCNAction.rotateBy(x: 0, y: CGFloat(Float.pi), z: 0, duration: 5.0)
         let repeatForever = SCNAction.repeatForever(rotateOne)
         node.runAction(repeatForever)
