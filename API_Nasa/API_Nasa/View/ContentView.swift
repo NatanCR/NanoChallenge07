@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var alertPlanet = true
-    @StateObject var planetsWS = WebService()
+//    @State var alertPlanet = true
+    var planetsWS = WebService()
     @State private var failedToLoadData: Bool = false
     private var infosServices = InfosService()
     @State private var isActive: Bool = false
@@ -21,8 +21,9 @@ struct ContentView: View {
         Task {
             if !self.planetsWS.planetsService.isEmpty { return }
             do {
-                try await self.planetsWS.loadData()
                 self.isActive = true
+                try await self.planetsWS.load(filename: "planets.json")
+                
             } catch {
                 self.failedToLoadData.toggle()
             }
@@ -74,7 +75,7 @@ struct ContentView: View {
         .task {
             if !self.planetsWS.planetsService.isEmpty { return }
             do {
-                try await self.planetsWS.loadData()
+                try await self.planetsWS.load(filename: "planets.json")
                 self.isActive = true
             } catch {
                 self.failedToLoadData.toggle()

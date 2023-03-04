@@ -35,10 +35,10 @@ struct PlanetDetailsView: View {
                         .padding(.horizontal)
                     DetailCell(text: infosServices.searchMass(planetInfos: [planetDetails])!, title: "Planet mass: ")
                     DetailCell(text: infosServices.searchVolume(planetInfos: [planetDetails])!, title: "Planet volume: ")
-                    DetailCell(text: "\(Int(infosServices.searchPeriod(planets: planetsWS.planetPlusService.self) ?? 0))", title: "Time to orbit sun in Earth days: ")
-                    DetailCell(text: " \(String(format: "%.1f", infosServices.searchTemperature(planetsTemp: planetsWS.planetPlusService.self  ) ?? 0)) ºC", title: "Core temperature: ")
-                    DetailCell(text: "\(infosServices.getStarHost(StarHost: planetsWS.planetPlusService.self) ?? 00)", title: "Host star: " )
-                    DetailCell(text: "\(Double(infosServices.getStarTemp(StarHost: planetsWS.planetPlusService.self) ?? 00)) ºC", title: "Sun photosphere: " )
+                    DetailCell(text: "\(Double(infosServices.searchPeriod(planets: [planetDetails]) ?? 00)) ºC", title: "Time to orbit sun in Earth days:")
+                    DetailCell(text: "\(String(format: "%.1f", infosServices.searchTemperature(planetsTemp: [planetDetails]) ?? 0)) ºC", title: "Core temperature: ")
+                    DetailCell(text: "\(Int(infosServices.getStarHost(StarHost: [planetDetails]) ?? 00))", title: "Host star: " )
+                    DetailCell(text: "\(Double(infosServices.getStarTemp(StarHost: [planetDetails]) ?? 00)) ºC", title: "Sun photosphere: " )
                 }
             } header: {
                 Text("Information:")
@@ -77,13 +77,13 @@ struct PlanetDetailsView: View {
 
             }
         }
-        .task {
-            if !self.planetsWS.planetPlusService.isEmpty { return }
-            do {
-                try await self.planetsWS.loadPlusData(planetName: planetDetails.name)
-            } catch {
-                print(error.localizedDescription)
-            }
-        }
+//        .task {
+//            if !self.planetsWS.planetPlusService.isEmpty { return }
+//            do {
+//                try await self.planetsWS.loadPlusData(planetName: planetDetails.name)
+//            } catch {
+//                print(error.localizedDescription)
+//            }
+//        }
     }
 }
