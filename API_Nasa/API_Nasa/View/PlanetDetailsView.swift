@@ -35,7 +35,7 @@ struct PlanetDetailsView: View {
                         .padding(.horizontal)
                     DetailCell(text: infosServices.searchMass(planetInfos: [planetDetails])!, title: "Planet mass: ")
                     DetailCell(text: infosServices.searchVolume(planetInfos: [planetDetails])!, title: "Planet volume: ")
-                    DetailCell(text: "\(Double(infosServices.searchPeriod(planets: [planetDetails]) ?? 00)) ºC", title: "Time to orbit sun in Earth days:")
+                    DetailCell(text: "\(Int(infosServices.searchPeriod(planets: [planetDetails]) ?? 00))", title: "Time to orbit sun in Earth days:")
                     DetailCell(text: "\(String(format: "%.1f", infosServices.searchTemperature(planetsTemp: [planetDetails]) ?? 0)) ºC", title: "Core temperature: ")
                     DetailCell(text: "\(Int(infosServices.getStarHost(StarHost: [planetDetails]) ?? 00))", title: "Host star: " )
                     DetailCell(text: "\(Double(infosServices.getStarTemp(StarHost: [planetDetails]) ?? 00)) ºC", title: "Sun photosphere: " )
