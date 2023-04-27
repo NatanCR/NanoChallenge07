@@ -24,9 +24,13 @@ struct ARViewIndicator: UIViewControllerRepresentable {
 
 class ARKitView: UIViewController, ARSCNViewDelegate {
     var planetInfos: PlanetInfos
+    //Store The Rotation Of The CurrentNode
+//    var currentAngleY: Float = 0.0
+//    var isRotating = false
+    let node = SCNNode()
     
     init(planetInfos: PlanetInfos) {
-        self.planetInfos = planetInfos //inicializa a variável para não ser vazia
+        self.planetInfos = planetInfos
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -35,29 +39,33 @@ class ARKitView: UIViewController, ARSCNViewDelegate {
     }
     
     var arView: ARSCNView {
-        return self.view as! ARSCNView //cria uma cena arkit e aloca na variável
+        return self.view as! ARSCNView
     }
     override func loadView() {
-        self.view = ARSCNView(frame: .zero) //carrega a cena
+        self.view = ARSCNView(frame: .zero)
     }
     
-    
-    override func viewDidLoad() { //inicializa a view
+    override func viewDidLoad() {
         super.viewDidLoad()
         arView.delegate = self
         arView.scene = SCNScene()
         createPlanetSphere()
+//        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(moveNode(_:)))
+//        self.view.addGestureRecognizer(panGesture)
+//
+//        let rotateGesture = UIRotationGestureRecognizer(target: self, action: #selector(rotateNode(_:)))
+//        self.view.addGestureRecognizer(rotateGesture)
     }
     
     override func viewDidAppear(_ animated: Bool) {
           super.viewDidAppear(animated)
        }
     
-    override func viewWillAppear(_ animated: Bool) { //configura a cena
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         // Create a session configuration
         let configuration = ARWorldTrackingConfiguration()
-        configuration.planeDetection = .horizontal //utiliza plano horizontal na criação dos nodes
+        configuration.planeDetection = .horizontal
 
         // Run the view's session
         arView.session.run(configuration)
@@ -67,7 +75,40 @@ class ARKitView: UIViewController, ARSCNViewDelegate {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         // Pause the view's session
-        arView.session.pause() //pausa a sessão quando sai da view
+        arView.session.pause()
+    }
+    
+//    /// - Parameter gesture: UIRotationGestureRecognizer
+//    @objc func rotateNode(_ gesture: UIRotationGestureRecognizer){
+//
+//        //1. Get The Current Rotation From The Gesture
+//        let rotation = Float(gesture.rotation)
+//
+//        //2. If The Gesture State Has Changed Set The Nodes EulerAngles.y
+//        if gesture.state == .changed{
+//            isRotating = true
+//            self.node.eulerAngles.y = currentAngleY + rotation
+//        }
+//
+//        //3. If The Gesture Has Ended Store The Last Angle Of The Cube
+//        if(gesture.state == .ended) {
+//            currentAngleY = self.node.eulerAngles.y
+//            isRotating = false
+//        }
+//    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let touch = touches.first
+        if touch?.view == self.arView {
+            guard let viewTouchLocation:CGPoint = touch?.location(in: arView) else { return }
+          
+          guard let result = arView.hitTest(viewTouchLocation, options: nil).first else {
+            return
+          }
+          if result.node.name == "planet" {
+            print("TOQUEI NO PLANETA")
+          }
+        }
     }
     
     func createPlanetSphere() { // cria a esfera do planeta
@@ -76,13 +117,13 @@ class ARKitView: UIViewController, ARSCNViewDelegate {
         material.diffuse.contents = UIImage(named: "\(planetInfos.name).jpeg")
         sphere.materials = [material]
         
-        let node = SCNNode()
-        node.position = SCNVector3(0, 0.1, -0.5)
-        node.geometry = sphere
-        arView.scene.rootNode.addChildNode(node)
-        addAnimation(node: node)
-        arView.automaticallyUpdatesLighting = true
+        self.node.position = SCNVector3Make(0, 0.1, -0.8)
+        self.node.geometry = sphere
+        self.node.name = "planet"
         
+        arView.scene.rootNode.addChildNode(self.node)
+//        addAnimation(node: self.node)
+        arView.automaticallyUpdatesLighting = true
     }
     
     func addAnimation(node: SCNNode) { //faz a rotação do node
