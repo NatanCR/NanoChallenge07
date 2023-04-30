@@ -8,6 +8,7 @@
 import Foundation
 import ARKit
 import SwiftUI
+import RealityKit
 
 // MARK: - ARViewIndicator
 struct ARViewIndicator: UIViewControllerRepresentable {
@@ -22,12 +23,10 @@ struct ARViewIndicator: UIViewControllerRepresentable {
    UIViewControllerRepresentableContext<ARViewIndicator>) { } //atualiza o estado da visualização
 }
 
-class ARKitView: UIViewController, ARSCNViewDelegate {
+class ARKitView: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     var planetInfos: PlanetInfos
-    //Store The Rotation Of The CurrentNode
-//    var currentAngleY: Float = 0.0
-//    var isRotating = false
-    let node = SCNNode()
+    var planetNode = SCNNode()
+    var sphereAnchor = AnchorEntity()
     
     init(planetInfos: PlanetInfos) {
         self.planetInfos = planetInfos
@@ -38,23 +37,25 @@ class ARKitView: UIViewController, ARSCNViewDelegate {
         fatalError("init(coder:) has not been implemented") //tratamento de erro
     }
     
-    var arView: ARSCNView {
-        return self.view as! ARSCNView
+    var arView: ARView {
+        return self.view as! ARView
     }
     override func loadView() {
-        self.view = ARSCNView(frame: .zero)
+        self.view = ARView(frame: .zero)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        arView.delegate = self
-        arView.scene = SCNScene()
-        createPlanetSphere()
-//        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(moveNode(_:)))
-//        self.view.addGestureRecognizer(panGesture)
-//
-//        let rotateGesture = UIRotationGestureRecognizer(target: self, action: #selector(rotateNode(_:)))
-//        self.view.addGestureRecognizer(rotateGesture)
+//        arView.delegate = self
+//        arView.scene = SCNScene()
+//        createPlanetSphere()
+        arView.session.delegate = self
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePan(_:)))
+                arView.addGestureRecognizer(panGesture)
+        
+        let planet = createNode()
+        placeNode(sphere: planet ?? ModelEntity(), at: SIMD3(x: 0, y: 0, z: -0.8))
+        installGesture(on: planet ?? ModelEntity())
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -69,7 +70,7 @@ class ARKitView: UIViewController, ARSCNViewDelegate {
 
         // Run the view's session
         arView.session.run(configuration)
-        arView.delegate = self
+//        arView.delegate = self
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -78,53 +79,76 @@ class ARKitView: UIViewController, ARSCNViewDelegate {
         arView.session.pause()
     }
     
-//    /// - Parameter gesture: UIRotationGestureRecognizer
-//    @objc func rotateNode(_ gesture: UIRotationGestureRecognizer){
+//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        let touch = touches.first
+//        if touch?.view == self.arView {
+//            guard let viewTouchLocation: CGPoint = touch?.location(in: arView) else { return }
 //
-//        //1. Get The Current Rotation From The Gesture
-//        let rotation = Float(gesture.rotation)
+//          guard let result = arView.hitTest(viewTouchLocation, options: nil).first else {
+//            return
+//          }
+//          let worldTouchPosition = arView.unprojectPoint(SCNVector3(viewTouchLocation.x, viewTouchLocation.y, 0))
+//          if result.node.name == "planet" {
 //
-//        //2. If The Gesture State Has Changed Set The Nodes EulerAngles.y
-//        if gesture.state == .changed{
-//            isRotating = true
-//            self.node.eulerAngles.y = currentAngleY + rotation
-//        }
-//
-//        //3. If The Gesture Has Ended Store The Last Angle Of The Cube
-//        if(gesture.state == .ended) {
-//            currentAngleY = self.node.eulerAngles.y
-//            isRotating = false
+//            print("TOQUEI NO PLANETA")
+//          }
 //        }
 //    }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        let touch = touches.first
-        if touch?.view == self.arView {
-            guard let viewTouchLocation:CGPoint = touch?.location(in: arView) else { return }
-          
-          guard let result = arView.hitTest(viewTouchLocation, options: nil).first else {
-            return
-          }
-          if result.node.name == "planet" {
-            print("TOQUEI NO PLANETA")
-          }
+    @objc func handlePan(_ gesture: UIPanGestureRecognizer) {
+            // Get the translation of the gesture
+            let translation = gesture.translation(in: arView)
+            
+            // Move the box anchor vertically
+            let verticalDistance = Float(translation.y / 100) // adjust the divisor to change the sensitivity of the movement
+            sphereAnchor.position.y += verticalDistance
+            
+            // Reset the gesture's translation
+            gesture.setTranslation(.zero, in: arView)
         }
+    
+    func createNode() -> ModelEntity? {
+        let sphere = MeshResource.generateSphere(radius: 0.2)
+        // Load the texture resource
+           guard let texture = try? TextureResource.load(named: "\(planetInfos.name)") else {
+               return nil
+           }
+           
+           // Create a material and set its texture property
+        var material = SimpleMaterial()
+           material.color.texture = .init(texture)
+        
+        let sphereEntity = ModelEntity(mesh: sphere, materials: [material])
+        
+        return sphereEntity
     }
     
-    func createPlanetSphere() { // cria a esfera do planeta
-        let sphere = SCNSphere(radius: 0.2)
-        let material = SCNMaterial()
-        material.diffuse.contents = UIImage(named: "\(planetInfos.name).jpeg")
-        sphere.materials = [material]
-        
-        self.node.position = SCNVector3Make(0, 0.1, -0.8)
-        self.node.geometry = sphere
-        self.node.name = "planet"
-        
-        arView.scene.rootNode.addChildNode(self.node)
-//        addAnimation(node: self.node)
-        arView.automaticallyUpdatesLighting = true
+    func placeNode(sphere: ModelEntity, at position: SIMD3<Float>) {
+        self.sphereAnchor = AnchorEntity(world: position)
+        self.sphereAnchor.position = [0,0,-1]
+        self.sphereAnchor.addChild(sphere)
+        self.arView.scene.addAnchor(sphereAnchor)
     }
+    
+    func installGesture(on object: ModelEntity) {
+        object.generateCollisionShapes(recursive: true)
+        arView.installGestures([.rotation,.scale],for: object)
+    }
+    
+//    func createPlanetSphere() { // cria a esfera do planeta
+//        let sphere = SCNSphere(radius: 0.2)
+//        let material = SCNMaterial()
+//        material.diffuse.contents = UIImage(named: "\(planetInfos.name).jpeg")
+//        sphere.materials = [material]
+//
+//        self.planetNode.position = SCNVector3Make(0, 0.1, -0.8)
+//        self.planetNode.geometry = sphere
+//        self.planetNode.name = "planet"
+//
+//        arView.scene.rootNode.addChildNode(self.planetNode)
+////        addAnimation(node: self.node)
+//        arView.automaticallyUpdatesLighting = true
+//    }
     
     func addAnimation(node: SCNNode) { //faz a rotação do node
         let rotateOne = SCNAction.rotateBy(x: 0, y: CGFloat(Float.pi), z: 0, duration: 5.0)
