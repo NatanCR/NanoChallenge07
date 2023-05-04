@@ -8,25 +8,26 @@
 import Foundation
 import ARKit
 import SwiftUI
-import RealityKit
 
 // MARK: - ARViewIndicator
 struct ARViewIndicator: UIViewControllerRepresentable {
-   typealias UIViewControllerType = ARKitView
+    typealias UIViewControllerType = ARKitView
     @State var planetDetails: PlanetInfos
-   
-   func makeUIViewController(context: Context) -> ARKitView {
-       return ARKitView(planetInfos: planetDetails) //cria o estado inicial da visualização e retorna
-   }
-   func updateUIViewController(_ uiViewController:
-   ARViewIndicator.UIViewControllerType, context:
-   UIViewControllerRepresentableContext<ARViewIndicator>) { } //atualiza o estado da visualização
+    
+    func makeUIViewController(context: Context) -> ARKitView {
+        //cria o estado inicial da visualização e retorna
+        return ARKitView(planetInfos: planetDetails)
+    }
+    func updateUIViewController(_ uiViewController:
+                                ARViewIndicator.UIViewControllerType, context:
+                                //atualiza o estado da visualização
+                                UIViewControllerRepresentableContext<ARViewIndicator>) { }
 }
 
-class ARKitView: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
+class ARKitView: UIViewController, ARSCNViewDelegate {
     var planetInfos: PlanetInfos
     var planetNode = SCNNode()
-    var sphereAnchor = AnchorEntity()
+    var lastPosition: CGPoint?
     
     init(planetInfos: PlanetInfos) {
         self.planetInfos = planetInfos
@@ -34,126 +35,98 @@ class ARKitView: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented") //tratamento de erro
+        //tratamento de erro
+        fatalError("init(coder:) has not been implemented")
     }
     
-    var arView: ARView {
-        return self.view as! ARView
+    //variável referência da view
+    var arView: ARSCNView {
+        return self.view as! ARSCNView
     }
+    
     override func loadView() {
-        self.view = ARView(frame: .zero)
+        self.view = ARSCNView(frame: .zero)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        arView.delegate = self
-//        arView.scene = SCNScene()
-//        createPlanetSphere()
-        arView.session.delegate = self
-        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePan(_:)))
-                arView.addGestureRecognizer(panGesture)
-        
-        let planet = createNode()
-        placeNode(sphere: planet ?? ModelEntity(), at: SIMD3(x: 0, y: 0, z: -0.8))
-        installGesture(on: planet ?? ModelEntity())
+        arView.delegate = self
+        arView.scene = SCNScene()
+        createPlanetSphere()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-          super.viewDidAppear(animated)
-       }
+        super.viewDidAppear(animated)
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         // Create a session configuration
         let configuration = ARWorldTrackingConfiguration()
         configuration.planeDetection = .horizontal
-
+        
         // Run the view's session
         arView.session.run(configuration)
-//        arView.delegate = self
+        arView.delegate = self
     }
-
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         // Pause the view's session
         arView.session.pause()
     }
     
-//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        let touch = touches.first
-//        if touch?.view == self.arView {
-//            guard let viewTouchLocation: CGPoint = touch?.location(in: arView) else { return }
-//
-//          guard let result = arView.hitTest(viewTouchLocation, options: nil).first else {
-//            return
-//          }
-//          let worldTouchPosition = arView.unprojectPoint(SCNVector3(viewTouchLocation.x, viewTouchLocation.y, 0))
-//          if result.node.name == "planet" {
-//
-//            print("TOQUEI NO PLANETA")
-//          }
-//        }
-//    }
-    
-    @objc func handlePan(_ gesture: UIPanGestureRecognizer) {
-            // Get the translation of the gesture
-            let translation = gesture.translation(in: arView)
-            
-            // Move the box anchor vertically
-            let verticalDistance = Float(translation.y / 100) // adjust the divisor to change the sensitivity of the movement
-            sphereAnchor.position.y += verticalDistance
-            
-            // Reset the gesture's translation
-            gesture.setTranslation(.zero, in: arView)
-        }
-    
-    func createNode() -> ModelEntity? {
-        let sphere = MeshResource.generateSphere(radius: 0.2)
-        // Load the texture resource
-           guard let texture = try? TextureResource.load(named: "\(planetInfos.name)") else {
-               return nil
-           }
-           
-           // Create a material and set its texture property
-        var material = SimpleMaterial()
-           material.color.texture = .init(texture)
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        // Obtém a localização do toque atual
+        guard let currentTouchLocation = touches.first?.location(in: arView) else { return }
         
-        let sphereEntity = ModelEntity(mesh: sphere, materials: [material])
+        // Salva a posição do toque atual
+        lastPosition = currentTouchLocation
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        // Obtém a localização do toque atual
+        guard let currentTouchLocation = touches.first?.location(in: arView) else { return }
         
-        return sphereEntity
+        // Verifica se a posição anterior do toque é conhecida
+        guard let lastPosition = lastPosition else { return }
+        
+        // Calcula a diferença de posição entre o toque anterior e o toque atual
+        let deltaX = Float(currentTouchLocation.x - lastPosition.x)
+        let deltaY = Float(currentTouchLocation.y - lastPosition.y)
+        
+        // Calcula a rotação a ser aplicada
+        let sensitivityFactor: Float = 8.0
+        let rotationX = simd_float3(0, 1, 0) * (deltaX * (Float.pi / 180) / sensitivityFactor)
+        let rotationY = simd_float3(1, 0, 0) * (deltaY * (Float.pi / 180) / sensitivityFactor)
+        let rotation = rotationX + rotationY
+        
+        // Aplica a rotação ao nó da esfera
+        let euler = self.planetNode.eulerAngles
+        let simdEuler = simd_float3(euler.x, euler.y, euler.z)
+        self.planetNode.eulerAngles = SCNVector3(simdEuler + rotation)
+        
+        // Salva a posição atual do toque como a posição anterior
+        self.lastPosition = currentTouchLocation
     }
     
-    func placeNode(sphere: ModelEntity, at position: SIMD3<Float>) {
-        self.sphereAnchor = AnchorEntity(world: position)
-        self.sphereAnchor.position = [0,0,-1]
-        self.sphereAnchor.addChild(sphere)
-        self.arView.scene.addAnchor(sphereAnchor)
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        // Reseta a posição anterior do toque
+        self.lastPosition = nil
     }
     
-    func installGesture(on object: ModelEntity) {
-        object.generateCollisionShapes(recursive: true)
-        arView.installGestures([.rotation,.scale],for: object)
-    }
-    
-//    func createPlanetSphere() { // cria a esfera do planeta
-//        let sphere = SCNSphere(radius: 0.2)
-//        let material = SCNMaterial()
-//        material.diffuse.contents = UIImage(named: "\(planetInfos.name).jpeg")
-//        sphere.materials = [material]
-//
-//        self.planetNode.position = SCNVector3Make(0, 0.1, -0.8)
-//        self.planetNode.geometry = sphere
-//        self.planetNode.name = "planet"
-//
-//        arView.scene.rootNode.addChildNode(self.planetNode)
-////        addAnimation(node: self.node)
-//        arView.automaticallyUpdatesLighting = true
-//    }
-    
-    func addAnimation(node: SCNNode) { //faz a rotação do node
-        let rotateOne = SCNAction.rotateBy(x: 0, y: CGFloat(Float.pi), z: 0, duration: 5.0)
-        let repeatForever = SCNAction.repeatForever(rotateOne)
-        node.runAction(repeatForever)
+    func createPlanetSphere() {
+        let sphere = SCNSphere(radius: 0.2)
+        let material = SCNMaterial()
+        material.diffuse.contents = UIImage(named: "\(planetInfos.name).jpeg")
+        sphere.materials = [material]
+        
+        self.planetNode.position = SCNVector3Make(0, 0, -0.6)
+        self.planetNode.geometry = sphere
+        self.planetNode.name = "planet"
+        
+        arView.scene.rootNode.addChildNode(self.planetNode)
+        arView.automaticallyUpdatesLighting = true
     }
     
 }

@@ -22,17 +22,25 @@ struct PlanetDetailsView: View {
                 ScrollView(){
                     DetailCell(text: planetDetails.name, title: "Planet name: ")
                     DetailCell(text: planetDetails.planetOrder, title: "Solar system order: ")
-                    Text("Planet description: " + planetDetails.description)
-                        .font(.custom("K2D-Regular",fixedSize: 18))
-                        .multilineTextAlignment(.leading).padding(10)
+                    VStack {
+                        HStack {
+                            Text("Planet description: ")
+                                .font(.custom("K2D-SemiBold", fixedSize: 18)) +
+                            Text(planetDetails.description)
+                                .font(.custom("K2D-Regular", fixedSize: 18))
+                        }
+                        .multilineTextAlignment(.leading)
+                        .padding(10)
                         .padding(.vertical, 8)
                         .frame(maxWidth: .infinity)
-                        .background {
-                            RoundedRectangle(cornerRadius: 10)
-                                .fill(Color(.init(red: 0.26, green: 0.26, blue: 0.26, alpha: 1.00)))
-                                .opacity(0.4)
-                        }
+                            .background {
+                                RoundedRectangle(cornerRadius: 10)
+                                    .fill(Color(.init(red: 0.26, green: 0.26, blue: 0.26, alpha: 1.00)))
+                                    .opacity(0.4)
+                            }
+                    }
                         .padding(.horizontal)
+
                     DetailCell(text: infosServices.searchMass(planetInfos: [planetDetails])!, title: "Planet mass: ")
                     DetailCell(text: infosServices.searchVolume(planetInfos: [planetDetails])!, title: "Planet volume: ")
                     DetailCell(text: "\(Int(infosServices.searchPeriod(planets: [planetDetails]) ?? 00))", title: "Time to orbit sun in Earth days:")
@@ -85,5 +93,12 @@ struct PlanetDetailsView: View {
 //                print(error.localizedDescription)
 //            }
 //        }
+    }
+}
+
+extension Text {
+    func textBold(text: String) -> Text {
+        return Text(text).font(.custom(
+            "K2D-SemiBold",fixedSize: 18))
     }
 }
