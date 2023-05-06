@@ -24,6 +24,7 @@
 		D138512F299C216500B35797 /* ARKitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D138512E299C216500B35797 /* ARKitView.swift */; };
 		D138513F299C4C9700B35797 /* NavigationIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D138513E299C4C9700B35797 /* NavigationIndicator.swift */; };
 		D167817929EF06380076FB0C /* PlanetNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D167817829EF06380076FB0C /* PlanetNode.swift */; };
+		D191DF8B2A070E25003326B8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D191DF8D2A070E25003326B8 /* Localizable.strings */; };
 		D1EE28C52992914F003A0A90 /* PlanetDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EE28C42992914F003A0A90 /* PlanetDetailsView.swift */; };
 		D1EE28C72992D941003A0A90 /* InfosService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EE28C62992D941003A0A90 /* InfosService.swift */; };
 /* End PBXBuildFile section */
@@ -49,6 +50,8 @@
 		D138513E299C4C9700B35797 /* NavigationIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationIndicator.swift; sourceTree = "<group>"; };
 		D167817829EF06380076FB0C /* PlanetNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetNode.swift; sourceTree = "<group>"; };
 		D191DF882A070A67003326B8 /* planetas.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = planetas.geojson; sourceTree = "<group>"; };
+		D191DF8C2A070E25003326B8 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		D191DF8E2A070E2D003326B8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D1EE28C42992914F003A0A90 /* PlanetDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetDetailsView.swift; sourceTree = "<group>"; };
 		D1EE28C62992D941003A0A90 /* InfosService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfosService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -67,6 +70,7 @@
 		D11D611529899AB00055E3D5 = {
 			isa = PBXGroup;
 			children = (
+				D191DF8D2A070E25003326B8 /* Localizable.strings */,
 				D11D612029899AB00055E3D5 /* API_Nasa */,
 				D11D611F29899AB00055E3D5 /* Products */,
 			);
@@ -197,6 +201,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				"pt-BR",
 				Base,
 			);
 			mainGroup = D11D611529899AB00055E3D5;
@@ -215,6 +220,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				05C30F712996D92500913DF1 /* K2D-SemiBold.ttf in Resources */,
+				D191DF8B2A070E25003326B8 /* Localizable.strings in Resources */,
 				81017DCF29A7FE47007EF22C /* planets.json in Resources */,
 				D11D612929899AB00055E3D5 /* Preview Assets.xcassets in Resources */,
 				D11D612629899AB00055E3D5 /* Assets.xcassets in Resources */,
@@ -247,6 +253,18 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		D191DF8D2A070E25003326B8 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D191DF8C2A070E25003326B8 /* pt-BR */,
+				D191DF8E2A070E2D003326B8 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		D11D612A29899AB00055E3D5 /* Debug */ = {
