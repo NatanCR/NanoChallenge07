@@ -48,6 +48,7 @@
 		D138512E299C216500B35797 /* ARKitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARKitView.swift; sourceTree = "<group>"; };
 		D138513E299C4C9700B35797 /* NavigationIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationIndicator.swift; sourceTree = "<group>"; };
 		D167817829EF06380076FB0C /* PlanetNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetNode.swift; sourceTree = "<group>"; };
+		D191DF882A070A67003326B8 /* planetas.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = planetas.geojson; sourceTree = "<group>"; };
 		D1EE28C42992914F003A0A90 /* PlanetDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetDetailsView.swift; sourceTree = "<group>"; };
 		D1EE28C62992D941003A0A90 /* InfosService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfosService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -109,6 +110,7 @@
 				D11D6139298C303F0055E3D5 /* PlanetInfos.swift */,
 				D12FA0432996D47200E81604 /* PlusPlanetInfos.swift */,
 				81017DCE29A7FE47007EF22C /* planets.json */,
+				D191DF882A070A67003326B8 /* planetas.geojson */,
 			);
 			path = Model;
 			sourceTree = "<group>";

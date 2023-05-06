@@ -31,7 +31,7 @@ import Foundation
 
 //Knowledge sharing
 
-struct PlanetInfos:Codable, Identifiable {
+struct PlanetInfos: Codable, Identifiable {
     // MARK: - Welcome
     let basicDetails: [BasicDetail]
     let description: String
@@ -39,9 +39,6 @@ struct PlanetInfos:Codable, Identifiable {
     let imgSrc: [ImgSrc]
     let key, name, planetOrder, source: String
     let wikiLink: URL
-    
-  
-    
 }
 
 // MARK: - BasicDetail
@@ -50,7 +47,6 @@ struct BasicDetail: Codable {
     let period: Double
     let temperature: Double
     let host_star_mass, host_star_temperature: Double
-   
 }
 
 
