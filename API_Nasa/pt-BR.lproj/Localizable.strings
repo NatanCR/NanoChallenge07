@@ -5,3 +5,41 @@
   Created by Natan de Camargo Rodrigues on 06/05/23.
   
 */
+
+"load" = "Carregando...";
+
+"order" = "Ordenado por:";
+
+"solar" = "Sistema Solar";
+
+"name" = "Nome";
+
+"loadFailed" = "Falha ao carregar";
+
+"server" = "Sem conexão com internet";
+
+"try" = "Tente novamente";
+
+"cancel" = "Cancelar";
+
+"planetName" = "Nome do planeta: ";
+
+"planetOrder" = "Ordem do sistema solar: ";
+
+"planetDescription" = "Descrição do planeta: ";
+
+"mass" = "Massa do planeta: ";
+
+"volume" = "Volume do planeta: ";
+
+"time" = "Tempo para orbitar o sol: ";
+
+"core" = "Temperatura do núcleo: ";
+
+"host" = "Estrela principal: ";
+
+"sun" = "Temperatura do sol: ";
+
+"info" = "Informações:";
+
+"back" = "Voltar";

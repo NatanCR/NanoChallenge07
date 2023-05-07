@@ -5,3 +5,41 @@
   Created by Natan de Camargo Rodrigues on 06/05/23.
   
 */
+
+"load" = "Loading...";
+
+"order" = "Order by:";
+
+"solar" = "Solar System";
+
+"name" = "Name";
+
+"loadFailed" = "Load failed";
+
+"server" = "The connection server was lost";
+
+"try" = "Try again";
+
+"cancel" = "Cancel";
+
+"planetName" = "Planet name: ";
+
+"planetOrder" = "Solar system order: ";
+
+"planetDescription" = "Planet description: ";
+
+"mass" = "Planet mass: ";
+
+"volume" = "Planet volume: ";
+
+"time" = "Time to orbit sun in Earth days: ";
+
+"core" = "Core temperature: ";
+
+"host" = "Host star: ";
+
+"sun" = "Sun photosphere: ";
+
+"info" = "Information:";
+
+"back" = "Back";

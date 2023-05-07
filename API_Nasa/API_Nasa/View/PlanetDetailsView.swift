@@ -20,11 +20,11 @@ struct PlanetDetailsView: View {
                 .padding(.bottom, 20)
             Section() {
                 ScrollView(){
-                    DetailCell(text: planetDetails.name, title: "Planet name: ")
-                    DetailCell(text: planetDetails.planetOrder, title: "Solar system order: ")
+                    DetailCell(text: planetDetails.name, title: Text("planetName"))
+                    DetailCell(text: planetDetails.planetOrder, title: Text("planetOrder"))
                     VStack {
                         HStack {
-                            Text("Planet description: ")
+                            Text("planetDescription")
                                 .font(.custom("K2D-SemiBold", fixedSize: 18)) +
                             Text(planetDetails.description)
                                 .font(.custom("K2D-Regular", fixedSize: 18))
@@ -41,15 +41,15 @@ struct PlanetDetailsView: View {
                     }
                         .padding(.horizontal)
 
-                    DetailCell(text: infosServices.searchMass(planetInfos: [planetDetails])!, title: "Planet mass: ")
-                    DetailCell(text: infosServices.searchVolume(planetInfos: [planetDetails])!, title: "Planet volume: ")
-                    DetailCell(text: "\(Int(infosServices.searchPeriod(planets: [planetDetails]) ?? 00))", title: "Time to orbit sun in Earth days:")
-                    DetailCell(text: "\(String(format: "%.1f", infosServices.searchTemperature(planetsTemp: [planetDetails]) ?? 0)) ºC", title: "Core temperature: ")
-                    DetailCell(text: "\(Int(infosServices.getStarHost(StarHost: [planetDetails]) ?? 00))", title: "Host star: " )
-                    DetailCell(text: "\(Double(infosServices.getStarTemp(StarHost: [planetDetails]) ?? 00)) ºC", title: "Sun photosphere: " )
+                    DetailCell(text: infosServices.searchMass(planetInfos: [planetDetails])!, title: Text("mass"))
+                    DetailCell(text: infosServices.searchVolume(planetInfos: [planetDetails])!, title: Text("volume"))
+                    DetailCell(text: "\(Int(infosServices.searchPeriod(planets: [planetDetails]) ?? 00)) dias", title: Text("time"))
+                    DetailCell(text: "\(String(format: "%.1f", infosServices.searchTemperature(planetsTemp: [planetDetails]) ?? 0)) ºC", title: Text("core"))
+                    DetailCell(text: "\(Int(infosServices.getStarHost(StarHost: [planetDetails]) ?? 00))", title: Text("host"))
+                    DetailCell(text: "\(Double(infosServices.getStarTemp(StarHost: [planetDetails]) ?? 00)) ºC", title: Text("sun"))
                 }
             } header: {
-                Text("Information:")
+                Text("info")
                     .font(.custom(
                         "K2D-SemiBold",fixedSize: 24))
                     .font(.title)
@@ -66,7 +66,7 @@ struct PlanetDetailsView: View {
                     HStack {
                         Image(systemName: "chevron.left")
                             .font(.system(size: 16, weight: .semibold, design: .rounded))
-                        Text("Back")
+                        Text("back")
                             .font(.custom(
                                 "K2D-SemiBold",fixedSize: 18))
                     }.foregroundColor(Color.white)
@@ -93,12 +93,5 @@ struct PlanetDetailsView: View {
 //                print(error.localizedDescription)
 //            }
 //        }
-    }
-}
-
-extension Text {
-    func textBold(text: String) -> Text {
-        return Text(text).font(.custom(
-            "K2D-SemiBold",fixedSize: 18))
     }
 }

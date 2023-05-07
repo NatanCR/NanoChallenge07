@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ContentView: View {
-//    @State var alertPlanet = true
     var planetsWS = WebService()
     @State private var failedToLoadData: Bool = false
     private var infosServices = InfosService()
@@ -35,7 +34,7 @@ struct ContentView: View {
             VStack {
                 ScrollView (showsIndicators: false){
                     if !isActive {
-                        ProgressView("Loading...").padding(.top, 300)
+                        ProgressView("load").padding(.top, 300)
                             .foregroundColor(.white)
                             .progressViewStyle(CircularProgressViewStyle(tint: .white))
                     }
@@ -48,16 +47,16 @@ struct ContentView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Menu{
-                        Text("Order By:")
+                        Text("order")
                         Button {
                             planetsWS.order(planet: planetsWS.planetsService, chave: "id")
                         } label: {
-                            Label(title:{Text("Solar System")}, icon: {})
+                            Label(title:{Text("solar")}, icon: {})
                         }
                         Button {
                             planetsWS.order(planet: planetsWS.planetsService, chave: "name")
                         } label: {
-                            Label(title:{Text("Name")}, icon: {})
+                            Label(title:{Text("name")}, icon: {})
                         }
                     }label: {
                         Label {
@@ -82,7 +81,7 @@ struct ContentView: View {
             }
         }
         .alert(isPresented: $failedToLoadData) {
-            Alert(title: Text("Load failed"), message: Text("The connection server was lost"), primaryButton: .default(Text("Try again"), action: refreshData), secondaryButton: .cancel(Text("Cancel")))
+            Alert(title: Text("loadFailed"), message: Text("server"), primaryButton: .default(Text("try"), action: refreshData), secondaryButton: .cancel(Text("cancel")))
         }
     }
 }

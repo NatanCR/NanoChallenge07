@@ -9,11 +9,11 @@ import SwiftUI
 
 struct DetailCell: View {
     var text: String
-    var title: String
+    var title: Text
     
     var body: some View {
         HStack{
-            Text(title)
+            title
                 .font(.custom(
                 "K2D-SemiBold",fixedSize: 18))
             Text(text)
