@@ -1,0 +1,204 @@
+[
+    {
+        "basicDetails": [
+            {
+                "mass": "5.6834 x 10^26 kg",
+                "volume": "8.2713 x 10^14 km^3",
+                "period": 10747.0,
+                "temperature": 134.0,
+                "host_star_mass": 1.0,
+                "host_star_temperature": 6000.0
+                
+            }
+        ],
+        "description": "Saturno é o sexto planeta a partir do Sol e o segundo maior do Sistema Solar, depois de Júpiter. É um gigante gasoso com um raio médio de cerca de nove vezes e meia o da Terra. Ele tem apenas um oitavo da densidade média da Terra; no entanto, com seu volume maior, Saturno é mais de 95 vezes mais massivo.",
+        "id": 6,
+        "imgSrc": [
+            {
+                "img": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Saturn_during_Equinox.jpg",
+                "imgDescription": "Fotografado em cores naturais se aproximando do equinócio, pela sonda Cassini em julho de 2008; o ponto no canto inferior esquerdo é Titã."
+            }
+        ],
+        "key": "45l1h8dab43b",
+        "name": "Saturno",
+        "planetOrder": "6",
+        "source": "Wikipedia",
+        "wikiLink": "https://en.wikipedia.org/wiki/Saturn"
+    },
+    {
+        "basicDetails": [
+            {
+                "mass": "1.8982 x 10^27 kg",
+                "volume": "1.4313 x 10^15 km^3",
+                "period": 4331.0,
+                "temperature": 165.0,
+                "host_star_mass": 1.0,
+                "host_star_temperature": 6000.0
+            }
+        ],
+        "description": "Júpiter é o quinto planeta a partir do Sol e o maior do Sistema Solar. É um gigante gasoso com uma massa mais de duas vezes e meia a de todos os outros planetas do Sistema Solar combinados, mas ligeiramente menos de um milésimo da massa do Sol.",
+        "id": 5,
+        "imgSrc": [
+            {
+                "img": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Jupiter_and_its_shrunken_Great_Red_Spot.jpg",
+                "imgDescription": "Vista completa em cores naturais, tirada pelo Telescópio Espacial Hubble em abril de 2014."
+            }
+        ],
+        "key": "75oii1s99r6e",
+        "name": "Júpiter",
+        "planetOrder": "5",
+        "source": "Wikipedia",
+        "wikiLink": "https://en.wikipedia.org/wiki/Jupiter"
+    },
+    {
+        "basicDetails": [
+            {
+                "mass": "(8.6810±0.0013) x 1025 kg",
+                "volume": "6.833 x 1013 km^3",
+                "period": 30589.0,
+                "temperature": 76.0,
+                "host_star_mass": 1.0,
+                "host_star_temperature": 6000.0
+            }
+        ],
+        "description": "Urano é o sétimo planeta a partir do Sol. Seu nome é uma referência ao deus grego do céu, Urano, que, de acordo com a mitologia grega, era o bisavô de Ares, avô de Zeus e pai de Cronos. Tem o terceiro maior raio planetário e a quarta maior massa planetária no Sistema Solar.",
+        "id": 7,
+        "imgSrc": [
+            {
+                "img": "https://upload.wikimedia.org/wikipedia/commons/4/48/Uranus_as_seen_by_NASA%27s_Voyager_2_%28remastered%29.png",
+                "imgDescription": "Fotografia de Urano em cores verdadeiras (pela Voyager 2 em 1986)."
+            }
+        ],
+        "key": "9jun2xna6ig8",
+        "name": "Uranu",
+        "planetOrder": "7",
+        "source": "Wikipedia",
+        "wikiLink": "https://en.wikipedia.org/wiki/Uranus"
+    },
+    {
+        "basicDetails": [
+            {
+                "mass": "1.02413 x 1026 kg",
+                "volume": "6.253 x 1013 km^3",
+                "period": 59800.0,
+                "temperature": 72.0,
+                "host_star_mass": 1.0,
+                "host_star_temperature": 6000.0
+            }
+        ],
+        "description": "Netuno é o oitavo planeta do Sistema Solar, e o mais distante conhecido do Sol. No Sistema Solar, é o quarto maior planeta em diâmetro, o terceiro mais massivo e o planeta gigante mais denso. Tem 17 vezes a massa da Terra e é ligeiramente mais massivo do que seu irmão quase gêmeo, Urano.",
+        "id": 8,
+        "imgSrc": [
+            {
+                "img": "https://upload.wikimedia.org/wikipedia/commons/6/63/Neptune_-_Voyager_2_%2829347980845%29_flatten_crop.jpg",
+                "imgDescription": "Fotografia tirada pela sonda Voyager 2 da NASA em 1989."
+            }
+        ],
+        "key": "bo6209to463g",
+        "name": "Netuno",
+        "planetOrder": "8",
+        "source": "Wikipedia",
+        "wikiLink": "https://en.wikipedia.org/wiki/Neptune"
+    },
+    {
+        "basicDetails": [
+            {
+                "mass": "4.8675 x 10^24 kg",
+                "volume": "9.2843 x 10^11 km^3",
+                "period": 224.7,
+                "temperature": 737.0,
+                "host_star_mass": 1.0,
+                "host_star_temperature": 6000.0
+            }
+        ],
+        "description": "Vênus é o segundo planeta a partir do Sol e é nomeado em homenagem à deusa romana do amor e da beleza. Como o objeto natural mais brilhante no céu noturno da Terra após a Lua, Vênus pode projetar sombras e ser visível a olho nu em plena luz do dia.",
+        "id": 2,
+        "imgSrc": [
+            {
+                "img": "https://upload.wikimedia.org/wikipedia/commons/0/08/Venus_from_Mariner_10.jpg",
+                "imgDescription": "Composto de cores falsas de Vênus em comprimentos de onda visuais e ultravioleta (da sonda Mariner 10). A superfície é completamente obscurecida por nuvens."
+            }
+        ],
+        "key": "cgk97im24nbi",
+        "name": "Vênus",
+        "planetOrder": "2",
+        "source": "Wikipedia",
+        "wikiLink": "https://en.wikipedia.org/wiki/Venus"
+    },
+    {
+        "basicDetails": [
+            {
+                "mass": "5.97237 x 1024 kg",
+                "volume": "1.08321 x 1012 km3",
+                "period": 365.2,
+                "temperature": 288.0,
+                "host_star_mass": 1.0,
+                "host_star_temperature": 6000.0
+            }
+        ],
+        "description": "A Terra é o terceiro planeta a partir do Sol e o único objeto astronômico conhecido a abrigar vida. Embora grandes quantidades de água possam ser encontradas em todo o Sistema Solar, somente a Terra sustenta água líquida em sua superfície. Cerca de 71% da superfície da Terra é composta pelo oceano, ofuscando o gelo polar, lagos e rios da Terra.",
+        "id": 3,
+        "imgSrc": [
+            {
+                "img": "https://upload.wikimedia.org/wikipedia/commons/c/cb/The_Blue_Marble_%28remastered%29.jpg",
+                "imgDescription": "Uma fotografia da Terra tirada pela tripulação da Apollo 17 em 1972. Uma versão processada tornou-se amplamente conhecida como The Blue Marble."
+            }
+        ],
+        "key": "dzvlvhsr344i",
+        "name": "Terra",
+        "planetOrder": "3",
+        "source": "Wikipedia",
+        "wikiLink": "https://en.wikipedia.org/wiki/Earth"
+    },
+    {
+        "basicDetails": [
+            {
+                "mass": "6.4171 x 10^23 kg",
+                "volume": "1.63118 x 10^11 km^3",
+                "period": 687.0,
+                "temperature": 210.0,
+                "host_star_mass": 1.0,
+                "host_star_temperature": 6000.0
+            }
+        ],
+        "description": "Marte é o quarto planeta a partir do Sol e o segundo menor planeta do Sistema Solar, sendo maior apenas do que Mercúrio. Em inglês, Marte carrega o nome do deus romano da guerra e é frequentemente chamado de Planeta Vermelho.",
+        "id": 4,
+        "imgSrc": [
+            {
+                "img": "https://upload.wikimedia.org/wikipedia/commons/0/02/OSIRIS_Mars_true_color.jpg",
+                "imgDescription": "Fotografado em cor natural em 2007."
+            }
+        ],
+        "key": "j2zfgarv8a5y",
+        "name": "Marte",
+        "planetOrder": "4",
+        "source": "Wikipedia",
+        "wikiLink": "https://en.wikipedia.org/wiki/Mars"
+    },
+    {
+        "basicDetails": [
+            {
+                "mass": "3.3011 x 10^23 kg ",
+                "volume": "6.083 x 10^10 km^3",
+                "period": 88.0,
+                "temperature": 400.0,
+                "host_star_mass": 1.0,
+                "host_star_temperature": 6000.0
+            }
+        ],
+        "description": "Mercúrio é o menor planeta do Sistema Solar e o mais próximo do Sol. Sua órbita ao redor do Sol leva 87,97 dias terrestres, sendo a mais curta de todos os planetas do Sol.",
+        "id": 1,
+        "imgSrc": [
+            {
+                "img": "https://upload.wikimedia.org/wikipedia/commons/4/4a/Mercury_in_true_color.jpg",
+                "imgDescription": "Mercúrio em cor verdadeira (pela sonda MESSENGER em 2008)."
+            }
+        ],
+        "key": "zmxk1zx92lo8",
+        "name": "Mercúrio",
+        "planetOrder": "1",
+        "source": "Wikipedia",
+        "wikiLink": "https://en.wikipedia.org/wiki/Mercury_(planet)"
+    }
+]
+

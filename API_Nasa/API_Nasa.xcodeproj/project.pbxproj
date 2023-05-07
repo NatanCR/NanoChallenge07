@@ -10,7 +10,6 @@
 		0520B53B299AA57A00802DCE /* K2D-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0520B53A299AA57A00802DCE /* K2D-Regular.ttf */; };
 		0520B53F299ACBD700802DCE /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0520B53E299ACBD700802DCE /* LaunchScreen.swift */; };
 		05C30F712996D92500913DF1 /* K2D-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 05C30F702996D92500913DF1 /* K2D-SemiBold.ttf */; };
-		81017DCF29A7FE47007EF22C /* planets.json in Resources */ = {isa = PBXBuildFile; fileRef = 81017DCE29A7FE47007EF22C /* planets.json */; };
 		D11D612229899AB00055E3D5 /* API_NasaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11D612129899AB00055E3D5 /* API_NasaApp.swift */; };
 		D11D612429899AB00055E3D5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11D612329899AB00055E3D5 /* ContentView.swift */; };
 		D11D612629899AB00055E3D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D11D612529899AB00055E3D5 /* Assets.xcassets */; };
@@ -25,6 +24,7 @@
 		D138513F299C4C9700B35797 /* NavigationIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D138513E299C4C9700B35797 /* NavigationIndicator.swift */; };
 		D167817929EF06380076FB0C /* PlanetNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D167817829EF06380076FB0C /* PlanetNode.swift */; };
 		D191DF8B2A070E25003326B8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D191DF8D2A070E25003326B8 /* Localizable.strings */; };
+		D191DF8F2A0710AF003326B8 /* planets.json in Resources */ = {isa = PBXBuildFile; fileRef = D191DF912A0710AF003326B8 /* planets.json */; };
 		D1EE28C52992914F003A0A90 /* PlanetDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EE28C42992914F003A0A90 /* PlanetDetailsView.swift */; };
 		D1EE28C72992D941003A0A90 /* InfosService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EE28C62992D941003A0A90 /* InfosService.swift */; };
 /* End PBXBuildFile section */
@@ -34,7 +34,6 @@
 		0520B53E299ACBD700802DCE /* LaunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreen.swift; sourceTree = "<group>"; };
 		05C30F622996CCDE00913DF1 /* API-Nasa-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "API-Nasa-Info.plist"; sourceTree = SOURCE_ROOT; };
 		05C30F702996D92500913DF1 /* K2D-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "K2D-SemiBold.ttf"; sourceTree = "<group>"; };
-		81017DCE29A7FE47007EF22C /* planets.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = planets.json; sourceTree = "<group>"; };
 		D11D611E29899AB00055E3D5 /* API_Nasa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = API_Nasa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D11D612129899AB00055E3D5 /* API_NasaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API_NasaApp.swift; sourceTree = "<group>"; };
 		D11D612329899AB00055E3D5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -49,9 +48,10 @@
 		D138512E299C216500B35797 /* ARKitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARKitView.swift; sourceTree = "<group>"; };
 		D138513E299C4C9700B35797 /* NavigationIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationIndicator.swift; sourceTree = "<group>"; };
 		D167817829EF06380076FB0C /* PlanetNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetNode.swift; sourceTree = "<group>"; };
-		D191DF882A070A67003326B8 /* planetas.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = planetas.geojson; sourceTree = "<group>"; };
 		D191DF8C2A070E25003326B8 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		D191DF8E2A070E2D003326B8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D191DF902A0710AF003326B8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = en; path = en.lproj/planets.json; sourceTree = "<group>"; };
+		D191DF942A0803FC003326B8 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = "pt-BR"; path = "pt-BR.lproj/planets.json"; sourceTree = "<group>"; };
 		D1EE28C42992914F003A0A90 /* PlanetDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetDetailsView.swift; sourceTree = "<group>"; };
 		D1EE28C62992D941003A0A90 /* InfosService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfosService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -113,8 +113,7 @@
 			children = (
 				D11D6139298C303F0055E3D5 /* PlanetInfos.swift */,
 				D12FA0432996D47200E81604 /* PlusPlanetInfos.swift */,
-				81017DCE29A7FE47007EF22C /* planets.json */,
-				D191DF882A070A67003326B8 /* planetas.geojson */,
+				D191DF912A0710AF003326B8 /* planets.json */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -221,7 +220,7 @@
 			files = (
 				05C30F712996D92500913DF1 /* K2D-SemiBold.ttf in Resources */,
 				D191DF8B2A070E25003326B8 /* Localizable.strings in Resources */,
-				81017DCF29A7FE47007EF22C /* planets.json in Resources */,
+				D191DF8F2A0710AF003326B8 /* planets.json in Resources */,
 				D11D612929899AB00055E3D5 /* Preview Assets.xcassets in Resources */,
 				D11D612629899AB00055E3D5 /* Assets.xcassets in Resources */,
 				0520B53B299AA57A00802DCE /* K2D-Regular.ttf in Resources */,
@@ -262,6 +261,15 @@
 				D191DF8E2A070E2D003326B8 /* en */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		D191DF912A0710AF003326B8 /* planets.json */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D191DF902A0710AF003326B8 /* en */,
+				D191DF942A0803FC003326B8 /* pt-BR */,
+			);
+			name = planets.json;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

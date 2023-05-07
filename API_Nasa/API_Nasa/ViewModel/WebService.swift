@@ -19,7 +19,7 @@ class WebService: ObservableObject {
 //    @Published var planetPlusService: [PlusPlanetInfos]
     @Published var landmarks = [PlanetInfos]()
     
-   var name = "planets.json"
+//   var name = "planets.json"
     
     init() {
         self.planetsService = []

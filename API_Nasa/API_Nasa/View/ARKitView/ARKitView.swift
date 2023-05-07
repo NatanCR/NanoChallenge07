@@ -28,6 +28,7 @@ class ARKitView: UIViewController, ARSCNViewDelegate {
     var planetInfos: PlanetInfos
     var planetNode = SCNNode()
     var lastPosition: CGPoint?
+    var currentLanguage = Locale.current
     
     init(planetInfos: PlanetInfos) {
         self.planetInfos = planetInfos
@@ -115,10 +116,51 @@ class ARKitView: UIViewController, ARSCNViewDelegate {
         self.lastPosition = nil
     }
     
+    func materialDefining(planetName: String) -> String {
+        switch planetName {
+        case "Terra":
+            return "Earth"
+        case "Marte":
+            return "Mars"
+        case "Mercúrio":
+            return "Mercury"
+        case "Vênus":
+            return "Venus"
+        case "Júpiter":
+            return "Jupiter"
+        case "Saturno":
+            return "Saturn"
+        case "Urano":
+            return "Uranus"
+        case "Netuno":
+            return "Neptune"
+        default:
+            return ""
+        }
+    }
+    
+    func setMaterial() -> UIImage? {
+        if #available(iOS 16, *) {
+            if currentLanguage.language.languageCode?.identifier ?? "" == "pt" {
+                return UIImage(named: "\(materialDefining(planetName: planetInfos.name)).jpeg")
+            } else {
+                return UIImage(named: "\(planetInfos.name).jpeg")
+            }
+        } else {
+            // Fallback on earlier versions
+            if currentLanguage.languageCode == "pt" {
+                return UIImage(named: "\(materialDefining(planetName: planetInfos.name)).jpeg")
+            } else {
+                return UIImage(named: "\(planetInfos.name).jpeg")
+            }
+        }
+    }
+    
     func createPlanetSphere() {
         let sphere = SCNSphere(radius: 0.2)
         let material = SCNMaterial()
-        material.diffuse.contents = UIImage(named: "\(planetInfos.name).jpeg")
+        
+        material.diffuse.contents = setMaterial()
         sphere.materials = [material]
         
         self.planetNode.position = SCNVector3Make(0, 0, -0.6)
