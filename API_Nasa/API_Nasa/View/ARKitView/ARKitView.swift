@@ -12,11 +12,11 @@ import SwiftUI
 // MARK: - ARViewIndicator
 struct ARViewIndicator: UIViewControllerRepresentable {
     typealias UIViewControllerType = ARKitView
-    @State var planetDetails: PlanetInfos
+    @State var planetInfos: PlanetInfos
     
     func makeUIViewController(context: Context) -> ARKitView {
         //cria o estado inicial da visualização e retorna
-        return ARKitView(planetInfos: planetDetails)
+        return ARKitView(planetInfos: planetInfos)
     }
     func updateUIViewController(_ uiViewController:
                                 ARViewIndicator.UIViewControllerType, context:
@@ -25,11 +25,11 @@ struct ARViewIndicator: UIViewControllerRepresentable {
 }
 
 class ARKitView: UIViewController, ARSCNViewDelegate {
-    var planetInfos: PlanetInfos
-    var planetNode = SCNNode()
-    var lastPosition: CGPoint?
-    var currentLanguage = Locale.current
-    var lastScale = SCNVector3(1.0, 1.0, 1.0)
+    private var planetInfos: PlanetInfos
+    private var planetNode = SCNNode()
+    private var lastPosition: CGPoint?
+    private var currentLanguage = Locale.current
+    private var infosServices = InfosService()
     
     init(planetInfos: PlanetInfos) {
         self.planetInfos = planetInfos
@@ -76,43 +76,8 @@ class ARKitView: UIViewController, ARSCNViewDelegate {
         arView.delegate = self
         arView.scene = SCNScene()
         createPlanetSphere()
-//        let pinchGesture = UIPinchGestureRecognizer(target: self, action: #selector(handlePinchGesture(_:)))
-//        arView.addGestureRecognizer(pinchGesture)
+        updateText()
     }
-    
-//    @objc func handlePinchGesture(_ gestureRecognizer: UIPinchGestureRecognizer) {
-//        guard let sceneView = gestureRecognizer.view as? ARSCNView else { return }
-//
-//        // Verifica se o gesto começou
-//        if gestureRecognizer.state == .began {
-//            // Salva a escala atual do nó
-//            lastScale = planetNode.scale
-//            return
-//        }
-//
-//        // Verifica se o gesto está em andamento
-//        if gestureRecognizer.state == .changed {
-//            // Calcula a nova escala baseada na escala atual e no fator de escala do gesto
-//            var newScale = SCNVector3(
-//                lastScale.x * Float(gestureRecognizer.scale),
-//                lastScale.y * Float(gestureRecognizer.scale),
-//                lastScale.z * Float(gestureRecognizer.scale)
-//            )
-//
-//            // Limita a escala mínima e máxima do nó para evitar distorções
-//            let minScale: Float = 0.1
-//            let maxScale: Float = 3.0
-//            newScale.x = max(min(newScale.x, maxScale), minScale)
-//            newScale.y = max(min(newScale.y, maxScale), minScale)
-//            newScale.z = max(min(newScale.z, maxScale), minScale)
-//
-//            // Aplica a nova escala ao nó
-//            planetNode.scale = newScale
-//
-//            // Reseta o fator de escala do gesto para 1.0 para garantir um comportamento consistente
-//            gestureRecognizer.scale = 1.0
-//        }
-//    }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         // Obtém a localização do toque atual
@@ -200,13 +165,23 @@ class ARKitView: UIViewController, ARSCNViewDelegate {
         material.diffuse.contents = setMaterial()
         sphere.materials = [material]
         
-        self.planetNode.position = SCNVector3Make(0, 0, -0.6)
+        self.planetNode.position = SCNVector3Make(0, 0, -0.7)
 //        self.planetNode.scale = lastScale
         self.planetNode.geometry = sphere
         self.planetNode.name = "planet"
         
         arView.scene.rootNode.addChildNode(self.planetNode)
         arView.automaticallyUpdatesLighting = true
+    }
+    
+    func updateText() {
+        let textGeometry = SCNText(string: NSLocalizedString("drag", comment: ""), extrusionDepth: 1.0)
+        textGeometry.firstMaterial?.diffuse.contents = infosServices.chooseShadowColor(id: planetInfos.id)
+        
+        let textNode = SCNNode(geometry: textGeometry)
+        textNode.position = SCNVector3(x: -0.1, y: -0.3, z: -0.4)
+        textNode.scale = SCNVector3(x: 0.005, y: 0.005, z: 0.005)
+        arView.scene.rootNode.addChildNode(textNode)
     }
     
 }

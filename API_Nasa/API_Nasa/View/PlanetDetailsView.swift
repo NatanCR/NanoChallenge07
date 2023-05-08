@@ -16,7 +16,8 @@ struct PlanetDetailsView: View {
     var body: some View {
         VStack(spacing: 5){
             ImageFormatter(imgURL: infosServices.searchImage(planets: [planetDetails])!)
-                .shadow(color: infosServices.chooseShadowColor(id: planetDetails.id),radius: 10)
+//                .shadow(color: infosServices.chooseShadowColor(id: planetDetails.id),radius: 10)
+                .shadow(color: Color(uiColor: infosServices.chooseShadowColor(id: planetDetails.id)),radius: 10)
                 .padding(.bottom, 20)
             Section() {
                 ScrollView(){
@@ -74,7 +75,7 @@ struct PlanetDetailsView: View {
             }
             ToolbarItem(placement: .navigationBarTrailing) {
                 NavigationLink {
-                    NavigationIndicatorView(planetDetails: planetDetails)
+                    NavigationIndicatorView(planetInfos: planetDetails)
                 } label: {
                     Label {
                         Text("")

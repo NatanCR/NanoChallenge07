@@ -88,18 +88,18 @@ class InfosService {
         return nil
     }
     
-    func chooseShadowColor(id: Int) -> Color {
+    func chooseShadowColor(id: Int) -> UIColor {
         switch id {
-        case 1: return Color(red: 0.48, green: 0.47, blue: 0.47)
-        case 2: return Color(red: 0.92, green: 0.90, blue: 0.89)
-        case 3: return Color(red: 0.24, green: 0.47, blue: 0.77)
-        case 4: return Color(red: 1.00, green: 0.53, blue: 0.38)
-        case 5: return Color(red: 0.80, green: 0.63, blue: 0.49)
-        case 6: return Color(red: 0.80, green: 0.67, blue: 0.45)
-        case 7: return Color(red: 0.80, green: 0.88, blue: 0.93)
-        case 8: return Color(red: 0.54, green: 0.65, blue: 0.84)
+        case 1: return UIColor(red: 0.48, green: 0.47, blue: 0.47, alpha: 1)
+        case 2: return UIColor(red: 0.92, green: 0.90, blue: 0.89, alpha: 1)
+        case 3: return UIColor(red: 0.24, green: 0.47, blue: 0.77, alpha: 1)
+        case 4: return UIColor(red: 1.00, green: 0.53, blue: 0.38, alpha: 1)
+        case 5: return UIColor(red: 0.80, green: 0.63, blue: 0.49, alpha: 1)
+        case 6: return UIColor(red: 0.80, green: 0.67, blue: 0.45, alpha: 1)
+        case 7: return UIColor(red: 0.80, green: 0.88, blue: 0.93, alpha: 1)
+        case 8: return UIColor(red: 0.54, green: 0.65, blue: 0.84, alpha: 1)
         default:
-            return Color(.clear)
+            return UIColor.clear
         }
     }
 }

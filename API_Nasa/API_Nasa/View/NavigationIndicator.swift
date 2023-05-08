@@ -7,12 +7,12 @@
 import SwiftUI
 
 struct NavigationIndicatorView: View {
-    @State var planetDetails: PlanetInfos
+    @State var planetInfos: PlanetInfos
     @Environment(\.dismiss) private var dismiss
     
     var body: some View {
         ZStack {
-            ARViewIndicator(planetDetails: planetDetails)
+            ARViewIndicator(planetInfos: planetInfos)
         }
         .ignoresSafeArea(.all)
         .navigationBarBackButtonHidden(true)

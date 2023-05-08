@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    var planetsWS = WebService()
+    private var planetsWS = WebService()
     @State private var failedToLoadData: Bool = false
     private var infosServices = InfosService()
     @State private var isActive: Bool = false
@@ -22,7 +22,6 @@ struct ContentView: View {
             do {
                 self.isActive = true
                 try await self.planetsWS.load(filename: "planets.json")
-                
             } catch {
                 self.failedToLoadData.toggle()
             }
@@ -50,11 +49,13 @@ struct ContentView: View {
                         Text("order")
                         Button {
                             planetsWS.order(planet: planetsWS.planetsService, chave: "id")
+                            refreshData()
                         } label: {
                             Label(title:{Text("solar")}, icon: {})
                         }
                         Button {
                             planetsWS.order(planet: planetsWS.planetsService, chave: "name")
+                            refreshData()
                         } label: {
                             Label(title:{Text("name")}, icon: {})
                         }
