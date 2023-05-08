@@ -24,7 +24,7 @@ struct NavigationIndicatorView: View {
                     HStack {
                         Image(systemName: "chevron.left")
                             .font(.system(size: 16, weight: .semibold, design: .rounded))
-                        Text("Back")
+                        Text("back")
                             .font(.custom(
                                 "K2D-SemiBold",fixedSize: 18))
                     }.foregroundColor(Color.white)

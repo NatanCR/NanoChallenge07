@@ -29,6 +29,7 @@ class ARKitView: UIViewController, ARSCNViewDelegate {
     var planetNode = SCNNode()
     var lastPosition: CGPoint?
     var currentLanguage = Locale.current
+    var lastScale = SCNVector3(1.0, 1.0, 1.0)
     
     init(planetInfos: PlanetInfos) {
         self.planetInfos = planetInfos
@@ -47,13 +48,6 @@ class ARKitView: UIViewController, ARSCNViewDelegate {
     
     override func loadView() {
         self.view = ARSCNView(frame: .zero)
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        arView.delegate = self
-        arView.scene = SCNScene()
-        createPlanetSphere()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -76,6 +70,49 @@ class ARKitView: UIViewController, ARSCNViewDelegate {
         // Pause the view's session
         arView.session.pause()
     }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        arView.delegate = self
+        arView.scene = SCNScene()
+        createPlanetSphere()
+//        let pinchGesture = UIPinchGestureRecognizer(target: self, action: #selector(handlePinchGesture(_:)))
+//        arView.addGestureRecognizer(pinchGesture)
+    }
+    
+//    @objc func handlePinchGesture(_ gestureRecognizer: UIPinchGestureRecognizer) {
+//        guard let sceneView = gestureRecognizer.view as? ARSCNView else { return }
+//
+//        // Verifica se o gesto começou
+//        if gestureRecognizer.state == .began {
+//            // Salva a escala atual do nó
+//            lastScale = planetNode.scale
+//            return
+//        }
+//
+//        // Verifica se o gesto está em andamento
+//        if gestureRecognizer.state == .changed {
+//            // Calcula a nova escala baseada na escala atual e no fator de escala do gesto
+//            var newScale = SCNVector3(
+//                lastScale.x * Float(gestureRecognizer.scale),
+//                lastScale.y * Float(gestureRecognizer.scale),
+//                lastScale.z * Float(gestureRecognizer.scale)
+//            )
+//
+//            // Limita a escala mínima e máxima do nó para evitar distorções
+//            let minScale: Float = 0.1
+//            let maxScale: Float = 3.0
+//            newScale.x = max(min(newScale.x, maxScale), minScale)
+//            newScale.y = max(min(newScale.y, maxScale), minScale)
+//            newScale.z = max(min(newScale.z, maxScale), minScale)
+//
+//            // Aplica a nova escala ao nó
+//            planetNode.scale = newScale
+//
+//            // Reseta o fator de escala do gesto para 1.0 para garantir um comportamento consistente
+//            gestureRecognizer.scale = 1.0
+//        }
+//    }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         // Obtém a localização do toque atual
@@ -164,6 +201,7 @@ class ARKitView: UIViewController, ARSCNViewDelegate {
         sphere.materials = [material]
         
         self.planetNode.position = SCNVector3Make(0, 0, -0.6)
+//        self.planetNode.scale = lastScale
         self.planetNode.geometry = sphere
         self.planetNode.name = "planet"
         
