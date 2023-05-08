@@ -133,7 +133,7 @@ class ARKitView: UIViewController, ARSCNViewDelegate {
         case "Saturno":
             return "Saturn"
         case "Urano":
-            return "Uranus"
+            return "Uranos"
         case "Netuno":
             return "Neptune"
         default:
@@ -166,7 +166,6 @@ class ARKitView: UIViewController, ARSCNViewDelegate {
         sphere.materials = [material]
         
         self.planetNode.position = SCNVector3Make(0, 0, -0.7)
-//        self.planetNode.scale = lastScale
         self.planetNode.geometry = sphere
         self.planetNode.name = "planet"
         
@@ -180,7 +179,7 @@ class ARKitView: UIViewController, ARSCNViewDelegate {
         
         let textNode = SCNNode(geometry: textGeometry)
         textNode.position = SCNVector3(x: -0.1, y: -0.3, z: -0.4)
-        textNode.scale = SCNVector3(x: 0.005, y: 0.005, z: 0.005)
+        textNode.scale = SCNVector3(x: 0.004, y: 0.004, z: 0.004)
         arView.scene.rootNode.addChildNode(textNode)
     }
     

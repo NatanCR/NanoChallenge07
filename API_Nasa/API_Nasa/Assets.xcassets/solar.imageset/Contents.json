@@ -1,12 +1,11 @@
 {
   "images" : [
     {
-      "filename" : "planetaLogo.png",
+      "filename" : "solar.svg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Frame 15x2.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

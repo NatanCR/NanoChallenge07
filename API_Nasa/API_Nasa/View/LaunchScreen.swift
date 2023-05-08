@@ -17,7 +17,7 @@ struct LaunchScreen: View {
             ZStack {
                 ZStack {
                     Color.init(red: 0, green: 0, blue: 0)
-                    Image("planetaLogo")
+                    Image("solar")
                         .resizable()
                         .frame(width: 130, height: 130)
                         .scaleEffect(size)

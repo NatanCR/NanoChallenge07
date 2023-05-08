@@ -42,7 +42,7 @@ struct ContentView: View {
                     }
                 }
             }
-            .background(Image("estreladox3"))
+            .background(Image("estrelado"))
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Menu{
