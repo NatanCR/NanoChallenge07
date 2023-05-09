@@ -16,7 +16,6 @@ struct PlanetDetailsView: View {
     var body: some View {
         VStack(spacing: 5){
             ImageFormatter(imgURL: infosServices.searchImage(planets: [planetDetails])!)
-//                .shadow(color: infosServices.chooseShadowColor(id: planetDetails.id),radius: 10)
                 .shadow(color: Color(uiColor: infosServices.chooseShadowColor(id: planetDetails.id)),radius: 10)
                 .padding(.bottom, 20)
             Section() {
@@ -44,7 +43,7 @@ struct PlanetDetailsView: View {
 
                     DetailCell(text: infosServices.searchMass(planetInfos: [planetDetails])!, title: Text("mass"))
                     DetailCell(text: infosServices.searchVolume(planetInfos: [planetDetails])!, title: Text("volume"))
-                    DetailCell(text: "\(Int(infosServices.searchPeriod(planets: [planetDetails]) ?? 00)) dias", title: Text("time"))
+                    DetailCell(text: "\(Int(infosServices.searchPeriod(planets: [planetDetails]) ?? 00)) \(NSLocalizedString("day", comment: ""))", title: Text("time"))
                     DetailCell(text: "\(String(format: "%.1f", infosServices.searchTemperature(planetsTemp: [planetDetails]) ?? 0)) ºC", title: Text("core"))
                     DetailCell(text: "\(Int(infosServices.getStarHost(StarHost: [planetDetails]) ?? 00))", title: Text("host"))
                     DetailCell(text: "\(Double(infosServices.getStarTemp(StarHost: [planetDetails]) ?? 00)) ºC", title: Text("sun"))

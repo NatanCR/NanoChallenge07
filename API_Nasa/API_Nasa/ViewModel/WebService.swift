@@ -41,7 +41,7 @@ class WebService: ObservableObject {
                let decoder = try JSONDecoder().decode([PlanetInfos].self, from: data)
               
                self.planetsService = decoder
-                       order(planet: decoder, chave: "id")
+               order(planet: decoder, chave: "id")
               
 //               return try decoder.
            } catch {

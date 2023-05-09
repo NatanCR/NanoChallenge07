@@ -30,6 +30,7 @@ class ARKitView: UIViewController, ARSCNViewDelegate {
     private var lastPosition: CGPoint?
     private var currentLanguage = Locale.current
     private var infosServices = InfosService()
+    private var textNode = SCNNode()
     
     init(planetInfos: PlanetInfos) {
         self.planetInfos = planetInfos
@@ -85,6 +86,7 @@ class ARKitView: UIViewController, ARSCNViewDelegate {
         
         // Salva a posição do toque atual
         lastPosition = currentTouchLocation
+        textNode.removeFromParentNode()
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -177,7 +179,7 @@ class ARKitView: UIViewController, ARSCNViewDelegate {
         let textGeometry = SCNText(string: NSLocalizedString("drag", comment: ""), extrusionDepth: 1.0)
         textGeometry.firstMaterial?.diffuse.contents = infosServices.chooseShadowColor(id: planetInfos.id)
         
-        let textNode = SCNNode(geometry: textGeometry)
+        textNode = SCNNode(geometry: textGeometry)
         textNode.position = SCNVector3(x: -0.1, y: -0.3, z: -0.4)
         textNode.scale = SCNVector3(x: 0.004, y: 0.004, z: 0.004)
         arView.scene.rootNode.addChildNode(textNode)

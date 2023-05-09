@@ -37,7 +37,7 @@ struct ContentView: View {
                             .foregroundColor(.white)
                             .progressViewStyle(CircularProgressViewStyle(tint: .white))
                     }
-                    ForEach(planetsWS.planetsService, id: \.id) { planet in
+                    ForEach(planetsWS.planetsService, id: \.name) { planet in
                         Cell(planetName: planet.name, imgURL: infosServices.searchImage(planets: [planet])!, planets: planet)
                     }
                 }
@@ -49,13 +49,13 @@ struct ContentView: View {
                         Text("order")
                         Button {
                             planetsWS.order(planet: planetsWS.planetsService, chave: "id")
-                            refreshData()
+                            print(planetsWS.planetsService)
                         } label: {
                             Label(title:{Text("solar")}, icon: {})
                         }
                         Button {
                             planetsWS.order(planet: planetsWS.planetsService, chave: "name")
-                            refreshData()
+                            print(planetsWS.planetsService)
                         } label: {
                             Label(title:{Text("name")}, icon: {})
                         }
