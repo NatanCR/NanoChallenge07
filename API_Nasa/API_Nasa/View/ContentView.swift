@@ -12,6 +12,7 @@ struct ContentView: View {
     @State private var failedToLoadData: Bool = false
     private var infosServices = InfosService()
     @State private var isActive: Bool = false
+    @State private var showInfo: Bool = false
     
     //configura quantas colunas terá o grid e como serão
     private let columns = [GridItem(.flexible())]
@@ -31,14 +32,36 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             VStack {
-                ScrollView (showsIndicators: false){
-                    if !isActive {
-                        ProgressView("load").padding(.top, 300)
-                            .foregroundColor(.white)
-                            .progressViewStyle(CircularProgressViewStyle(tint: .white))
-                    }
-                    ForEach(planetsWS.planetsService, id: \.name) { planet in
-                        Cell(planetName: planet.name, imgURL: infosServices.searchImage(planets: [planet])!, planets: planet)
+                ScrollViewReader { scroll in
+                    ScrollView (showsIndicators: false) {
+                        if !isActive {
+                            ProgressView("load").padding(.top, 300)
+                                .foregroundColor(.white)
+                                .progressViewStyle(CircularProgressViewStyle(tint: .white))
+                        }
+                        VStack {
+                            ForEach(planetsWS.planetsService, id: \.name) { planet in
+                                Cell(planetName: planet.name, imgURL: infosServices.searchImage(planets: [planet])!, planets: planet)
+                            }
+                        }.padding(.bottom, 40)
+                        Button {
+                            self.showInfo.toggle()
+                        } label: {
+                            Image(systemName: "info.circle.fill")
+                                .font(.largeTitle)
+                                .foregroundColor(.white)
+                        }
+                        if showInfo {
+                            Text("i")
+                                .font(.custom("K2D-Regular",fixedSize: 18))
+                                .padding()
+                                .onAppear {
+                                    withAnimation {
+                                        scroll.scrollTo("info", anchor: .bottom) // rola a scrollView para o ID do Text
+                                    }
+                                }
+                                .id("info") // define o ID do Text como "info"
+                        }
                     }
                 }
             }
@@ -62,7 +85,7 @@ struct ContentView: View {
                     }label: {
                         Label {
                             Text("")
-                        }icon: {
+                        } icon: {
                             Image(systemName: "line.3.horizontal.decrease.circle.fill").foregroundColor(.white)
                         }
                     }
