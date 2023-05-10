@@ -32,7 +32,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             VStack {
-                ScrollViewReader { scroll in
+                ScrollViewReader { proxy in //ScrollViewReader é uma View que permite acessar e interagir com a rolagem de uma ScrollView.
                     ScrollView (showsIndicators: false) {
                         if !isActive {
                             ProgressView("load").padding(.top, 300)
@@ -55,12 +55,12 @@ struct ContentView: View {
                             Text("i")
                                 .font(.custom("K2D-Regular",fixedSize: 18))
                                 .padding()
+                                .id("info") // define o ID do Text como "info"
                                 .onAppear {
                                     withAnimation {
-                                        scroll.scrollTo("info", anchor: .bottom) // rola a scrollView para o ID do Text
+                                        proxy.scrollTo("info", anchor: .bottom) //scrollTo permite que você role a ScrollView para exibir um determinado elemento, identificado por um id.
                                     }
                                 }
-                                .id("info") // define o ID do Text como "info"
                         }
                     }
                 }

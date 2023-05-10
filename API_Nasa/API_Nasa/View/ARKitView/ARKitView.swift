@@ -135,7 +135,7 @@ class ARKitView: UIViewController, ARSCNViewDelegate {
         case "Saturno":
             return "Saturn"
         case "Urano":
-            return "Uranos"
+            return "Uranus"
         case "Netuno":
             return "Neptune"
         default:

@@ -15,9 +15,9 @@ struct PlanetDetailsView: View {
     
     var body: some View {
         VStack(spacing: 5){
-            ImageFormatter(imgURL: infosServices.searchImage(planets: [planetDetails])!)
-                .shadow(color: Color(uiColor: infosServices.chooseShadowColor(id: planetDetails.id)),radius: 10)
-                .padding(.bottom, 20)
+                ImageFormatter(imgURL: infosServices.searchImage(planets: [planetDetails])!)
+                    .shadow(color: Color(uiColor: infosServices.chooseShadowColor(id: planetDetails.id)),radius: 10)
+                    .padding(.bottom, 20)
             Section() {
                 ScrollView(){
                     DetailCell(text: planetDetails.name, title: Text("planetName"))
