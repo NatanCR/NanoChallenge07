@@ -13,6 +13,7 @@ import SwiftUI
 struct ARViewIndicator: UIViewControllerRepresentable {
     typealias UIViewControllerType = ARKitView
     @State var planetInfos: PlanetInfos
+//    @State var isActive: Bool
     
     func makeUIViewController(context: Context) -> ARKitView {
         //cria o estado inicial da visualização e retorna
@@ -24,16 +25,18 @@ struct ARViewIndicator: UIViewControllerRepresentable {
                                 UIViewControllerRepresentableContext<ARViewIndicator>) { }
 }
 
-class ARKitView: UIViewController, ARSCNViewDelegate {
+class ARKitView: UIViewController, ARSCNViewDelegate { //SCNSceneRendererDelegate
     private var planetInfos: PlanetInfos
     private var planetNode = SCNNode()
     private var lastPosition: CGPoint?
     private var currentLanguage = Locale.current
     private var infosServices = InfosService()
     private var textNode = SCNNode()
+    private var isActive: Bool
     
     init(planetInfos: PlanetInfos) {
         self.planetInfos = planetInfos
+        self.isActive = false
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -76,9 +79,34 @@ class ARKitView: UIViewController, ARSCNViewDelegate {
         super.viewDidLoad()
         arView.delegate = self
         arView.scene = SCNScene()
+        view = arView
+        
         createPlanetSphere()
         updateText()
+        if planetInfos.id == 3 {
+            arView.addMaterialChangeButton(target: self, action: #selector(changeMaterial))
+        }
     }
+    
+    @objc func changeMaterial() {
+        if !isActive {
+            let material = SCNMaterial()
+            material.diffuse.contents = UIImage(named: "EarthNight.jpeg")
+            planetNode.geometry?.materials = [material]
+            self.isActive.toggle()
+        } else if isActive {
+            let material = SCNMaterial()
+            material.diffuse.contents = UIImage(named: "Earth.jpeg")
+            planetNode.geometry?.materials = [material]
+            self.isActive.toggle()
+        }
+        arView.updateMaterialChangeButtonIcon(isActive: isActive)
+    }
+    
+//    func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
+//            // Verifique o valor da variável em cada quadro AR
+//            print("Valor da variável: \(isActive)")
+//        }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         // Obtém a localização do toque atual
@@ -174,7 +202,7 @@ class ARKitView: UIViewController, ARSCNViewDelegate {
         arView.scene.rootNode.addChildNode(self.planetNode)
         arView.automaticallyUpdatesLighting = true
     }
-    
+
     func updateText() {
         let textGeometry = SCNText(string: NSLocalizedString("drag", comment: ""), extrusionDepth: 1.0)
         textGeometry.firstMaterial?.diffuse.contents = infosServices.chooseShadowColor(id: planetInfos.id)
@@ -184,5 +212,38 @@ class ARKitView: UIViewController, ARSCNViewDelegate {
         textNode.scale = SCNVector3(x: 0.004, y: 0.004, z: 0.004)
         arView.scene.rootNode.addChildNode(textNode)
     }
+        
+    }
+
+extension ARSCNView {
+    var materialChangeButton: UIButton? {
+            return viewWithTag(100) as? UIButton
+        }
     
+    func addMaterialChangeButton(target: Any?, action: Selector) {
+        let button = UIButton(type: .system)
+        button.setImage(UIImage(systemName: "moon.fill"), for: .normal)
+        button.setPreferredSymbolConfiguration(UIImage.SymbolConfiguration(pointSize: 30), forImageIn: .normal)
+        button.addTarget(target, action: action, for: .touchUpInside)
+        button.tintColor = UIColor.white
+        button.tag = 100
+        
+        addSubview(button)
+        
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 50).isActive = true
+        button.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
+    }
+    
+    func updateMaterialChangeButtonIcon(isActive: Bool) {
+            if let button = materialChangeButton {
+                if isActive {
+                    button.setImage(UIImage(systemName: "sun.max.fill"), for: .normal)
+                    button.tintColor = UIColor.yellow
+                } else {
+                    button.setImage(UIImage(systemName: "moon.fill"), for: .normal)
+                    button.tintColor = UIColor.white
+                }
+            }
+        }
 }

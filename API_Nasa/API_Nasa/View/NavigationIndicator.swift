@@ -9,6 +9,8 @@ import SwiftUI
 struct NavigationIndicatorView: View {
     @State var planetInfos: PlanetInfos
     @Environment(\.dismiss) private var dismiss
+//    @State var isActive: Bool = false
+    @State private var colorButton: Color = .white
     
     var body: some View {
         ZStack {
@@ -30,6 +32,20 @@ struct NavigationIndicatorView: View {
                     }.foregroundColor(Color.white)
                 })
             }
+//            planetInfos.id == 3 ? ToolbarItem(placement: .navigationBarTrailing) {
+//                Button(action: {
+//                    // Ação do botão aqui
+//                    isActive.toggle()
+//                    if isActive == true {
+//                        colorButton = .yellow
+//                    } else {
+//                        colorButton = .white
+//                    }
+//                }) {
+//                    Image(systemName: "moon.fill")
+//                        .foregroundColor(colorButton)
+//                }
+//            } : nil
         }
     }
 }
