@@ -22,7 +22,6 @@
 		D12FA0442996D47200E81604 /* PlusPlanetInfos.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12FA0432996D47200E81604 /* PlusPlanetInfos.swift */; };
 		D138512F299C216500B35797 /* ARKitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D138512E299C216500B35797 /* ARKitView.swift */; };
 		D138513F299C4C9700B35797 /* NavigationIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D138513E299C4C9700B35797 /* NavigationIndicator.swift */; };
-		D15FFA852A0C1083000540B2 /* ARButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15FFA842A0C1083000540B2 /* ARButton.swift */; };
 		D167817929EF06380076FB0C /* PlanetNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D167817829EF06380076FB0C /* PlanetNode.swift */; };
 		D191DF8B2A070E25003326B8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D191DF8D2A070E25003326B8 /* Localizable.strings */; };
 		D191DF8F2A0710AF003326B8 /* planets.json in Resources */ = {isa = PBXBuildFile; fileRef = D191DF912A0710AF003326B8 /* planets.json */; };
@@ -48,7 +47,6 @@
 		D12FA0432996D47200E81604 /* PlusPlanetInfos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusPlanetInfos.swift; sourceTree = "<group>"; };
 		D138512E299C216500B35797 /* ARKitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARKitView.swift; sourceTree = "<group>"; };
 		D138513E299C4C9700B35797 /* NavigationIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationIndicator.swift; sourceTree = "<group>"; };
-		D15FFA842A0C1083000540B2 /* ARButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARButton.swift; sourceTree = "<group>"; };
 		D167817829EF06380076FB0C /* PlanetNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetNode.swift; sourceTree = "<group>"; };
 		D191DF8C2A070E25003326B8 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		D191DF8E2A070E2D003326B8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -157,7 +155,6 @@
 			isa = PBXGroup;
 			children = (
 				D138512E299C216500B35797 /* ARKitView.swift */,
-				D15FFA842A0C1083000540B2 /* ARButton.swift */,
 			);
 			path = ARKitView;
 			sourceTree = "<group>";
@@ -245,7 +242,6 @@
 				D1EE28C52992914F003A0A90 /* PlanetDetailsView.swift in Sources */,
 				D12FA0442996D47200E81604 /* PlusPlanetInfos.swift in Sources */,
 				D1EE28C72992D941003A0A90 /* InfosService.swift in Sources */,
-				D15FFA852A0C1083000540B2 /* ARButton.swift in Sources */,
 				D138512F299C216500B35797 /* ARKitView.swift in Sources */,
 				D12FA03F2996869B00E81604 /* ImageFormatter.swift in Sources */,
 				D12FA03D2995B02500E81604 /* DetailCell.swift in Sources */,
