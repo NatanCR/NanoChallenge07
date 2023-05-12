@@ -1,6 +1,33 @@
 [
     {
         "basicDetails": [
+                {
+                    "mass": "1,9889 x 10^30 kg",
+                    "volume": "1.412 x 10^18 km^3",
+                    "period": 36,
+                    "temperature": 6000.0,
+                    "host_star_mass": 0,
+                    "host_star_temperature": 6000.0
+                    
+                }
+            ],
+            "description": "The Sun is the star at the center of the Solar System. It is a nearly perfect ball of hot plasma, heated to incandescence by nuclear fusion reactions in its core. The Sun radiates this energy mainly as light, ultraviolet, and infrared radiation, and is the most important source of energy for life on Earth.",
+            "id": 0,
+            "imgSrc": [
+                {
+                    "img": "https://upload.wikimedia.org/wikipedia/commons/b/b4/The_Sun_by_the_Atmospheric_Imaging_Assembly_of_NASA%27s_Solar_Dynamics_Observatory_-_20100819.jpg",
+                    "imgDescription": "The Sun photographed at 304 angstroms by the Atmospheric Imaging Assembly (AIA 304) of NASA's Solar Dynamics Observatory (SDO). This is a false-color image of the Sun observed in the extreme ultraviolet region of the spectrum."
+                }
+            ],
+            "key": "7Kx9fHjLpE4s",
+            "name": "Sun",
+            "planetOrder": "0",
+            "source": "Wikipedia",
+            "wikiLink": "https://en.wikipedia.org/wiki/Sun"
+        },
+
+    {
+        "basicDetails": [
             {
                 "mass": "5.6834 x 10^26 kg",
                 "volume": "8.2713 x 10^14 km^3",

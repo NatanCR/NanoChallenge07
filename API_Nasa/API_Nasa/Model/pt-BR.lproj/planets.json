@@ -1,6 +1,32 @@
 [
     {
         "basicDetails": [
+                {
+                    "mass": "1,9889 x 10^30 kg",
+                    "volume": "1.412 x 10^18 km^3",
+                    "period": 36,
+                    "temperature": 6000.0,
+                    "host_star_mass": 0,
+                    "host_star_temperature": 6000.0
+                    
+                }
+            ],
+            "description": "O Sol é a estrela no centro do Sistema Solar. É uma bola quase perfeita de plasma quente, aquecida até a incandescência por reações de fusão nuclear em seu núcleo. O Sol irradia essa energia principalmente como luz, ultravioleta e radiação infravermelha, e é a fonte de energia mais importante para a vida na Terra.",
+            "id": 0,
+            "imgSrc": [
+                {
+                    "img": "https://upload.wikimedia.org/wikipedia/commons/b/b4/The_Sun_by_the_Atmospheric_Imaging_Assembly_of_NASA%27s_Solar_Dynamics_Observatory_-_20100819.jpg",
+                    "imgDescription": "O Sol fotografado a 304 angstroms pela Atmospheric Imaging Assembly (AIA 304) do Solar Dynamics Observatory (SDO) da NASA. Esta é uma imagem de cores falsas do Sol observada na região ultravioleta extrema do espectro."
+                }
+            ],
+            "key": "7Kx9fHjLpE4s",
+            "name": "Sol",
+            "planetOrder": "0",
+            "source": "Wikipedia",
+            "wikiLink": "https://en.wikipedia.org/wiki/Sun"
+        },
+    {
+        "basicDetails": [
             {
                 "mass": "5.6834 x 10^26 kg",
                 "volume": "8.2713 x 10^14 km^3",

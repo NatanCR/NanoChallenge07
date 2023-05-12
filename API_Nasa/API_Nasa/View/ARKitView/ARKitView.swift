@@ -13,7 +13,7 @@ import SwiftUI
 struct ARViewIndicator: UIViewControllerRepresentable {
     typealias UIViewControllerType = ARKitView
     @State var planetInfos: PlanetInfos
-//    @State var isActive: Bool
+    //    @State var isActive: Bool
     
     func makeUIViewController(context: Context) -> ARKitView {
         //cria o estado inicial da visualização e retorna
@@ -84,6 +84,7 @@ class ARKitView: UIViewController, ARSCNViewDelegate { //SCNSceneRendererDelegat
         createPlanetSphere()
         updateText()
         if planetInfos.id == 3 {
+            createMoonSphere()
             arView.addMaterialChangeButton(target: self, action: #selector(changeMaterial))
         }
     }
@@ -103,10 +104,10 @@ class ARKitView: UIViewController, ARSCNViewDelegate { //SCNSceneRendererDelegat
         arView.updateMaterialChangeButtonIcon(isActive: isActive)
     }
     
-//    func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
-//            // Verifique o valor da variável em cada quadro AR
-//            print("Valor da variável: \(isActive)")
-//        }
+    //    func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
+    //            // Verifique o valor da variável em cada quadro AR
+    //            print("Valor da variável: \(isActive)")
+    //        }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         // Obtém a localização do toque atual
@@ -166,6 +167,8 @@ class ARKitView: UIViewController, ARSCNViewDelegate { //SCNSceneRendererDelegat
             return "Uranus"
         case "Netuno":
             return "Neptune"
+        case "Sol":
+            return "Sun"
         default:
             return ""
         }
@@ -202,7 +205,17 @@ class ARKitView: UIViewController, ARSCNViewDelegate { //SCNSceneRendererDelegat
         arView.scene.rootNode.addChildNode(self.planetNode)
         arView.automaticallyUpdatesLighting = true
     }
-
+    
+    func createMoonSphere(){
+        let moonGeometry = SCNSphere(radius: 0.05)
+        let moonMaterial = SCNMaterial()
+        moonMaterial.diffuse.contents = UIImage(named: "Moon.jpeg")
+        moonGeometry.materials = [moonMaterial]
+        let moonNode = SCNNode(geometry: moonGeometry)
+        moonNode.position = SCNVector3(x: 0.4, y: 0, z: 0)
+        planetNode.addChildNode(moonNode)
+    }
+    
     func updateText() {
         let textGeometry = SCNText(string: NSLocalizedString("drag", comment: ""), extrusionDepth: 1.0)
         textGeometry.firstMaterial?.diffuse.contents = infosServices.chooseShadowColor(id: planetInfos.id)
@@ -212,13 +225,13 @@ class ARKitView: UIViewController, ARSCNViewDelegate { //SCNSceneRendererDelegat
         textNode.scale = SCNVector3(x: 0.004, y: 0.004, z: 0.004)
         arView.scene.rootNode.addChildNode(textNode)
     }
-        
-    }
+    
+}
 
 extension ARSCNView {
     var materialChangeButton: UIButton? {
-            return viewWithTag(100) as? UIButton
-        }
+        return viewWithTag(100) as? UIButton
+    }
     
     func addMaterialChangeButton(target: Any?, action: Selector) {
         let button = UIButton(type: .system)
@@ -236,14 +249,14 @@ extension ARSCNView {
     }
     
     func updateMaterialChangeButtonIcon(isActive: Bool) {
-            if let button = materialChangeButton {
-                if isActive {
-                    button.setImage(UIImage(systemName: "sun.max.fill"), for: .normal)
-                    button.tintColor = UIColor.yellow
-                } else {
-                    button.setImage(UIImage(systemName: "moon.fill"), for: .normal)
-                    button.tintColor = UIColor.white
-                }
+        if let button = materialChangeButton {
+            if isActive {
+                button.setImage(UIImage(systemName: "sun.max.fill"), for: .normal)
+                button.tintColor = UIColor.yellow
+            } else {
+                button.setImage(UIImage(systemName: "moon.fill"), for: .normal)
+                button.tintColor = UIColor.white
             }
         }
+    }
 }

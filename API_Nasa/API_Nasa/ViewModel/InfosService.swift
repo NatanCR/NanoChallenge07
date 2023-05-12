@@ -90,6 +90,7 @@ class InfosService {
     
     func chooseShadowColor(id: Int) -> UIColor {
         switch id {
+        case 0: return UIColor(red: 0.97, green: 0.42, blue: 0.01, alpha: 1)
         case 1: return UIColor(red: 0.48, green: 0.47, blue: 0.47, alpha: 1)
         case 2: return UIColor(red: 0.92, green: 0.90, blue: 0.89, alpha: 1)
         case 3: return UIColor(red: 0.24, green: 0.47, blue: 0.77, alpha: 1)
