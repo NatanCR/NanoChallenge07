@@ -104,11 +104,6 @@ class ARKitView: UIViewController, ARSCNViewDelegate { //SCNSceneRendererDelegat
         arView.updateMaterialChangeButtonIcon(isActive: isActive)
     }
     
-    //    func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
-    //            // Verifique o valor da variável em cada quadro AR
-    //            print("Valor da variável: \(isActive)")
-    //        }
-    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         // Obtém a localização do toque atual
         guard let currentTouchLocation = touches.first?.location(in: arView) else { return }
@@ -209,11 +204,16 @@ class ARKitView: UIViewController, ARSCNViewDelegate { //SCNSceneRendererDelegat
     func createMoonSphere(){
         let moonGeometry = SCNSphere(radius: 0.05)
         let moonMaterial = SCNMaterial()
+        
         moonMaterial.diffuse.contents = UIImage(named: "Moon.jpeg")
         moonGeometry.materials = [moonMaterial]
+        
         let moonNode = SCNNode(geometry: moonGeometry)
         moonNode.position = SCNVector3(x: 0.4, y: 0, z: 0)
         planetNode.addChildNode(moonNode)
+        
+        let moonOrbitAction = SCNAction.repeatForever(SCNAction.rotateBy(x: 0, y: 2 * .pi, z: 0, duration: 10))
+        moonNode.runAction(moonOrbitAction)
     }
     
     func updateText() {
