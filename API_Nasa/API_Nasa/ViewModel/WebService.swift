@@ -16,11 +16,9 @@ enum DownloadError: Error {
 class WebService: ObservableObject {
     
    @Published var planetsService: [PlanetInfos]
-//    @Published var landmarks = [PlanetInfos]()
         
     init() {
         self.planetsService = []
-//        self.landmarks = landmarks
     }
    
 

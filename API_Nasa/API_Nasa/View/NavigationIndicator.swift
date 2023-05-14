@@ -9,7 +9,6 @@ import SwiftUI
 struct NavigationIndicatorView: View {
     @State var planetInfos: PlanetInfos
     @Environment(\.dismiss) private var dismiss
-//    @State var isActive: Bool = false
     @State private var colorButton: Color = .white
     
     var body: some View {
