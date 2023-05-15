@@ -201,7 +201,7 @@ class ARKitView: UIViewController, ARSCNViewDelegate { //SCNSceneRendererDelegat
         arView.automaticallyUpdatesLighting = true
     }
     
-    func createMoonSphere(){
+    func createMoonSphere() {
         let moonGeometry = SCNSphere(radius: 0.05)
         let moonMaterial = SCNMaterial()
         
