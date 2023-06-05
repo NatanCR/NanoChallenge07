@@ -218,7 +218,7 @@ class ARKitView: UIViewController, ARSCNViewDelegate { //SCNSceneRendererDelegat
     
     func updateText() {
         let textGeometry = SCNText(string: NSLocalizedString("drag", comment: ""), extrusionDepth: 1.0)
-        textGeometry.firstMaterial?.diffuse.contents = infosServices.chooseShadowColor(id: planetInfos.id)
+        textGeometry.firstMaterial?.diffuse.contents = InfosService.chooseShadowColor(id: planetInfos.id)
         
         textNode = SCNNode(geometry: textGeometry)
         textNode.position = SCNVector3(x: -0.1, y: -0.3, z: -0.4)

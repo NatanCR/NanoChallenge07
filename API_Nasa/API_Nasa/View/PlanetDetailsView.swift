@@ -10,13 +10,12 @@ import SwiftUI
 struct PlanetDetailsView: View {
     @StateObject var planetsWS = WebService()
     @State var planetDetails: PlanetInfos
-    var infosServices = InfosService()
     @Environment(\.dismiss) private var dismiss
     
     var body: some View {
         VStack(spacing: 5){
-                ImageFormatter(imgURL: infosServices.searchImage(planets: [planetDetails])!)
-                    .shadow(color: Color(uiColor: infosServices.chooseShadowColor(id: planetDetails.id)),radius: 10)
+                ImageFormatter(imgURL: InfosService.searchImage(planets: [planetDetails])!)
+                    .shadow(color: Color(uiColor: InfosService.chooseShadowColor(id: planetDetails.id)),radius: 10)
                     .padding(.bottom, 20)
             Section() {
                 ScrollView(){
@@ -41,12 +40,12 @@ struct PlanetDetailsView: View {
                     }
                         .padding(.horizontal)
 
-                    DetailCell(text: infosServices.searchMass(planetInfos: [planetDetails])!, title: Text("mass"))
-                    DetailCell(text: infosServices.searchVolume(planetInfos: [planetDetails])!, title: Text("volume"))
-                    DetailCell(text: "\(Int(infosServices.searchPeriod(planets: [planetDetails]) ?? 00)) \(NSLocalizedString("day", comment: ""))", title: Text("time"))
-                    DetailCell(text: "\(String(format: "%.1f", infosServices.searchTemperature(planetsTemp: [planetDetails]) ?? 0)) ºC", title: Text("core"))
-                    DetailCell(text: "\(Int(infosServices.getStarHost(StarHost: [planetDetails]) ?? 00))", title: Text("host"))
-                    DetailCell(text: "\(Double(infosServices.getStarTemp(StarHost: [planetDetails]) ?? 00)) ºC", title: Text("sun"))
+                    DetailCell(text: InfosService.searchMass(planetInfos: [planetDetails])!, title: Text("mass"))
+                    DetailCell(text: InfosService.searchVolume(planetInfos: [planetDetails])!, title: Text("volume"))
+                    DetailCell(text: "\(Int(InfosService.searchPeriod(planets: [planetDetails]) ?? 00)) \(NSLocalizedString("day", comment: ""))", title: Text("time"))
+                    DetailCell(text: "\(String(format: "%.1f", InfosService.searchTemperature(planetsTemp: [planetDetails]) ?? 0)) ºC", title: Text("core"))
+                    DetailCell(text: "\(Int(InfosService.getStarHost(StarHost: [planetDetails]) ?? 00))", title: Text("host"))
+                    DetailCell(text: "\(Double(InfosService.getStarTemp(StarHost: [planetDetails]) ?? 00)) ºC", title: Text("sun"))
                 }
             } header: {
                 Text("info")
@@ -85,13 +84,5 @@ struct PlanetDetailsView: View {
 
             }
         }
-//        .task {
-//            if !self.planetsWS.planetPlusService.isEmpty { return }
-//            do {
-//                try await self.planetsWS.loadPlusData(planetName: planetDetails.name)
-//            } catch {
-//                print(error.localizedDescription)
-//            }
-//        }
     }
 }

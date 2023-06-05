@@ -10,7 +10,7 @@ import SwiftUI
 
 class InfosService {
     
-    func getStarHost(StarHost: [PlanetInfos]) -> Double? {
+    static func getStarHost(StarHost: [PlanetInfos]) -> Double? {
         for host in StarHost {
             for j in host.basicDetails {
                 let sun = j.host_star_mass
@@ -21,7 +21,7 @@ class InfosService {
         return nil
     }
     
-    func getStarTemp(StarHost: [PlanetInfos]) -> Double? {
+    static func getStarTemp(StarHost: [PlanetInfos]) -> Double? {
         for host in StarHost {
             for j in host.basicDetails {
                 let sun = j.host_star_temperature
@@ -32,7 +32,7 @@ class InfosService {
         return nil
     }
     
-    func searchTemperature(planetsTemp: [PlanetInfos]) -> Double? {
+    static func searchTemperature(planetsTemp: [PlanetInfos]) -> Double? {
         for i in planetsTemp {
             for j in i.basicDetails {
                 let temp = (Double(j.temperature) - 32 ) / 1.8
@@ -44,7 +44,7 @@ class InfosService {
         return nil
     }
     
-    func searchPeriod(planets: [PlanetInfos]) -> Double? {
+    static func searchPeriod(planets: [PlanetInfos]) -> Double? {
         for i in planets {
             for j in i.basicDetails{
                 let period = j.period
@@ -56,7 +56,7 @@ class InfosService {
         return nil
     }
     
-    func searchImage(planets: [PlanetInfos]) -> String? {
+    static func searchImage(planets: [PlanetInfos]) -> String? {
         for i in planets {
             for j in i.imgSrc {
                 let link = j.img
@@ -66,7 +66,7 @@ class InfosService {
         return nil
     }
     
-    func searchMass(planetInfos: [PlanetInfos]) -> String? {
+    static func searchMass(planetInfos: [PlanetInfos]) -> String? {
         var mass: String
         for i in planetInfos {
             for j in i.basicDetails {
@@ -77,7 +77,7 @@ class InfosService {
         return nil
     }
     
-    func searchVolume(planetInfos: [PlanetInfos]) -> String? {
+    static func searchVolume(planetInfos: [PlanetInfos]) -> String? {
         var volume: String
         for i in planetInfos {
             for j in i.basicDetails {
@@ -88,7 +88,7 @@ class InfosService {
         return nil
     }
     
-    func chooseShadowColor(id: Int) -> UIColor {
+    static func chooseShadowColor(id: Int) -> UIColor {
         switch id {
         case 0: return UIColor(red: 0.97, green: 0.42, blue: 0.01, alpha: 1)
         case 1: return UIColor(red: 0.48, green: 0.47, blue: 0.47, alpha: 1)

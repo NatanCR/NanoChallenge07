@@ -37,11 +37,10 @@ class WebService: ObservableObject {
 
            do {
                let decoder = try JSONDecoder().decode([PlanetInfos].self, from: data)
-              
-               self.planetsService = decoder
-               order(planet: decoder, chave: "id")
-              
-//               return try decoder.
+               DispatchQueue.main.async { [self] in
+                   planetsService = decoder
+                   order(planet: decoder, key: "id")
+               }
            } catch {
                fatalError("Couldn't parse \(filename) as ):\n\(error)")
            }
@@ -70,17 +69,20 @@ class WebService: ObservableObject {
 //        order(planet: decodedResponse, chave: "id")
 //    }
     
-    func order(planet: [PlanetInfos], chave: String ) {
-        for _ in planetsService {
-            switch chave {
-                case "name":
-                    return self.planetsService = planet.sorted(by: {$0.name < $1.name})
-                case "id":
-                    return self.planetsService = planet.sorted(by: {$0.id < $1.id})
-                default:
-                    break
+    func order(planet: [PlanetInfos], key: String ) {
+        DispatchQueue.main.async { [self] in
+            for _ in planetsService {
+                switch key {
+                    case "name":
+                        self.planetsService = planet.sorted(by: {$0.name < $1.name})
+                    case "id":
+                        self.planetsService = planet.sorted(by: {$0.id < $1.id})
+                    default:
+                        break
+                }
             }
         }
+        
     }
     
 //    @MainActor func loadPlusData(planetName: String) async throws {

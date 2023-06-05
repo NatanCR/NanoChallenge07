@@ -19,7 +19,6 @@
 		D11D614A298D9F280055E3D5 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11D6149298D9F280055E3D5 /* Cell.swift */; };
 		D12FA03D2995B02500E81604 /* DetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12FA03C2995B02500E81604 /* DetailCell.swift */; };
 		D12FA03F2996869B00E81604 /* ImageFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12FA03E2996869B00E81604 /* ImageFormatter.swift */; };
-		D12FA0442996D47200E81604 /* PlusPlanetInfos.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12FA0432996D47200E81604 /* PlusPlanetInfos.swift */; };
 		D138512F299C216500B35797 /* ARKitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D138512E299C216500B35797 /* ARKitView.swift */; };
 		D138513F299C4C9700B35797 /* NavigationIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D138513E299C4C9700B35797 /* NavigationIndicator.swift */; };
 		D167817929EF06380076FB0C /* PlanetNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D167817829EF06380076FB0C /* PlanetNode.swift */; };
@@ -44,7 +43,6 @@
 		D11D6149298D9F280055E3D5 /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
 		D12FA03C2995B02500E81604 /* DetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCell.swift; sourceTree = "<group>"; };
 		D12FA03E2996869B00E81604 /* ImageFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFormatter.swift; sourceTree = "<group>"; };
-		D12FA0432996D47200E81604 /* PlusPlanetInfos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusPlanetInfos.swift; sourceTree = "<group>"; };
 		D138512E299C216500B35797 /* ARKitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARKitView.swift; sourceTree = "<group>"; };
 		D138513E299C4C9700B35797 /* NavigationIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationIndicator.swift; sourceTree = "<group>"; };
 		D167817829EF06380076FB0C /* PlanetNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetNode.swift; sourceTree = "<group>"; };
@@ -112,7 +110,6 @@
 			isa = PBXGroup;
 			children = (
 				D11D6139298C303F0055E3D5 /* PlanetInfos.swift */,
-				D12FA0432996D47200E81604 /* PlusPlanetInfos.swift */,
 				D191DF912A0710AF003326B8 /* planets.json */,
 			);
 			path = Model;
@@ -240,7 +237,6 @@
 				D11D614A298D9F280055E3D5 /* Cell.swift in Sources */,
 				D11D612229899AB00055E3D5 /* API_NasaApp.swift in Sources */,
 				D1EE28C52992914F003A0A90 /* PlanetDetailsView.swift in Sources */,
-				D12FA0442996D47200E81604 /* PlusPlanetInfos.swift in Sources */,
 				D1EE28C72992D941003A0A90 /* InfosService.swift in Sources */,
 				D138512F299C216500B35797 /* ARKitView.swift in Sources */,
 				D12FA03F2996869B00E81604 /* ImageFormatter.swift in Sources */,

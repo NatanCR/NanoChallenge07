@@ -31,20 +31,6 @@ struct NavigationIndicatorView: View {
                     }.foregroundColor(Color.white)
                 })
             }
-//            planetInfos.id == 3 ? ToolbarItem(placement: .navigationBarTrailing) {
-//                Button(action: {
-//                    // Ação do botão aqui
-//                    isActive.toggle()
-//                    if isActive == true {
-//                        colorButton = .yellow
-//                    } else {
-//                        colorButton = .white
-//                    }
-//                }) {
-//                    Image(systemName: "moon.fill")
-//                        .foregroundColor(colorButton)
-//                }
-//            } : nil
         }
     }
 }

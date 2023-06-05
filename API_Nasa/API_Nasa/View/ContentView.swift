@@ -8,9 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
-    private var planetsWS = WebService()
+    @ObservedObject private var planetsWS = WebService()
     @State private var failedToLoadData: Bool = false
-    private var infosServices = InfosService()
     @State private var isActive: Bool = false
     @State private var showInfo: Bool = false
     
@@ -41,7 +40,7 @@ struct ContentView: View {
                         }
                         VStack {
                             ForEach(planetsWS.planetsService, id: \.name) { planet in
-                                Cell(planetName: planet.name, imgURL: infosServices.searchImage(planets: [planet])!, planets: planet)
+                                Cell(planetName: planet.name, imgURL: InfosService.searchImage(planets: [planet])!, planets: planet)
                             }
                         }.padding(.bottom, 40)
                         Button {
@@ -71,14 +70,12 @@ struct ContentView: View {
                     Menu{
                         Text("order")
                         Button {
-                            planetsWS.order(planet: planetsWS.planetsService, chave: "id")
-                            print(planetsWS.planetsService)
+                            planetsWS.order(planet: planetsWS.planetsService, key: "id")
                         } label: {
                             Label(title:{Text("solar")}, icon: {})
                         }
                         Button {
-                            planetsWS.order(planet: planetsWS.planetsService, chave: "name")
-                            print(planetsWS.planetsService)
+                            planetsWS.order(planet: planetsWS.planetsService, key: "name")
                         } label: {
                             Label(title:{Text("name")}, icon: {})
                         }
